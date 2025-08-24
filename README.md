@@ -17,9 +17,9 @@
 
 ## Features
 
-- [ ] automatic k3s provisioning via [Ansible](https://docs.ansible.com/ansible/latest/index.html)
-- [ ] application installation and management using [GitOps](https://about.gitlab.com/topics/gitops/) principles via [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) app-of-apps pattern
-- [ ] [Kubernetes](https://kubernetes.io/) manifests declared using [Kustomize](https://kustomize.io/)
+- [X] automatic k3s provisioning via [Ansible](https://docs.ansible.com/ansible/latest/index.html)
+- [X] application installation and management using [GitOps](https://about.gitlab.com/topics/gitops/) principles via [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) app-of-apps pattern
+- [X] [Kubernetes](https://kubernetes.io/) manifests declared using [Kustomize](https://kustomize.io/)
 - [ ] persistent storage managed via [Longhorn](https://longhorn.io/)
 - [ ] App updates raised by automatic PRs (approval needed)
 - [ ] Automatic DNS management
