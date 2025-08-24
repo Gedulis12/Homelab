@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-ingress-controller
+  name: ingress-nginx
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
     namespace: ingress-nginx
     server: https://kubernetes.default.svc
   source:
-    path: apps/nginx-ingress-controller
+    path: apps/ingress-nginx
     repoURL: https://github.com/gedulis12/homelab
     targetRevision: feat/install-nginx-ingress #CHANGE BEFORE MERGE
   syncPolicy:
