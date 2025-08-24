@@ -5,10 +5,11 @@ metadata:
   name: it-tools
   namespace: it-tools
 spec:
-  type: NodePort
   selector:
     app: it-tools
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
+  type: LoadBalancer
