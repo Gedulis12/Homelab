@@ -3,6 +3,7 @@ apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
 metadata:
   name: thelounge
+  namespace: external-services
   labels:
     kubernetes.io/service-name: thelounge
 addressType: IPv4
@@ -19,8 +20,9 @@ apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
 metadata:
   name: jellyfin
+  namespace: external-services
   labels:
-    kubernetes.io/service-name: thelounge
+    kubernetes.io/service-name: jellyfin
 addressType: IPv4
 ports:
   - name: jellyfin
