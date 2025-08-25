@@ -22,8 +22,8 @@
 - [X] [Kubernetes](https://kubernetes.io/) manifests declared using [Kustomize](https://kustomize.io/)
 - [ ] persistent storage managed via [Longhorn](https://longhorn.io/)
 - [ ] App updates raised by automatic PRs (approval needed)
-- [ ] Automatic DNS management
-- [ ] Automatic certificate management
+- [X] Automatic DNS management via coreDNS
+- [X] Automatic certificate management via cert-manager
 - [ ] Monitoring and alerting via [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
 - [ ] Single sign-on
 
