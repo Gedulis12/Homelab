@@ -11,6 +11,9 @@ spec:
       name: letsencrypt-prod-key
     solvers:
       - selector: {}
-        http01:
-          ingress:
-            ingressClassName: nginx
+        dns01:
+          cloudflare:
+            email: gediminas.repecka@gmail.com
+            apiKeySecretRef:
+              name: cloudflare-api-token
+              key: api-token
