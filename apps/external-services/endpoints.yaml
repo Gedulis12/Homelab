@@ -1,0 +1,31 @@
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: thelounge
+  labels:
+    kubernetes.io/service-name: thelounge
+addressType: IPv4
+ports:
+  - name: thelounge
+    port: 9999
+    protocol: TCP
+endpoints:
+  - addresses:
+      - "192.168.0.210"
+
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: jellyfin
+  labels:
+    kubernetes.io/service-name: thelounge
+addressType: IPv4
+ports:
+  - name: jellyfin
+    port: 8096
+    protocol: TCP
+endpoints:
+  - addresses:
+      - "192.168.0.135"
