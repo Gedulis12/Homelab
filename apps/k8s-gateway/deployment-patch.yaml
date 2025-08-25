@@ -1,0 +1,18 @@
+---
+kind: Deployment
+metadata:
+  name: excoredns
+  namespace: kube-system
+spec:
+  template:
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: k8s-app
+                    operator: In
+                    values:
+                      - kube-dns
+              topologyKey: "kubernetes.io/hostname"
