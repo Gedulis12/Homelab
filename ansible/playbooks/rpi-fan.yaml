@@ -1,0 +1,20 @@
+---
+- name: Update rpi firmware config
+  become: true
+  hosts: pi
+  tasks:
+    - name: Add PoE fan temperature settings to config.txt
+      ansible.builtin.blockinfile:
+        path: /boot/firmware/config.txt
+        block: |
+          dtparam=poe_fan_temp0=50000
+          dtparam=poe_fan_temp1=55000
+          dtparam=poe_fan_temp2=60000
+          dtparam=poe_fan_temp3=65000
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - PoE FAN SETTINGS"
+      notify: Reboot raspberry pi
+
+  handlers:
+    - name: Reboot raspberry pi
+      ansible.builtin.reboot:
+        msg: "Rebooting machine..."
