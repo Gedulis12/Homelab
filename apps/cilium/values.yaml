@@ -27,3 +27,8 @@ operator:
   rollOutPods: true
 
 rollOutCiliumPods: true
+
+nodePort:
+  enabled: true
+
+l7Proxy: true
