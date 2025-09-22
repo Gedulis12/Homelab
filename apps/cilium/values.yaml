@@ -2,6 +2,9 @@
 l2announcments:
   enabled: true
 
+l2NeighDiscovery:
+  enabled: true
+
 kubeProxyReplacement: true
 
 k8sClientRateLimit:
