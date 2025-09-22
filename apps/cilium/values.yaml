@@ -13,3 +13,7 @@ k8sClientRateLimit:
 
 externalIPs:
   enabled: true
+
+hubble:
+  relay:
+    enabled: true
