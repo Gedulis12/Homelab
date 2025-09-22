@@ -1,0 +1,15 @@
+---
+# https://docs.k3s.io/networking/basic-network-options?cni=Cilium#custom-cni
+- name: Cleanup before uninstall
+  become: true
+  hosts: all
+  tasks:
+    - name: Remove cilium interfaces
+      ansible.builtin.shell: |
+        ip link delete cilium_host
+        ip link delete cilium_net
+        ip link delete cilium_vxlan
+    - name: Remove cilium iptables rules
+      ansible.builtin.shell: |
+        iptables-save | grep -iv cilium | iptables-restore
+        ip6tables-save | grep -iv cilium | ip6tables-restore

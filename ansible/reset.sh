@@ -1,5 +1,5 @@
-
 #!/usr/bin/env bash
 
+ansible-playbook playbooks/cleanup.yaml -i inventory.yaml --become-password-file become-pass.txt
 ansible-galaxy collection install git+https://github.com/k3s-io/k3s-ansible.git
 ansible-playbook k3s.orchestration.reset -i inventory.yaml --vault-password-file vault-pass.txt --become-password-file become-pass.txt
