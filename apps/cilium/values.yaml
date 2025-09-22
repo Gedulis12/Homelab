@@ -1,4 +1,12 @@
 ---
 l2announcments:
   enabled: true
+
 kubeProxyReplacement: true
+
+k8sClientRateLimit:
+  qps: 50
+  burst: 200
+
+externalIPs:
+  enabled: true
