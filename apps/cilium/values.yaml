@@ -1,1 +1,4 @@
 ---
+l2announcments:
+  enabled: true
+kubeProxyReplacement: true
