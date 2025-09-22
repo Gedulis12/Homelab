@@ -1,15 +1,18 @@
 ---
+k8sServiceHost: 192.168.0.210
+k8sServicePort: 6443
+
 l2announcments:
   enabled: true
 
 l2NeighDiscovery:
   enabled: true
 
-kubeProxyReplacement: true
-
 k8sClientRateLimit:
   qps: 50
   burst: 200
+
+kubeProxyReplacement: true
 
 externalIPs:
   enabled: true
@@ -19,3 +22,8 @@ hubble:
     enabled: true
   relay:
     enabled: true
+
+operator:
+  rollOutPods: true
+
+rollOutCiliumPods: true
