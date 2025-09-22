@@ -15,5 +15,7 @@ externalIPs:
   enabled: true
 
 hubble:
+  ui:
+    enabled: true
   relay:
     enabled: true
