@@ -2,7 +2,7 @@
 k8sServiceHost: 192.168.0.210
 k8sServicePort: 6443
 
-l2announcments:
+l2announcements:
   enabled: true
 
 l2NeighDiscovery:
