@@ -1,21 +1,21 @@
 ---
-k8sServiceHost: 192.168.0.210
-k8sServicePort: 6443
+# k8sServiceHost: 192.168.0.210
+# k8sServicePort: 6443
 
-l2announcements:
-  enabled: true
+# l2announcements:
+#   enabled: true
 
-l2NeighDiscovery:
-  enabled: true
+# l2NeighDiscovery:
+#   enabled: true
 
-k8sClientRateLimit:
-  qps: 50
-  burst: 200
+# k8sClientRateLimit:
+#   qps: 50
+#   burst: 200
 
-kubeProxyReplacement: true
+# kubeProxyReplacement: true
 
-externalIPs:
-  enabled: true
+# externalIPs:
+#   enabled: true
 
 hubble:
   ui:
@@ -28,12 +28,12 @@ operator:
 
 rollOutCiliumPods: true
 
-ingressController:
-  enabled: true
-  default: true
-  loadbalancerMode: shared
-  service:
-    annotations:
-      io.cilium/lb-ipam-ips: 192.168.0.50
+# ingressController:
+#   enabled: true
+#   default: true
+#   loadbalancerMode: shared
+#   service:
+#     annotations:
+#       io.cilium/lb-ipam-ips: 192.168.0.50
 
-devices: eth0
+#devices: eth0
