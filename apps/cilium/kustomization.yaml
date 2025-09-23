@@ -10,6 +10,6 @@ helmCharts:
     releaseName: cilium
     valuesFile: values.yaml
 
-resources:
-  - ip-pool.yaml
-  - announcement-policy.yaml
+#resources:
+#  - ip-pool.yaml
+#  - announcement-policy.yaml
