@@ -28,11 +28,6 @@ operator:
 
 rollOutCiliumPods: true
 
-nodePort:
-  enabled: true
-
-l7Proxy: true
-
 ingressController:
   enabled: true
   default: true
@@ -40,3 +35,5 @@ ingressController:
   service:
     annotations:
       io.cilium/lb-ipam-ips: 192.168.0.50
+
+devices: eth0
