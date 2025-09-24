@@ -28,6 +28,9 @@ operator:
 
 rollOutCiliumPods: true
 
+socketLB:
+  hostNamespaceOnly: true
+
 # ingressController:
 #   enabled: true
 #   default: true

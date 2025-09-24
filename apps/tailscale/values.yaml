@@ -1,0 +1,8 @@
+---
+oauth:
+  clientId: ""
+  clientSecret: ""
+
+oauthSecretVolume:
+  secret:
+    secretName: tailscale-operator-oauth
