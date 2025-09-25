@@ -1,0 +1,17 @@
+---
+apiVersion: longhorn.io/v1beta2
+kind: Node
+metadata:
+  name: tvinksonas
+spec:
+  allowScheduling: true
+  tags: [storage]
+  disks:
+    main:
+      allowScheduling: true
+      diskDriver: ""
+      diskType: filesystem
+      evictionRequested: false
+      path: /mnt/data
+      storageReserved: 0
+      tags: [hdd]
