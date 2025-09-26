@@ -7,4 +7,6 @@ namespace: media
 resources:
   - jellyfin
   - qbittorrent
+  - radarr
+  - prowlarr
   - pvc.yaml
