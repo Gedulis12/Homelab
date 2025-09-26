@@ -12,3 +12,6 @@ ingress:
   ingressClassName: nginx
   tls: true
   tlsSecret: "longhorn-ui-cert"
+
+helmPreUpgradeCheckerJob:
+  enabled: false
