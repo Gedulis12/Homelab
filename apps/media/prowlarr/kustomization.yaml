@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: media
 
 resources:
-  - deployment.yaml
   - pvc.yaml
   - service.yaml
+  - deployment.yaml
+  - configmap.yaml

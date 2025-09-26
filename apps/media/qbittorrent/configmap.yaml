@@ -46,6 +46,7 @@ data:
     MigrationVersion=8
 
     [Network]
+    Cookies=@Invalid()
     PortForwardingEnabled=false
     Proxy\HostnameLookupEnabled=false
     Proxy\Profiles\BitTorrent=true
@@ -60,7 +61,7 @@ data:
     General\Locale=en
     MailNotification\req_auth=true
     WebUI\Address=*
-    WebUI\AuthSubnetWhitelist=192.168.0.0/24, 100.0.0.0/8
+    WebUI\AuthSubnetWhitelist=192.168.0.0/24, 100.0.0.0/8, 10.0.0.0/8
     WebUI\AuthSubnetWhitelistEnabled=true
     WebUI\LocalHostAuth=false
     WebUI\Password_PBKDF2="@ByteArray(35iuuNfYAjXbP38hNEVdlA==:okx1XAXdYFtW906EyEFJUXKvpV+GedGr43F/zrOqjeh701B8xTXMH4oJjQTR8wBICqvzbYXDngYPBX7C1DDj6w==)"
