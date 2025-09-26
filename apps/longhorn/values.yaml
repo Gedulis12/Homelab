@@ -13,5 +13,5 @@ ingress:
   tls: true
   tlsSecret: "longhorn-ui-cert"
 
-helmPreUpgradeCheckerJob:
+preUpgradeChecker:
   jobEnabled: false
