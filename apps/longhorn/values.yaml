@@ -14,4 +14,4 @@ ingress:
   tlsSecret: "longhorn-ui-cert"
 
 helmPreUpgradeCheckerJob:
-  enabled: false
+  jobEnabled: false
