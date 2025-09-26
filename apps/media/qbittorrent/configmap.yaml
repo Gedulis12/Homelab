@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qbittorrent-cm
+data:
+  qBittorrent.conf: |
+    [Application]
+    FileLogger\Age=1
+    FileLogger\AgeType=1
+    FileLogger\Backup=true
+    FileLogger\DeleteOld=true
+    FileLogger\Enabled=true
+    FileLogger\MaxSizeBytes=66560
+    FileLogger\Path=/config/qBittorrent/logs
+
+    [AutoRun]
+    enabled=false
+    program=
+
+    [BitTorrent]
+    Session\AddTorrentStopped=false
+    Session\DefaultSavePath=/downloads
+    Session\DisableAutoTMMByDefault=false
+    Session\DisableAutoTMMTriggers\CategorySavePathChanged=false
+    Session\DisableAutoTMMTriggers\DefaultSavePathChanged=false
+    Session\ExcludedFileNames=
+    Session\MaxConnections=-1
+    Session\MaxConnectionsPerTorrent=-1
+    Session\MaxUploads=-1
+    Session\MaxUploadsPerTorrent=-1
+    Session\Port=6881
+    Session\QueueingSystemEnabled=false
+    Session\SSL\Port=23230
+    Session\ShareLimitAction=Stop
+    Session\TempPath=/downloads/temp
+    Session\TempPathEnabled=false
+    Session\TorrentExportDirectory=
+
+    [Core]
+    AutoDeleteAddedTorrentFile=IfAdded
+
+    [LegalNotice]
+    Accepted=true
+
+    [Meta]
+    MigrationVersion=8
+
+    [Network]
+    PortForwardingEnabled=false
+    Proxy\HostnameLookupEnabled=false
+    Proxy\Profiles\BitTorrent=true
+    Proxy\Profiles\Misc=true
+    Proxy\Profiles\RSS=true
+
+    [Preferences]
+    Connection\PortRangeMin=6881
+    Connection\UPnP=false
+    Downloads\SavePath=/downloads/
+    Downloads\TempPath=/downloads/incomplete/
+    General\Locale=en
+    MailNotification\req_auth=true
+    WebUI\Address=*
+    WebUI\AuthSubnetWhitelist=192.168.0.0/24, 100.0.0.0/8
+    WebUI\AuthSubnetWhitelistEnabled=true
+    WebUI\LocalHostAuth=false
+    WebUI\Password_PBKDF2="@ByteArray(35iuuNfYAjXbP38hNEVdlA==:okx1XAXdYFtW906EyEFJUXKvpV+GedGr43F/zrOqjeh701B8xTXMH4oJjQTR8wBICqvzbYXDngYPBX7C1DDj6w==)"
+    WebUI\ServerDomains=*
+
+    [RSS]
+    AutoDownloader\DownloadRepacks=true
+    AutoDownloader\SmartEpisodeFilter=s(\\d+)e(\\d+), (\\d+)x(\\d+), "(\\d{4}[.\\-]\\d{1,2}[.\\-]\\d{1,2})", "(\\d{1,2}[.\\-]\\d{1,2}[.\\-]\\d{4})"
