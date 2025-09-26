@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  labels:
+    app: qbittorrent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: tvinksonas
+      initContainers:
+        - name: copy-config
+          image: busybox:latest
+          command: ['sh', '-xe', '-c']
+          args:
+            - mkdir -pv /config/qBittorrent;
+              cp -L -v /config-init/* /config/qBittorrent/;
+              ls -lahR /config/qBittorrent;
+          volumeMounts:
+            - name: config-cm
+              mountPath: "/config-init"
+            - name: config-pvc
+              mountPath: "/config"
+      containers:
+        - name: qbittorrent
+          image: lscr.io/linuxserver/qbittorrent:latest
+          env:
+            - name: TZ
+              value: "Europe/Vilnius"
+            - name: WEBUI_PORT
+              value: "8080"
+            - name: TORRENTING_PORT
+              value: "6881"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 6881
+              protocol: TCP
+            - containerPort: 6881
+              protocol: UDP
+          volumeMounts:
+            - name: media-pvc
+              mountPath: "/downloads"
+              subPath: "downloads"
+            - name: config-pvc
+              mountPath: "/config"
+      volumes:
+        - name: media-pvc
+          persistentVolumeClaim:
+            claimName: media
+        - name: config-pvc
+          persistentVolumeClaim:
+            claimName: qbittorrent-config
+        - name: config-cm
+          configMap:
+            name: qbittorrent-cm
