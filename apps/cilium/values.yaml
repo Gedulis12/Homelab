@@ -12,7 +12,8 @@
 #   qps: 50
 #   burst: 200
 
-# kubeProxyReplacement: true
+kubeProxyReplacement: true
+l7Proxy: true
 
 # externalIPs:
 #   enabled: true
@@ -31,12 +32,10 @@ rollOutCiliumPods: true
 socketLB:
   hostNamespaceOnly: true
 
-# ingressController:
-#   enabled: true
-#   default: true
-#   loadbalancerMode: shared
-#   service:
-#     annotations:
-#       io.cilium/lb-ipam-ips: 192.168.0.50
-
-#devices: eth0
+ingressController:
+  enabled: true
+  default: true
+  loadbalancerMode: shared
+  service:
+    annotations:
+      metallb.io/ip-allocated-from-pool: main-pool
