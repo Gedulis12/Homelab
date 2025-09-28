@@ -5,10 +5,10 @@ metadata:
   name: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    ingress.cilium.io/tls-passthrough: enabled
+    ingress.cilium.io/force-https: enabled
 spec:
-  ingressClassName: "nginx"
+  ingressClassName: "cilium"
   rules:
     - host: argocd.g2net.xyz
       http:
