@@ -13,7 +13,7 @@
 #   burst: 200
 
 kubeProxyReplacement: true
-l7Proxy: true
+#l7Proxy: true
 
 # externalIPs:
 #   enabled: true
@@ -29,8 +29,8 @@ operator:
 
 rollOutCiliumPods: true
 
-socketLB:
-  hostNamespaceOnly: true
+#socketLB:
+#  hostNamespaceOnly: true
 
 ingressController:
   enabled: true
