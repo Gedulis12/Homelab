@@ -1,5 +1,5 @@
 ---
-- name: Deploy secret
+- name: Cluster Bootstraping
   hosts: localhost
   connection: local
   gather_facts: false
@@ -17,3 +17,8 @@
       kubernetes.core.k8s:
         state: present
         definition: "{{ manifest }}"
+
+    - name: Install Gateway API CRDs
+      kubernetes.core.k8s:
+        state: present
+        src: https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/experimental-install.yaml

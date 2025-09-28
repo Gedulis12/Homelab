@@ -11,6 +11,7 @@ helmCharts:
     namespace: kube-system
     releaseName: cilium
     valuesFile: values.yaml
+    includeCRDs: true
 
 resources:
   - hubble-ui-ingress.yaml

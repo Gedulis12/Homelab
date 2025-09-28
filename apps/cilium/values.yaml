@@ -39,3 +39,6 @@ ingressController:
   service:
     annotations:
       metallb.io/ip-allocated-from-pool: main-pool
+
+gatewayApi:
+  enabled: true
