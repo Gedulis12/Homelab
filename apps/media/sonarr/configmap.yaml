@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonarr-cm
+data:
+  config.xml: |
+    <Config>
+    <BindAddress>*</BindAddress>
+    <Port>8989</Port>
+    <SslPort>9898</SslPort>
+    <EnableSsl>False</EnableSsl>
+    <LaunchBrowser>True</LaunchBrowser>
+    <ApiKey>8da033167b1e40debe55f9f91682032a</ApiKey>
+    <AuthenticationMethod>Forms</AuthenticationMethod>
+    <AuthenticationRequired>DisabledForLocalAddresses</AuthenticationRequired>
+    <Branch>main</Branch>
+    <LogLevel>debug</LogLevel>
+    <SslCertPath></SslCertPath>
+    <SslCertPassword></SslCertPassword>
+    <UrlBase></UrlBase>
+    <InstanceName>Sonarr</InstanceName>
+    <UpdateMechanism>Docker</UpdateMechanism>
+    </Config>
