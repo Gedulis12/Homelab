@@ -39,6 +39,18 @@ ingressController:
   service:
     annotations:
       metallb.io/ip-allocated-from-pool: main-pool
+  secretsNamespace:
+    create: true
+    sync: true
 
 gatewayApi:
   enabled: true
+
+rbac:
+  create: true
+
+tls:
+  secretSync:
+    enabled: true
+  secretsNamespace:
+    create: true
