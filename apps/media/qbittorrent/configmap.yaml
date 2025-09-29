@@ -19,7 +19,7 @@ data:
 
     [BitTorrent]
     Session\AddTorrentStopped=false
-    Session\DefaultSavePath=/downloads
+    Session\DefaultSavePath=/media/downloads
     Session\DisableAutoTMMByDefault=false
     Session\DisableAutoTMMTriggers\CategorySavePathChanged=false
     Session\DisableAutoTMMTriggers\DefaultSavePathChanged=false
@@ -32,7 +32,7 @@ data:
     Session\QueueingSystemEnabled=false
     Session\SSL\Port=23230
     Session\ShareLimitAction=Stop
-    Session\TempPath=/downloads/temp
+    Session\TempPath=/media/downloads/temp
     Session\TempPathEnabled=false
     Session\TorrentExportDirectory=
 
@@ -56,8 +56,8 @@ data:
     [Preferences]
     Connection\PortRangeMin=6881
     Connection\UPnP=false
-    Downloads\SavePath=/downloads/
-    Downloads\TempPath=/downloads/incomplete/
+    Downloads\SavePath=/media/downloads/
+    Downloads\TempPath=/media/downloads/incomplete/
     General\Locale=en
     MailNotification\req_auth=true
     WebUI\Address=*

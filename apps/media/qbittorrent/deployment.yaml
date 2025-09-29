@@ -54,8 +54,7 @@ spec:
               protocol: UDP
           volumeMounts:
             - name: media-pvc
-              mountPath: "/downloads"
-              subPath: "downloads"
+              mountPath: "/media"
             - name: config-pvc
               mountPath: "/config"
       volumes:
