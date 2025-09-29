@@ -45,11 +45,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: media-pvc
-              mountPath: "/downloads"
-              subPath: "downloads"
-            - name: media-pvc
-              mountPath: "/tv"
-              subPath: "tv"
+              mountPath: "/media"
             - name: config-pvc
               mountPath: "/config"
       volumes:
