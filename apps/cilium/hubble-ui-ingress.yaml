@@ -4,8 +4,6 @@ kind: Ingress
 metadata:
   name: hubble-ui
   namespace: kube-system
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: "cilium"
   rules:
@@ -22,4 +20,4 @@ spec:
   tls:
     - hosts:
         - hubble.g2net.xyz
-      secretName: hubble-ui-cert
+      secretName: g2net-xyz-tls
