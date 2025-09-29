@@ -1,0 +1,64 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+  labels:
+    app: sonarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sonarr
+  template:
+    metadata:
+      labels:
+        app: sonarr
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: tvinksonas
+      initContainers:
+        - name: copy-config
+          image: busybox:latest
+          command: ['sh', '-xe', '-c']
+          args:
+            - cp -L -v /config-init/* /config/;
+              ls -lahR /config/;
+          securityContext:
+            runAsUser: 911
+            runAsGroup: 911
+            runAsNonRoot: true
+          volumeMounts:
+            - name: config-cm
+              mountPath: "/config-init"
+            - name: config-pvc
+              mountPath: "/config"
+      containers:
+        - name: sonarr
+          image: lscr.io/linuxserver/sonarr:latest
+          env:
+            - name: TZ
+              value: "Europe/Vilnius"
+          ports:
+            - name: http
+              containerPort: 8989
+              protocol: TCP
+          volumeMounts:
+            - name: media-pvc
+              mountPath: "/downloads"
+              subPath: "downloads"
+            - name: media-pvc
+              mountPath: "/tv"
+              subPath: "tv"
+            - name: config-pvc
+              mountPath: "/config"
+      volumes:
+        - name: media-pvc
+          persistentVolumeClaim:
+            claimName: media
+        - name: config-pvc
+          persistentVolumeClaim:
+            claimName: sonarr-config
+        - name: config-cm
+          configMap:
+            name: sonarr-cm
