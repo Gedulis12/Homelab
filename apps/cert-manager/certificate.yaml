@@ -7,6 +7,7 @@ metadata:
 spec:
   secretName: g2net-xyz-tls
   dnsNames:
+    - "g2net.xyz"
     - "*.g2net.xyz"
   issuerRef:
     name: letsencrypt
