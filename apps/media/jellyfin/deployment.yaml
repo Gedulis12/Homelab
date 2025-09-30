@@ -20,10 +20,13 @@ spec:
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:latest
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            runAsNonRoot: true
+          env:
+            - name: TZ
+              value: "Europe/Vilnius"
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
           ports:
             - name: http
               containerPort: 8096
