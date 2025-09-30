@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: media
 spec:
-  storageClassName: ""
+  storageClassName: local-storage
   accessModes:
     - ReadWriteMany
   resources:
@@ -17,16 +17,22 @@ kind: PersistentVolume
 metadata:
   name: media
 spec:
-  storageClassName: ""
+  storageClassName: local-storage
   capacity:
     storage: 1Mi
-  volumeMode: Filesystem
   claimRef:
     name: media
     namespace: media
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
-  nfs:
+  local:
     path: /mnt/data/media
-    server: 192.168.0.135
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - tvinksonas
