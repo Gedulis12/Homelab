@@ -22,11 +22,11 @@ spec:
           image: busybox:latest
           command: ['sh', '-xe', '-c']
           args:
-            - cp -L -v /config-init/* /config/;
+            - cp -f -L -v /config-init/* /config/;
               ls -lahR /config/;
           securityContext:
-            runAsUser: 911
-            runAsGroup: 911
+            runAsUser: 1000
+            runAsGroup: 1000
             runAsNonRoot: true
           volumeMounts:
             - name: config-cm
@@ -36,6 +36,10 @@ spec:
       containers:
         - name: radarr
           image: lscr.io/linuxserver/radarr:latest
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
           env:
             - name: TZ
               value: "Europe/Vilnius"
