@@ -1,0 +1,37 @@
+---
+ingress:
+  enabled: true
+  hosts:
+    - grafana.g2net.xyz
+  ingressClassName: cilium
+  tls:
+    - hosts:
+        - grafana.g2net.xyz
+      secretName: g2net-xyz-tls
+
+persistence:
+  enabled: true
+  volumeName: grafana-pv
+  existingClaim: grafana-pvc
+  storageClassName: local-storage
+
+nodeSelector:
+  kubernetes.io/hostname: tvinksonas
+
+testFramework:
+  enabled: false
+
+#https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L664
+datasources: {}
+
+#https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L687
+alerting: {}
+
+#https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L780
+notifiers: {}
+
+#https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L800
+dashboardProviders: {}
+
+#https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L831
+dashboards: {}
