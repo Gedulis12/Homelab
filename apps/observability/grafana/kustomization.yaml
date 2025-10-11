@@ -5,7 +5,7 @@ kind: Kustomization
 helmCharts:
   - name: grafana
     repo: https://grafana.github.io/helm-charts
-    namespace: monitoring
+    namespace: observability
     version: 10.0.0
     releaseName: grafana
     valuesFile: values.yaml

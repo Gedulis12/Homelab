@@ -2,17 +2,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: monitoring
+  name: observability
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
-    namespace: monitoring
+    namespace: observability
     server: https://kubernetes.default.svc
   source:
-    path: apps/monitoring
+    path: apps/observability
     repoURL: https://github.com/gedulis12/homelab
     targetRevision: HEAD
   syncPolicy:
