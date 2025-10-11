@@ -1,0 +1,46 @@
+---
+alertmanager:
+  enabled: false
+
+grafana:
+  enabled: false
+
+kubernetesServiceMonitors:
+  enabled: false
+
+nodeExporter:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: false
+
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        metadata:
+          name: prometheus-pvc
+        spec:
+          storageClassName: local-storage
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Mi
+          selector:
+            matchLabels:
+              app.kubernetes.io/name: prometheus
+    enableAdminAPI: true
+    nodeSelector:
+      kubernetes.io/hostname: tvinksonas
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.g2net.xyz
+    paths:
+      -  /
+    pathType: Prefix
+    tls:
+      - hosts:
+          - prometheus.g2net.xyz
+        secretName: g2net-xyz-tls
