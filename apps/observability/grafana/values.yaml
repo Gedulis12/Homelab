@@ -22,7 +22,31 @@ testFramework:
   enabled: false
 
 #https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L664
-datasources: {}
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-operated:9090
+        access: proxy
+        isDefault: false
+        editable: false
+        basicAuth: false
+      - name: Loki
+        type: loki
+        url: http://loki-gateway
+        access: proxy
+        isDefault: false
+        editable: false
+        basicAuth: false
+      - name: Tempo
+        type: tempo
+        url: http://tempo:3200
+        access: proxy
+        isDefault: false
+        editable: false
+        basicAuth: false
 
 #https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L687
 alerting: {}
