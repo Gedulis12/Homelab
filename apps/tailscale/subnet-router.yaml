@@ -5,6 +5,7 @@ metadata:
   name: lan-cidr
 spec:
   replicas: 2
+  proxyClass: default
   hostnamePrefix: lan-cidr
   subnetRouter:
     advertiseRoutes:

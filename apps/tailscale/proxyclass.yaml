@@ -1,0 +1,12 @@
+---
+apiVersion: tailscale.com/v1alpha1
+kind: ProxyClass
+metadata:
+  name: default
+spec:
+  metrics:
+    enable: true
+    serviceMonitor:
+      enable: true
+      labels:
+        release: kube-prometheus-stack
