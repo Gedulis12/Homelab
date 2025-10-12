@@ -16,6 +16,7 @@ kubeStateMetrics:
 
 prometheus:
   prometheusSpec:
+    enableRemoteWriteReceiver: true
     storageSpec:
       volumeClaimTemplate:
         metadata:
