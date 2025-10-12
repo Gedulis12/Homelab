@@ -13,3 +13,13 @@ helmCharts:
     repo: https://emberstack.github.io/helm-charts
     namespace: cert-manager
     releaseName: reflector
+
+patches:
+  - patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
+    target:
+      version: v1
+      kind: Service
+      labelSelector: app.kubernetes.io/instance=cert-manager
