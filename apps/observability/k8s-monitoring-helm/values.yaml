@@ -25,9 +25,6 @@ nodeLogs:
 podLogsViaKubernetesApi:
   enabled: true
 
-autoInstrumentation:
-  enabled: true
-
 annotationAutodiscovery:
   enabled: true
 
