@@ -1,0 +1,21 @@
+---
+ingress:
+  enabled: true
+  hosts:
+    - prometheus-pushgateway.g2net.xyz
+  tls:
+    - hosts:
+        - prometheus-pushgateway.g2net.xyz
+      secretName: g2net-xyz-tls
+
+nodeSelector:
+  kubernetes.io/hostname: tvinksonas
+
+serviceMonitor:
+  enabled: true
+  namespace: observability
+
+persistentVolume:
+  enabled: true
+  existingClaim: pushgateway-pvc
+  size: 1Mi
