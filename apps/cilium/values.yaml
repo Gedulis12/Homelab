@@ -19,6 +19,7 @@ externalIPs:
   enabled: true
 
 hubble:
+  enabled: true
   ui:
     enabled: true
   relay:
@@ -30,7 +31,14 @@ hubble:
         labels:
           release: kube-prometheus-stack
   metrics:
-    enabled: true
+    enabled:
+      - dns
+      - drop
+      - tcp
+      - flow
+      - port-distribution
+      - icmp
+      - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction
     serviceMonitor:
       enabled: true
       labels:
@@ -74,6 +82,7 @@ gatewayApi:
 prometheus:
   enabled: true
   serviceMonitor:
+    trustCRDsExist: true
     enabled: true
     labels:
       release: kube-prometheus-stack
