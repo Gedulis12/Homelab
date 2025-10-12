@@ -1,0 +1,13 @@
+---
+nodeSelector:
+  kubernetes.io/hostname: tvinksonas
+
+extraVolumes:
+  - name: tempo-storage
+    persistentVolumeClaim:
+      claimName: tempo-pvc
+
+tempo:
+  extraVolumeMounts:
+    - name: tempo-storage
+      mountPath: /var/tempo
