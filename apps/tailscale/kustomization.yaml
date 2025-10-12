@@ -6,6 +6,7 @@ namespace: tailscale
 resources:
   - sealed-secret.yaml
   - subnet-router.yaml
+  - proxyclass.yaml
 
 helmCharts:
   - name: tailscale-operator
