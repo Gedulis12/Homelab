@@ -22,3 +22,15 @@
       kubernetes.core.k8s:
         state: present
         src: https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/experimental-install.yaml
+
+    - name: Add metrics scrape annotation for CoreDNS
+      kubernetes.core.k8s:
+        state: patched
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: kube-dns
+            namespace: kube-system
+            annotations:
+              'k8s.grafana.com/scrape': 'true'
