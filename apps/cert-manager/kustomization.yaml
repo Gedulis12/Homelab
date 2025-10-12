@@ -11,4 +11,5 @@ resources:
 helmCharts:
   - name: reflector
     repo: https://emberstack.github.io/helm-charts
+    namespace: cert-manager
     releaseName: reflector
