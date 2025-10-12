@@ -1,6 +1,6 @@
 ---
 cluster:
-  name: k3s-homnelab
+  name: k3s-homelab
 
 destinations:
   - name: loki
@@ -15,7 +15,23 @@ destinations:
 
 clusterMetrics:
   enabled: true
+  global:
+    scrapeInteval: 30s
   node-exporter:
+    enabled: true
+    deploy: true
+    metricsTuning:
+      useDefaultAllowList: false
+  kubelet:
+    metricsTuning:
+      useDefaultAllowList: false
+  cadvisor:
+    metricsTuning:
+      useDefaultAllowList: false
+  apiServer:
+    enabled: true
+  kepler:
+    enabled: true
     metricsTuning:
       useDefaultAllowList: false
 
@@ -30,6 +46,7 @@ podLogsViaKubernetesApi:
 
 annotationAutodiscovery:
   enabled: true
+  scrapeInterval: 30s
 
 prometheusOperatorObjects:
   enabled: true
