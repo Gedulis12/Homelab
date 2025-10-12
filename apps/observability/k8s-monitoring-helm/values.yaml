@@ -1,0 +1,47 @@
+---
+cluster:
+  name: k3s-homnelab
+
+destinations:
+  - name: loki
+    type: loki
+    url: http://loki-gateway/loki/api/v1/push
+  - name: prometheus
+    type: prometheus
+    url: http://prometheus-operated:9090/api/v1/write
+  - name: tempo
+    type: otlp
+    url: http://tempo:4317
+
+clusterMetrics:
+  enabled: true
+
+clusterEvents:
+  enabled: true
+
+nodeLogs:
+  enabled: true
+
+podLogsViaKubernetesApi:
+  enabled: true
+
+autoInstrumentation:
+  enabled: true
+
+annotationAutodiscovery:
+  enabled: true
+
+prometheusOperatorObjects:
+  enabled: true
+
+alloy-metrics:
+  enabled: true
+
+alloy-singleton:
+  enabled: true
+
+alloy-logs:
+  enabled: true
+  alloy:
+    clustering:
+      enabled: true
