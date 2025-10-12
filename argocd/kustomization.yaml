@@ -18,3 +18,11 @@ patches:
       kind: ConfigMap
       name: argocd-cm
       version: v1
+  - patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
+    target:
+      version: v1
+      kind: Service
+      labelSelector: app.kubernetes.io/part-of=argocd
