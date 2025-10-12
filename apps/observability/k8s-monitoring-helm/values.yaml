@@ -15,6 +15,9 @@ destinations:
 
 clusterMetrics:
   enabled: true
+  node-exporter:
+    metricsTuning:
+      useDefaultAllowList: false
 
 clusterEvents:
   enabled: true
