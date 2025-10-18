@@ -10,3 +10,4 @@ resources:
   - pvc.yaml
   - deployment.yaml
   - ingress.yaml
+  - metrics-exporter.yaml

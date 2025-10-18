@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-qbittorrent-exporter
+  labels:
+    app: prometheus-qbittorrent-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-qbittorrent-exporter
+  template:
+    metadata:
+      labels:
+        app: prometheus-qbittorrent-exporter
+      annotations:
+        k8s.grafana.com/scrape: "true"
+    spec:
+      containers:
+        - name: prometheus-qbittorrent-exporter
+          image: ghcr.io/esanchezm/prometheus-qbittorrent-exporter
+          env:
+            - name: QBITTORRENT_PORT
+              value: "80"
+            - name: QBITTORRENT_HOST
+              value: "qbittorrent"
+          ports:
+            - name: http-metrics
+              containerPort: 8000
+              protocol: TCP
