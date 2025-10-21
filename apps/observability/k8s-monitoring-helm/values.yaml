@@ -30,10 +30,6 @@ clusterMetrics:
       useDefaultAllowList: false
   apiServer:
     enabled: true
-  kepler:
-    enabled: true
-    metricsTuning:
-      useDefaultAllowList: false
 
 clusterEvents:
   enabled: true
@@ -47,6 +43,9 @@ podLogsViaKubernetesApi:
 annotationAutodiscovery:
   enabled: true
   scrapeInterval: 30s
+
+autoInstrumentation:
+  enabled: true
 
 prometheusOperatorObjects:
   enabled: true
