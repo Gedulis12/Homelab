@@ -46,6 +46,39 @@ annotationAutodiscovery:
 
 autoInstrumentation:
   enabled: true
+  beyla:
+    config:
+      data:
+        attributes:
+          kubernetes:
+            cluster_name: k3s-homelab
+            enable: true
+        discovery:
+          exclude_services:
+            - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
+            - exe_path: ^/(s?bin)/.*
+          services:
+            - k8s_namespace: .
+        filter:
+          network:
+            k8s_dst_owner_name:
+              not_match: '{kube*,*jaeger-agent*,*prometheus*,*promtail*,*grafana-agent*}'
+            k8s_src_owner_name:
+              not_match: '{kube*,*jaeger-agent*,*prometheus*,*promtail*,*grafana-agent*}'
+        internal_metrics:
+          prometheus:
+            path: /internal/metrics
+            port: 9090
+        prometheus_export:
+          features:
+            - application
+            - network
+            - application_service_graph
+            - application_span
+            - application_host
+          path: /metrics
+          port: 9090
+
 
 prometheusOperatorObjects:
   enabled: true
