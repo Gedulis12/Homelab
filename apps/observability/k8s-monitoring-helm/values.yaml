@@ -16,7 +16,7 @@ destinations:
 clusterMetrics:
   enabled: true
   global:
-    scrapeInteval: 30s
+    scrapeInterval: 30s
   node-exporter:
     enabled: true
     deploy: true
