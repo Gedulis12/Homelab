@@ -14,6 +14,10 @@ k3s_cluster:
           ansible_host: 192.168.0.135
           ansible_port: 22
           ansible_user: gedas
+        n200:
+          ansible_host: 192.168.0.222
+          ansible_port: 22
+          ansible_user: gedas
   vars:
     token: !vault |
           $ANSIBLE_VAULT;1.1;AES256
