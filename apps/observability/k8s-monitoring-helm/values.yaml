@@ -54,10 +54,10 @@ autoInstrumentation:
             cluster_name: k3s-homelab
             enable: true
         discovery:
-          exclude_services:
+          exclude_instrument:
             - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
-            - exe_path: ^/(s?bin)/.*
-          services:
+            - k8s_pod_name: .*rpi-monitor.*
+          instrument:
             - k8s_namespace: .
         filter:
           network:
