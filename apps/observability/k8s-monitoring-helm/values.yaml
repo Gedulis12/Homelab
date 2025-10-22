@@ -78,6 +78,11 @@ autoInstrumentation:
             - application_host
           path: /metrics
           port: 9090
+        otel_traces_export:
+          endpoint: http://tempo:4317
+          protocol: grpc
+        ebpf:
+          contect_propagation: "all"
 
 
 prometheusOperatorObjects:
