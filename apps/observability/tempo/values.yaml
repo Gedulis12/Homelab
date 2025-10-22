@@ -11,3 +11,6 @@ tempo:
   extraVolumeMounts:
     - name: tempo-storage
       mountPath: /var/tempo
+  metricsGenerator:
+    enabled: true
+    remoteWriteUrl: http://prometheus-operated:9090/api/v1/write

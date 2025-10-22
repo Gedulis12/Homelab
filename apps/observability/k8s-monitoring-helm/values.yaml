@@ -12,6 +12,8 @@ destinations:
   - name: tempo
     type: otlp
     url: http://tempo:4317
+    tls:
+      insecure: true
 
 clusterMetrics:
   enabled: true
@@ -49,41 +51,18 @@ autoInstrumentation:
   beyla:
     config:
       data:
-        attributes:
-          kubernetes:
-            cluster_name: k3s-homelab
-            enable: true
-        discovery:
-          exclude_instrument:
-            - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
-            - k8s_pod_name: .*rpi-monitor.*
-          instrument:
-            - k8s_namespace: .
-        filter:
-          network:
-            k8s_dst_owner_name:
-              not_match: '{kube*,*jaeger-agent*,*prometheus*,*promtail*,*grafana-agent*}'
-            k8s_src_owner_name:
-              not_match: '{kube*,*jaeger-agent*,*prometheus*,*promtail*,*grafana-agent*}'
-        internal_metrics:
-          prometheus:
-            path: /internal/metrics
-            port: 9090
-        prometheus_export:
-          features:
-            - application
-            - network
-            - application_service_graph
-            - application_span
-            - application_host
-          path: /metrics
-          port: 9090
-        otel_traces_export:
-          endpoint: http://tempo:4317
-          protocol: grpc
         ebpf:
           context_propagation: "all"
 
+applicationObservability:
+  enabled: true
+  receivers:
+    otlp:
+      grpc:
+        enabled: true
+
+alloy-receiver:
+  enabled: true
 
 prometheusOperatorObjects:
   enabled: true
