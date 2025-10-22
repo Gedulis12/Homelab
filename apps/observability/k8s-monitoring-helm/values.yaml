@@ -82,7 +82,7 @@ autoInstrumentation:
           endpoint: http://tempo:4317
           protocol: grpc
         ebpf:
-          contect_propagation: "all"
+          context_propagation: "all"
 
 
 prometheusOperatorObjects:
