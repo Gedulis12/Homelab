@@ -33,6 +33,8 @@ datasources:
         isDefault: false
         editable: false
         basicAuth: false
+        jsonData:
+          timeInterval: 60s
       - name: Loki
         type: loki
         url: http://loki-gateway
