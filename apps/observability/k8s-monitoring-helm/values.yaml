@@ -85,3 +85,8 @@ alloy-logs:
   alloy:
     clustering:
       enabled: true
+
+alloy-operator:
+  deploy: true
+  waitForAlloyRemoval:
+    enabled: false
