@@ -17,6 +17,8 @@ destinations:
     processors:
       serviceGraphMetrics:
         enabled: true
+      batch:
+        enabled: true
 
 clusterMetrics:
   enabled: true
