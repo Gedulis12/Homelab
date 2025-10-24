@@ -9,3 +9,11 @@ resources:
   - pvc.yaml
   - service.yaml
   - ingress.yaml
+
+configMapGenerator:
+  - name: jellyfin-cm
+    files:
+      - config/database.xml
+      - config/encoding.xml
+      - config/network.xml
+      - config/system.xml

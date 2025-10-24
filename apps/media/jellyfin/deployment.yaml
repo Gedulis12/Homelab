@@ -17,6 +17,22 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/hostname: n200
+      initContainers:
+        - name: copy-config
+          image: busybox:latest
+          command: ['sh', '-xe', '-c']
+          args:
+            - cp -f -L -v /config-init/* /config/;
+              ls -lahR /config/;
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+          volumeMounts:
+            - name: config-cm
+              mountPath: "/config-init"
+            - name: config-pvc
+              mountPath: "/config"
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:latest
@@ -33,16 +49,19 @@ spec:
             - name: http
               containerPort: 8096
           volumeMounts:
-            - name: config
+            - name: config-pvc
               mountPath: "/config"
             - name: media
               mountPath: "/media"
             - name: quicksync
               mountPath: /dev/dri
       volumes:
-        - name: config
+        - name: config-pvc
           persistentVolumeClaim:
             claimName: jellyfin-config
+        - name: config-cm
+          configMap:
+            name: jellyfin-cm
         - name: media
           persistentVolumeClaim:
             claimName: media
