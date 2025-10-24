@@ -33,6 +33,7 @@ datasources:
         isDefault: false
         editable: false
         basicAuth: false
+        uid: prometheus-main
         jsonData:
           timeInterval: 60s
       - name: Loki
@@ -42,6 +43,7 @@ datasources:
         isDefault: false
         editable: false
         basicAuth: false
+        uid: loki-main
       - name: Tempo
         type: tempo
         url: http://tempo:3200
@@ -49,6 +51,22 @@ datasources:
         isDefault: false
         editable: false
         basicAuth: false
+        uid: tempo-main
+        jsonData:
+          nodeGraph:
+            enabled: true
+          search:
+            filters:
+              - id: service-name
+                operator: '='
+                scope: resource
+                tag: service.name
+              - id: span-name
+                operator: '='
+                scope: span
+                tag: name
+          serviceMap:
+            datasourceUid: prometheus-main
 
 #https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L687
 alerting: {}
