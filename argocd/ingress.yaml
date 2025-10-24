@@ -4,8 +4,6 @@ kind: Ingress
 metadata:
   name: argocd
   annotations:
-    ingress.cilium.io/tls-passthrough: enabled
-    ingress.cilium.io/force-https: enabled
 spec:
   ingressClassName: "cilium"
   rules:
