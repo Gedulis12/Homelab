@@ -15,9 +15,6 @@ persistence:
   existingClaim: grafana-pvc
   storageClassName: local-storage
 
-nodeSelector:
-  kubernetes.io/hostname: tvinksonas
-
 testFramework:
   enabled: false
 

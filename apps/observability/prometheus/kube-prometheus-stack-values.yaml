@@ -22,7 +22,7 @@ prometheus:
         metadata:
           name: prometheus-pvc
         spec:
-          storageClassName: local-storage
+          storageClassName: ""
           accessModes:
             - ReadWriteOnce
           resources:
@@ -32,8 +32,6 @@ prometheus:
             matchLabels:
               app.kubernetes.io/name: prometheus
     enableAdminAPI: true
-    nodeSelector:
-      kubernetes.io/hostname: tvinksonas
   ingress:
     enabled: true
     hosts:

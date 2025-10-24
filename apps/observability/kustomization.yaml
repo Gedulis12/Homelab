@@ -4,7 +4,7 @@ kind: Kustomization
 
 resources:
   - loki
-  - grafana
   - tempo
   - prometheus
+  - grafana
   - k8s-monitoring-helm
