@@ -17,6 +17,8 @@ destinations:
     processors:
       serviceGraphMetrics:
         enabled: true
+        destinations:
+          - prometheus
       batch:
         enabled: true
 
