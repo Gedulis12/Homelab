@@ -58,6 +58,7 @@ autoInstrumentation:
       data:
         ebpf:
           context_propagation: "all"
+          track_request_headers: true
 
 applicationObservability:
   enabled: true
