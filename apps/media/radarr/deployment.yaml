@@ -15,8 +15,6 @@ spec:
       labels:
         app: radarr
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: tvinksonas
       initContainers:
         - name: copy-config
           image: busybox:latest

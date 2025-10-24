@@ -16,10 +16,12 @@ spec:
         app: jellyfin
     spec:
       nodeSelector:
-        kubernetes.io/hostname: tvinksonas
+        kubernetes.io/hostname: n200
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:latest
+          securityContext:
+            privileged: true
           env:
             - name: TZ
               value: "Europe/Vilnius"
@@ -35,6 +37,8 @@ spec:
               mountPath: "/config"
             - name: media
               mountPath: "/media"
+            - name: quicksync
+              mountPath: /dev/dri
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -42,3 +46,6 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: media
+        - name: quicksync
+          hostPath:
+            path: /dev/dri
