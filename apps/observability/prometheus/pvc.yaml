@@ -6,22 +6,16 @@ metadata:
   labels:
     app.kubernetes.io/name: prometheus
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
   capacity:
     storage: 1Mi
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  local:
+  nfs:
     path: /mnt/fast/prometheus
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - tvinksonas
+    server: 192.168.0.222
 
 ---
 apiVersion: v1
@@ -29,7 +23,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: pushgateway-pvc
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
@@ -41,25 +35,17 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pushgateway-pv
-  labels:
-    app.kubernetes.io/name: pushgateway
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
   claimRef:
     name: pushgateway-pvc
     namespace: observability
-  capacity:
-    storage: 1Mi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  local:
+  nfs:
     path: /mnt/fast/pushgateway
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - tvinksonas
+    server: 192.168.0.222

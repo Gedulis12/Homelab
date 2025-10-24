@@ -1,7 +1,4 @@
 ---
-nodeSelector:
-  kubernetes.io/hostname: tvinksonas
-
 extraVolumes:
   - name: tempo-storage
     persistentVolumeClaim:

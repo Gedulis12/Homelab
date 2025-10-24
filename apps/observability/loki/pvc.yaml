@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: loki-pvc
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
@@ -17,22 +17,16 @@ kind: PersistentVolume
 metadata:
   name: loki-pv
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
   capacity:
     storage: 1Mi
+  volumeMode: Filesystem
   claimRef:
     name: loki-pvc
     namespace: observability
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  local:
+  nfs:
     path: /mnt/fast/loki
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - tvinksonas
+    server: 192.168.0.222

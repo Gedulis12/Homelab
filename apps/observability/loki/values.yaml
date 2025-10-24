@@ -60,8 +60,6 @@ singleBinary:
     - name: storage
       persistentVolumeClaim:
         claimName: loki-pvc
-  nodeSelector:
-    kubernetes.io/hostname: tvinksonas
 
 backend:
   replicas: 0

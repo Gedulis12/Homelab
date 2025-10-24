@@ -8,9 +8,6 @@ ingress:
         - prometheus-pushgateway.g2net.xyz
       secretName: g2net-xyz-tls
 
-nodeSelector:
-  kubernetes.io/hostname: tvinksonas
-
 serviceMonitor:
   enabled: true
   namespace: observability
