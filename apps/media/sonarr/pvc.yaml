@@ -4,9 +4,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: sonarr-config
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Mi
@@ -17,22 +17,16 @@ kind: PersistentVolume
 metadata:
   name: sonarr-config
 spec:
-  storageClassName: local-storage
+  storageClassName: ""
   capacity:
     storage: 1Mi
+  volumeMode: Filesystem
   claimRef:
     name: sonarr-config
     namespace: media
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
-  local:
+  nfs:
     path: /mnt/fast/sonarr
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - tvinksonas
+    server: 192.168.0.222
