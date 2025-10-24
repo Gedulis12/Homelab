@@ -10,19 +10,24 @@ resources:
   - apps/app-of-apps.yaml
 
 patches:
-  - patch: |-
-      - op: add
-        path: /data/kustomize.buildOptions
-        value: --enable-helm
-    target:
+  - target:
       kind: ConfigMap
       name: argocd-cm
       version: v1
-  - patch: |-
+    patch: |-
       - op: add
-        path: /metadata/annotations/k8s.grafana.com~1scrape
-        value: "true"
-    target:
+        path: /data/kustomize.buildOptions
+        value: --enable-helm
+  - target:
       version: v1
       kind: Service
       labelSelector: app.kubernetes.io/part-of=argocd
+    patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
+  - target:
+      kind: ConfigMap
+      name: argocd-cmd-params-cm
+      version: v1
+    path: tls-patch.yaml
