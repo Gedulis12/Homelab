@@ -11,7 +11,7 @@ data:
         log
         ready
         k8s_gateway g2net.xyz {
-          resources Ingress Service
+          resources Ingress Service HTTPRoute GRPCRoute TLSRoute DNSEndpoint
         }
         forward . /etc/resolv.conf
         cache 30
