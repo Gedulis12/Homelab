@@ -77,8 +77,10 @@ tls:
   secretsNamespace:
     create: true
 
-gatewayApi:
+gatewayAPI:
   enabled: true
+  gatewayClass:
+    create: "true"
 
 prometheus:
   enabled: true
