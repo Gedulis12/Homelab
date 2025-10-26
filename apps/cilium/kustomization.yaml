@@ -12,7 +12,7 @@ helmCharts:
     includeCRDs: true
 
 resources:
-  - hubble-ui-ingress.yaml
+  - hubble-ui-httproute.yaml
   - ip-pool.yaml
   - announcement-policy.yaml
   - gateway.yaml

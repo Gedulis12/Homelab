@@ -1,13 +1,11 @@
----
-ingress:
-  enabled: true
-  hosts:
-    - grafana.g2net.xyz
-  ingressClassName: cilium
-  tls:
-    - hosts:
-        - grafana.g2net.xyz
-      secretName: g2net-xyz-tls
+route:
+  main:
+    enabled: true
+    hostnames:
+      - grafana.g2net.xyz
+    parentRefs:
+      - name: cilium-shared-gateway
+        namespace: kube-system
 
 persistence:
   enabled: true
