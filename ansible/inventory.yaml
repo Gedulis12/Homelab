@@ -9,7 +9,6 @@ k3s_cluster:
           ansible_user: pi
     agent:
       hosts:
-        pi:
         tvinksonas:
           ansible_host: 192.168.0.135
           ansible_port: 22
@@ -32,5 +31,8 @@ k3s_cluster:
     api_endpoint: "{{ hostvars[groups['server'][0]]['ansible_host'] | default(groups['server'][0]) }}"
     k3s_version: v1.33.3+k3s1
 
-    extra_server_args: "--disable=traefik --disable servicelb --flannel-backend=none --disable-network-policy"
+    extra_server_args: "--disable=traefik --disable servicelb --flannel-backend=none --disable-network-policy --embedded-registry"
     cluster_context: k3s-homelab
+    registries_config.yaml: |
+      mirrors:
+        "*":
