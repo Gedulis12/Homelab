@@ -8,7 +8,7 @@ spec:
     - it-tools.g2net.xyz
   parentRefs:
     - name: cilium-shared-gateway
-      namespace: default
+      namespace: kube-system
   rules:
     - matches:
         - path:
