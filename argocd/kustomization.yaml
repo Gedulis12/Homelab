@@ -7,7 +7,7 @@ resources:
   - namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.0/manifests/install.yaml
   - httproute.yaml
-#  - apps/app-of-apps.yaml
+  - apps/app-of-apps.yaml
 
 patches:
   - target:
