@@ -12,13 +12,6 @@ helmCharts:
     releaseName: kube-prometheus-stack
     includeCRDs: true
     valuesFile: kube-prometheus-stack-values.yaml
-  - name: prometheus-pushgateway
-    repo: https://prometheus-community.github.io/helm-charts
-    namespace: observability
-    version: 3.4.1
-    releaseName: prometheus-pushgateway
-    includeCRDs: true
-    valuesFile: prometheus-pushgateway-values.yaml
 
 resources:
   - pvc.yaml

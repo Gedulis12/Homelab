@@ -32,14 +32,11 @@ prometheus:
             matchLabels:
               app.kubernetes.io/name: prometheus
     enableAdminAPI: true
-  ingress:
-    enabled: true
-    hosts:
-      - prometheus.g2net.xyz
-    paths:
-      -  /
-    pathType: Prefix
-    tls:
-      - hosts:
-          - prometheus.g2net.xyz
-        secretName: g2net-xyz-tls
+  route:
+    main:
+      enabled: true
+      hostnames:
+        - prometheus.g2net.xyz
+      parentRefs:
+        - name: cilium-shared-gateway
+          namespace: kube-system
