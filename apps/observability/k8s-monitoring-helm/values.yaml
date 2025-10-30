@@ -14,13 +14,12 @@ destinations:
     url: http://tempo:4317
     tls:
       insecure: true
-    processors:
-      serviceGraphMetrics:
-        enabled: true
-        destinations:
-          - prometheus
-      batch:
-        enabled: true
+    metrics:
+      enabled: false
+    logs:
+      enabled: false
+    traces:
+      enabled: true
 
 clusterMetrics:
   enabled: true
@@ -71,10 +70,6 @@ applicationObservability:
   conectors:
     spanLogs:
       enabled: true
-    spanMetrics:
-      enabled: true
-      events:
-        enabled: true
 
 alloy-receiver:
   enabled: true

@@ -11,3 +11,9 @@ tempo:
   metricsGenerator:
     enabled: true
     remoteWriteUrl: http://prometheus-operated:9090/api/v1/write
+
+  overrides:
+    defaults:
+      metrics_generator:
+        processors:
+          - local-blocks
