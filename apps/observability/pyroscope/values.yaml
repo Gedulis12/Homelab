@@ -1,0 +1,13 @@
+---
+pyroscope:
+  persistence:
+    enabled: true
+    existingClaim: pyroscope-pvc
+
+serviceMonitor:
+  enabled: true
+  labels:
+    release: kube-prometheus-stack
+
+alloy:
+  enabled: false

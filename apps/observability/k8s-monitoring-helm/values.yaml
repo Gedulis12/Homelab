@@ -20,6 +20,9 @@ destinations:
       enabled: false
     traces:
       enabled: true
+  - name: pyroscope
+    type: pyroscope
+    url: http://pyroscope:4040
 
 clusterMetrics:
   enabled: true
@@ -71,10 +74,24 @@ applicationObservability:
     spanLogs:
       enabled: true
 
+prometheusOperatorObjects:
+  enabled: true
+
+# profiling enabled via annotations:
+# ebpf - profiles.grafana.com/cpu.ebpf.enabled="true"
+# java - profiles.grafana.com/java.enabled="true"
+# pprof - profiles.grafana.com/cpu.scrape: "true"
+# pprof - profiles.grafana.com/cpu.port: port
+# pprof - profiles.grafana.com/cpu.port_name: port_name
+# pprof - profiles.grafana.com/cpu.scheme: scheme
+# pprof - profiles.grafana.com/cpu.container: container
+profiling:
+  enabled: true
+
 alloy-receiver:
   enabled: true
 
-prometheusOperatorObjects:
+alloy-profiles:
   enabled: true
 
 alloy-metrics:
