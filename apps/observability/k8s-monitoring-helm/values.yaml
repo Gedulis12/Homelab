@@ -48,7 +48,7 @@ clusterEvents:
 nodeLogs:
   enabled: true
 
-podLogsViaKubernetesApi:
+podLogs:
   enabled: true
 
 annotationAutodiscovery:
@@ -112,3 +112,51 @@ alloy-operator:
   deploy: true
   waitForAlloyRemoval:
     enabled: false
+
+integrations:
+  cert-manager:
+    instances:
+      - name: cert-manager
+        namespace: kube-system
+        labelSelectors:
+          app.kubernetes.io/name: cert-manager
+  alloy:
+    instances:
+      - name: alloy-logs
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: alloy-logs
+      - name: alloy-metrics
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: alloy-metrics
+      - name: alloy-receiver
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: alloy-receiver
+      - name: alloy-profiles
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: alloy-profiles
+      - name: alloy-singleton
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: alloy-singleton
+  grafana:
+    instances:
+      - name: grafana
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: grafana
+  loki:
+    instances:
+      - name: loki
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: loki
+  tempo:
+    instances:
+      - name: tempo
+        namespace: observability
+        labelSelectors:
+          app.kubernetes.io/name: tempo
