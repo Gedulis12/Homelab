@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maistokainos
+  labels:
+    app: maistokainos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maistokainos
+  template:
+    metadata:
+      labels:
+        app: maistokainos
+      #annotations:
+        #profiles.grafana.com/cpu.ebpf.enabled: "true"
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+      containers:
+        - name: maistokainos
+          image: gedulis12/maistokainos.lt:latest
+          ports:
+            - name: http
+              containerPort: 8081
+          volumeMounts:
+            - name: maistokainos-pvc
+              mountPath: "/localdata"
+      volumes:
+        - name: maistokainos-pvc
+          persistentVolumeClaim:
+            claimName: maistokainos-pvc
+      imagePullSecrets:
+        - name: dockerhub-creds
