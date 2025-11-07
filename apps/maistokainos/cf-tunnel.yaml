@@ -16,6 +16,15 @@ spec:
       annotations:
         k8s.grafana.com/scrape: "true"
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
       securityContext:
         sysctls:
           - name: net.ipv4.ping_group_range
