@@ -5,3 +5,12 @@ kind: Kustomization
 namespace: sealed-secrets
 resources:
   - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.31.0/controller.yaml
+
+patches:
+  - target:
+      kind: Service
+      name: sealed-secrets-controller-metrics
+    patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
