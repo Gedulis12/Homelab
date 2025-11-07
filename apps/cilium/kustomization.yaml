@@ -16,3 +16,13 @@ resources:
   - ip-pool.yaml
   - announcement-policy.yaml
   - gateway.yaml
+
+patches:
+  - target:
+      kind: ConfigMap
+      name: cilium-config
+      version: v1
+    patch: |-
+      - op: add
+        path: /data/bpf-filter-riority
+        value: "2"
