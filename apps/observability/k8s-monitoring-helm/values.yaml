@@ -24,6 +24,17 @@ destinations:
     type: pyroscope
     url: http://pyroscope:4040
 
+  - name: logforwarder
+    type: otlp
+    url: http://127.0.0.1:14317
+    tls:
+      insecure: true
+    auth:
+      type: "none"
+    metrics: { enabled: false }
+    logs:    { enabled: true  }
+    traces:  { enabled: false }
+
 clusterMetrics:
   enabled: true
   global:
@@ -49,6 +60,9 @@ nodeLogs:
   enabled: true
 
 podLogs:
+  destinations:
+    - loki
+    - logforwarder
   enabled: true
 
 annotationAutodiscovery:
@@ -104,9 +118,53 @@ alloy-singleton:
 
 alloy-logs:
   enabled: true
+  includeDestinations:
+    - logforwarder
   alloy:
-    clustering:
-      enabled: true
+    stabilityLevel: experimental
+    envFrom:
+    - secretRef:
+        name: aws-creds
+  extraConfig: |-
+    otelcol.receiver.otlp "default" {
+      grpc {
+        endpoint = "127.0.0.1:14317"
+      }
+      http {
+        endpoint = "127.0.0.1:14318"
+      }
+
+      output {
+        logs =  [otelcol.processor.filter.media.input]
+      }
+    }
+
+    otelcol.processor.filter "media" {
+      error_mode = "ignore"
+
+        logs {
+          log_record = [
+            `resource.attributes["k8s.namespace.name"] != "media"`,
+          ]
+        }
+
+      output {
+        logs    = [otelcol.exporter.awss3.logs.input]
+      }
+    }
+
+    otelcol.exporter.awss3 "logs" {
+      s3_uploader {
+        region = "eu-north-1"
+        s3_bucket = "gedas-test-logs-bucket"
+        s3_prefix = "logs"
+        s3_partition_format = "%Y-%m-%d"
+        compression = "gzip"
+      }
+      resource_attrs_to_s3 {
+        s3_prefix = "service.name"
+      }
+    }
 
 alloy-operator:
   deploy: true

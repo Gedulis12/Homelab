@@ -10,3 +10,8 @@ helmCharts:
     releaseName: k8s-monitoring
     includeCRDs: true
     valuesFile: values.yaml
+
+namespace: observability
+
+resources:
+  - secret.yaml
