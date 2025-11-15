@@ -69,3 +69,12 @@ spec:
         - name: config-cm
           configMap:
             name: qbittorrent-cm
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: NotIn
+                    values:
+                      - tvinksonas
