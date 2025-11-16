@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wallabag
+  labels:
+    app: wallabag
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wallabag
+  template:
+    metadata:
+      labels:
+        app: wallabag
+    spec:
+      containers:
+        - name: wallabag
+          image: wallabag/wallabag:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: data
+              mountPath: /var/www/wallabag/data
+            - name: images
+              mountPath: /var/www/wallabag/web/assets/images
+          env:
+            - name: SYMFONY__ENV__DOMAIN_NAME
+              value: https://wallabag.g2net.xyz
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: wallabag-data
+        - name: images
+          persistentVolumeClaim:
+            claimName: wallabag-images

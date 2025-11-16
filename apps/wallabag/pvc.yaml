@@ -1,0 +1,65 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wallabag-data
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wallabag-data
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
+  claimRef:
+    name: wallabag-data
+    namespace: wallabag
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  nfs:
+    path: /mnt/fast/wallabag/data
+    server: 192.168.0.222
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wallabag-images
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wallabag-images
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
+  claimRef:
+    name: wallabag-images
+    namespace: wallabag
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  nfs:
+    path: /mnt/fast/wallabag/images
+    server: 192.168.0.222
