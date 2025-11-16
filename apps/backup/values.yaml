@@ -1,0 +1,9 @@
+---
+k8up:
+  timezone: Europe/Vilnius
+  skipWithoutAnnotation: true
+
+metrics:
+  service:
+    annotations:
+      k8s.grafana.com/scrape: 'true'
