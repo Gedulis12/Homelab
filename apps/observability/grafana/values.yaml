@@ -16,6 +16,15 @@ persistence:
 testFramework:
   enabled: false
 
+plugins:
+  - grafana-image-renderer
+  - grafana-strava-datasource
+
+env:
+  # https://grafana.com/grafana/plugins/grafana-strava-datasource/
+  name: GF_FEATURE_TOGGLES_ENABLE
+  value: externalServiceAccounts
+
 #https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L664
 datasources:
   datasources.yaml:
