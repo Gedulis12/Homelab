@@ -25,6 +25,16 @@ env:
   name: GF_FEATURE_TOGGLES_ENABLE
   value: externalServiceAccounts
 
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/arch
+              operator: In
+              values:
+                - amd64
+
 #https://github.com/grafana/helm-charts/blob/b672274878f23b6817e406922775fbfee6352a1a/charts/grafana/values.yaml#L664
 datasources:
   datasources.yaml:
