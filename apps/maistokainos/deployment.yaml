@@ -14,8 +14,10 @@ spec:
     metadata:
       labels:
         app: maistokainos
-      #annotations:
-        #profiles.grafana.com/cpu.ebpf.enabled: "true"
+      annotations:
+        profiles.grafana.com/cpu.scrape: "true"
+        profiles.grafana.com/goroutine.scrape: "true"
+        profiles.grafana.com/memory.scrape: "true"
     spec:
       affinity:
         nodeAffinity:
@@ -28,7 +30,7 @@ spec:
                       - amd64
       containers:
         - name: maistokainos
-          image: gedulis12/maistokainos.lt:0.0.3
+          image: gedulis12/maistokainos.lt:0.0.4
           ports:
             - name: http
               containerPort: 8081
