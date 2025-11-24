@@ -1,0 +1,50 @@
+---
+- Apps:
+    - Homepage:
+        href: https://homepage.g2net.xyz/
+        icon: homepage
+    - IT Tools:
+        href: https://it-tools.g2net.xyz/
+        icon: it-tools
+    - FreshRSS:
+        href: https://it-tools.g2net.xyz/
+        icon: freshrss
+    - TheLounge:
+        href: https://thelounge.g2net.xyz/
+        icon: thelounge
+    - Linkding:
+        href: https://linkding.g2net.xyz/
+        icon: linkding
+    - Wallabag:
+        href: https://wallabag.g2net.xyz/
+        icon: wallabag
+- Media:
+    - Jellyfin:
+        href: https://jellyfin.g2net.xyz/
+        icon: jellyfin
+    - qBittorrent:
+        href: https://qbittorrent.g2net.xyz/
+        icon: qbittorrent
+    - Radarr:
+        href: https://radarr.g2net.xyz/
+        icon: radarr
+    - Sonarr:
+        href: https://sonarr.g2net.xyz/
+        icon: sonarr
+    - Prowlarr:
+        href: https://prowlarr.g2net.xyz/
+        icon: prowlarr
+- K8S:
+    - ArgoCD:
+        href: https://argocd.g2net.xyz/
+        icon: argo-cd
+    - Hubble:
+        href: https://hubble.g2net.xyz/
+        icon: sh-cilium-hubble.svg
+- Observability:
+    - Grafana:
+        href: https://grafana.g2net.xyz/
+        icon: grafana
+    - Prometheus:
+        href: https://prometheus.g2net.xyz/
+        icon: prometheus
