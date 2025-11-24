@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shelly-exporter
+  labels:
+    app: shelly-exporter
+  annotations:
+    k8s.grafana.com/scrape: "true"
+spec:
+  selector:
+    app: shelly-exporter
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 54901

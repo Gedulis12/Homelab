@@ -1,0 +1,25 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: kube-prometheus-stack
+  name: shelly-exporter
+spec:
+  selector:
+    matchLabels:
+      app: shelly-exporter
+  endpoints:
+  - port: http
+    interval: 10s
+    path: /probe
+    params:
+      target:
+        - 192.168.0.154
+    basicAuth:
+      username:
+        name: shelly-plug-auth
+        key: username
+      password:
+        name: shelly-plug-auth
+        key: password
