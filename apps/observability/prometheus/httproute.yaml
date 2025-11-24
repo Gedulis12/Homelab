@@ -1,0 +1,18 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-redirect-prometheus
+spec:
+  parentRefs:
+    - name: cilium-shared-gateway
+      namespace: kube-system
+      sectionName: http
+  hostnames:
+    - prometheus.g2net.xyz
+  rules:
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            statusCode: 301
