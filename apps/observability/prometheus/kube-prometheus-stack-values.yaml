@@ -40,3 +40,4 @@ prometheus:
       parentRefs:
         - name: cilium-shared-gateway
           namespace: kube-system
+          sectionName: https

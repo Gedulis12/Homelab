@@ -6,6 +6,8 @@ route:
     parentRefs:
       - name: cilium-shared-gateway
         namespace: kube-system
+        sectionName: https
+
 
 persistence:
   enabled: true
