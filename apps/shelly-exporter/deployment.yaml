@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shelly-exporter
+  labels:
+    app: shelly-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shelly-exporter
+  template:
+    metadata:
+      labels:
+        app: shelly-exporter
+      annotations:
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+      containers:
+        - name: shelly-exporter
+          image: gedulis12/shelly-openmetrics-exporter:v0.4.3
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 54901
+      imagePullSecrets:
+        - name: dockerhub-creds
