@@ -2,17 +2,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: shelly-exporter.g
+  name: shelly-exporter
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
-    namespace: shelly-exporter.g
+    namespace: shelly-exporter
     server: https://kubernetes.default.svc
   source:
-    path: apps/shelly-exporter.g
+    path: apps/shelly-exporter
     repoURL: https://github.com/gedulis12/homelab
     targetRevision: HEAD
   syncPolicy:
