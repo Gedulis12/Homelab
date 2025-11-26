@@ -58,6 +58,12 @@ annotationAutodiscovery:
 autoInstrumentation:
   enabled: true
   beyla:
+    metricsTuning:
+      excludeMetrics:
+        - http_client_request_body_size.*
+        - http_client_response_body_size.*
+        - http_server_request_body_size.*
+        - http_server_response_body_size.*
     config:
       data:
         ebpf:
