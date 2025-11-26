@@ -30,7 +30,7 @@ spec:
                       - amd64
       containers:
         - name: maistokainos
-          image: gedulis12/maistokainos.lt:0.0.4
+          image: gedulis12/maistokainos.lt:0.0.5
           ports:
             - name: http
               containerPort: 8081
