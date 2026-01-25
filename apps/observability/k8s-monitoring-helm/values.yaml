@@ -71,7 +71,10 @@ autoInstrumentation:
           traffic_control_backend: tcx
           disable_blackbox_cp: true
           track_request_headers: true
-
+        discovery:
+          exclude_services:
+            - k8s_namespace: observability
+            - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
 applicationObservability:
   enabled: true
   receivers:
