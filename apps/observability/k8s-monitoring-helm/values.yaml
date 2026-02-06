@@ -72,6 +72,8 @@ autoInstrumentation:
           disable_blackbox_cp: true
           track_request_headers: true
         discovery:
+          services:
+            - k8s_namespace: .
           exclude_services:
             - k8s_namespace: observability
             - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
