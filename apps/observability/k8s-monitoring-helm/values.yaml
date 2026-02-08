@@ -77,6 +77,17 @@ autoInstrumentation:
           exclude_services:
             - k8s_namespace: observability
             - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
+        routes:
+          patterns:
+            - /apis/{api}/{version}/{name}/*
+            - /api/{version}/{name}/*
+          ignored_patterns:
+            - /metrics
+            - /health
+            - /healthz
+            - /ready
+            - /readyz
+
 applicationObservability:
   enabled: true
   receivers:

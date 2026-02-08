@@ -6,7 +6,7 @@ helmCharts:
   - name: k8s-monitoring
     repo: https://grafana.github.io/helm-charts
     namespace: observability
-    version: 3.5.3
+    version: 3.8.0
     releaseName: k8s-monitoring
     includeCRDs: true
     valuesFile: values.yaml
