@@ -11,6 +11,7 @@ tempo:
   metricsGenerator:
     enabled: true
     remoteWriteUrl: http://prometheus-operated:9090/api/v1/write
+  retention: "72h"
 
   overrides:
     defaults:
