@@ -7,4 +7,5 @@ resources:
   - tempo
   - prometheus
   - grafana
+  - pyroscope
   - k8s-monitoring-helm
