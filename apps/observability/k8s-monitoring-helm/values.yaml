@@ -94,8 +94,10 @@ applicationObservability:
     otlp:
       grpc:
         enabled: true
-  conectors:
+  connectors:
     spanLogs:
+      enabled: true
+    spanMetrics:
       enabled: true
 
 prometheusOperatorObjects:
