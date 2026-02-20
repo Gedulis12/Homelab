@@ -50,6 +50,15 @@ gateway:
 
 deploymentMode: SingleBinary
 singleBinary:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: NotIn
+                values:
+                  - pi
   replicas: 1
   persistence:
     enabled: false

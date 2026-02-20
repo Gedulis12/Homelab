@@ -18,6 +18,15 @@ prometheus:
   prometheusSpec:
     retention: 120d
     enableRemoteWriteReceiver: true
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: NotIn
+                  values:
+                    - pi
     storageSpec:
       volumeClaimTemplate:
         metadata:
