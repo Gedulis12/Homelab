@@ -1,3 +1,7 @@
+grafana.ini:
+  server:
+    domain: grafana.g2net.xyz
+    root_url: https://grafana.g2net.xyz
 route:
   main:
     enabled: true
