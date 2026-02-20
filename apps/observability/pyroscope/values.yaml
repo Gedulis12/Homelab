@@ -3,6 +3,15 @@ pyroscope:
   persistence:
     enabled: true
     existingClaim: pyroscope-pvc
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: NotIn
+                values:
+                  - pi
 
 serviceMonitor:
   enabled: true

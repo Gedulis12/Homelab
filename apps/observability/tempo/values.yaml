@@ -18,3 +18,13 @@ tempo:
       metrics_generator:
         processors:
           - local-blocks
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+                - pi
