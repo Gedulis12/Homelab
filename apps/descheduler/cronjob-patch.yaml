@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: descheduler-cronjob
+  namespace: kube-system
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          volumes:
+          - name: policy-volume
+            configMap:
+              name: descheduler-policy
