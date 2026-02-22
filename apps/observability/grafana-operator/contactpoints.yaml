@@ -1,0 +1,31 @@
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaContactPoint
+metadata:
+  name: telegram
+spec:
+  name: Telegram
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
+  receivers:
+    - type: telegram
+      uid: telegram
+      settings:
+        disable_notification: false
+        disable_web_page_preview: false
+        parse_mode: None
+        protect_content: false
+      disableResolveMessage: true
+      valuesFrom:
+        - targetPath: bottoken
+          valueFrom:
+            secretKeyRef:
+              name: grafana-operator-secrets
+              key: telegram-bottoken
+        - targetPath: chatid
+          valueFrom:
+            secretKeyRef:
+              name: grafana-operator-secrets
+              key: telegram-chatid
+

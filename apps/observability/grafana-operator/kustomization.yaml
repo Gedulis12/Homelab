@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: observability
+
+# https://grafana.github.io/grafana-operator/docs
+helmCharts:
+  - name: grafana-operator
+    repo: https://grafana.github.io/helm-charts
+    namespace: observability
+    version: 5.21.4
+    releaseName: grafana-operator
+    valuesFile: values.yaml
+
+resources:
+  - https://github.com/grafana/grafana-operator/releases/download/v5.21.4/crds.yaml
+  - grafana.yaml
+  - datasources.yaml
+  - sealed-secret.yaml
+  - contactpoints.yaml
+  - notification-policies.yaml
+  - dashboards
