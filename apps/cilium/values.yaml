@@ -18,6 +18,10 @@ l7Proxy: true
 externalIPs:
   enabled: true
 
+dashboards:
+  enabled: true
+  namespace: observability
+
 hubble:
   enabled: true
   ui:
@@ -31,6 +35,9 @@ hubble:
         labels:
           release: kube-prometheus-stack
   metrics:
+    dashbaords:
+      enabled: true
+      namespace: observability
     enableOpenMetrics: true
     enabled:
       - dns
@@ -46,6 +53,9 @@ hubble:
         release: kube-prometheus-stack
 
 operator:
+  dashboards:
+    enabled: true
+    namespace: observability
   rollOutPods: true
   prometheus:
     enabled: true
