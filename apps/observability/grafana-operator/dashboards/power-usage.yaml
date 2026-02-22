@@ -1,0 +1,641 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: power-usage
+spec:
+  folder: General
+  resyncPeriod: 30s
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  json: >
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 39,
+      "links": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus-main"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-green",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "watth"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 0,
+            "y": 0
+          },
+          "id": 2,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "percentChangeColorMode": "same_as_value",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "text": {},
+            "textMode": "auto",
+            "wideLayout": false
+          },
+          "pluginVersion": "12.1.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[5m:])",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "Last 5min",
+              "range": false,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[1h:])",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 1h",
+              "range": false,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[12h:])",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 12h",
+              "range": false,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[24h:])",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 24h",
+              "range": false,
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[7d:])",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 7d",
+              "range": false,
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[30d:])",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 30d",
+              "range": false,
+              "refId": "F"
+            }
+          ],
+          "title": "Power consumption summary",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus-main"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-blue",
+                "mode": "shades"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 2,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "watt"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 0
+          },
+          "id": 1,
+          "interval": "10s",
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.1.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "shelly_power_w{k8s_cluster_name=\"k3s-homelab\"}",
+              "instant": false,
+              "interval": "10s",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Power usage (Watts)",
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus-main"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-green",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "currencyEUR"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 4
+          },
+          "id": 5,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "percentChangeColorMode": "same_as_value",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "text": {},
+            "textMode": "auto",
+            "wideLayout": false
+          },
+          "pluginVersion": "12.1.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[5m:]))\r\n*\r\n(0.205/1000)\r\n",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "Last 5min",
+              "range": false,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[1h:]))\r\n*\r\n(0.205/1000)",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 1h",
+              "range": false,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[12h:]))\r\n*\r\n(0.205/1000)",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 12h",
+              "range": false,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[24h:]))\r\n*\r\n(0.205/1000)",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 24h",
+              "range": false,
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[7d:]))\r\n*\r\n(0.205/1000)",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 7d",
+              "range": false,
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})\r\n-\r\nmin_over_time(sum by(cluster) (shelly_total_wh{k8s_cluster_name=\"k3s-homelab\"})[30d:]))\r\n*\r\n(0.205/1000)",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "last 30d",
+              "range": false,
+              "refId": "F"
+            }
+          ],
+          "title": "Power cost summary",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus-main"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-red",
+                "mode": "shades"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 2,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "amp"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 9
+          },
+          "id": 3,
+          "interval": "10s",
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.1.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "shelly_current_a{k8s_cluster_name=\"k3s-homelab\"}",
+              "instant": false,
+              "interval": "10s",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Current",
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus-main"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "shades"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 2,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "volt"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "id": 4,
+          "interval": "10s",
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.1.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus-main"
+              },
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "shelly_voltage_v{k8s_cluster_name=\"k3s-homelab\"}",
+              "instant": false,
+              "interval": "10s",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Voltage",
+          "transparent": true,
+          "type": "timeseries"
+        }
+      ],
+      "preload": false,
+      "refresh": "auto",
+      "schemaVersion": 41,
+      "tags": [],
+      "templating": {
+        "list": []
+      },
+      "time": {
+        "from": "now-15m",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "browser",
+      "title": "Power usage",
+      "uid": "ge6r9lw",
+      "version": 6
+    }

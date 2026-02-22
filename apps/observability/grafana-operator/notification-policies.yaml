@@ -1,0 +1,16 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaNotificationPolicy
+metadata:
+  name: default-policy
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  route:
+    receiver: Telegram
+    group_by:
+      - grafana_folder
+      - alertname
+    group_wait: 30s
+    group_interval: 1m
+    repeat_interval: 4h

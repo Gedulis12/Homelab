@@ -1,0 +1,125 @@
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: prometheus
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: Prometheus
+    type: prometheus
+    access: proxy
+    basicAuth: false
+    url: http://prometheus-operated:9090
+    isDefault: false
+    uid: prometheus-main
+    jsonData:
+      "timeInterval": "60s"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: loki
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: Loki
+    type: loki
+    access: proxy
+    basicAuth: false
+    url: http://loki-gateway
+    isDefault: false
+    uid: loki-main
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: tempo
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: Tempo
+    type: tempo
+    url: http://tempo:3200
+    access: proxy
+    isDefault: false
+    editable: false
+    basicAuth: false
+    uid: tempo-main
+    jsonData:
+      nodeGraph:
+        enabled: true
+      search:
+        filters:
+          - id: service-name
+            operator: '='
+            scope: resource
+            tag: service.name
+          - id: span-name
+            operator: '='
+            scope: span
+            tag: name
+      serviceMap:
+        datasourceUid: prometheus-main
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: strava
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  valuesFrom:
+    - targetPath: "secureJsonData.clientSecret"
+      valueFrom:
+        secretKeyRef:
+          name: "grafana-operator-secrets"
+          key: "strava-client-secret"
+    - targetPath: "jsonData.clientID"
+      valueFrom:
+        secretKeyRef:
+          name: "grafana-operator-secrets"
+          key: "strava-client-id"
+  datasource:
+    name: Strava
+    type: grafana-strava-datasource
+    access: proxy
+    isDefault: false
+    editable: true
+    basicAuth: false
+    uid: strava-main
+    jsonData:
+      clientID: ${strava-client-id}
+      oathPassThru: false
+      pdcInjected: false
+    secureJsonData:
+      clientSecret: ${strava-client-secret}
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: pyroscope
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: Pyroscope
+    type: grafana-pyroscope-datasource
+    access: proxy
+    basicAuth: false
+    isDefault: false
+    editable: false
+    url: http://pyroscope:4040
+    uid: pyroscope-main
