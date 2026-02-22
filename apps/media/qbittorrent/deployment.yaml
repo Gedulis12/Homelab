@@ -59,6 +59,11 @@ spec:
               mountPath: "/media"
             - name: config-pvc
               mountPath: "/config"
+          resources:
+            requests:
+              memory: 2Gi
+            limits:
+              memory: 2Gi
       volumes:
         - name: media-pvc
           persistentVolumeClaim:
