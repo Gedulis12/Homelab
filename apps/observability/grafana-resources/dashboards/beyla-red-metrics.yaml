@@ -1,11 +1,10 @@
-
 ---
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: beyla-red-metrics
 spec:
-  folder: General
+  folder: "App o11y"
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: power-usage
 spec:
-  folder: General
+  folder: Home
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:

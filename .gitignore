@@ -1,1 +1,3 @@
 apps/**/charts
+/**/vendor
+/**/secret.yaml

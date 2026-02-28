@@ -10,3 +10,4 @@ resources:
   - pyroscope
   - k8s-monitoring-helm
   - grafana-operator
+  - grafana-resources
