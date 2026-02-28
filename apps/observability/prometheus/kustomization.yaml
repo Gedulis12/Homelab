@@ -16,4 +16,3 @@ helmCharts:
 resources:
   - pvc.yaml
   - httproute.yaml
-  - rules.yaml
