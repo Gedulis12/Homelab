@@ -73,6 +73,9 @@ local ruleResources(cfg) =
         kind: 'PrometheusRule',
         metadata: {
           name: k8sName(cfg.prefix + '-mixin-rules'),
+          labels: {
+                release: 'kube-prometheus-stack'
+            },
         },
         spec: cfg.mixin.prometheusRules,
       },
