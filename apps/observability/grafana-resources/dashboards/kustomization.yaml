@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - beyla-red-metrics.yaml
   - cilium.yaml
-  - go.yaml
   - grafana.yaml
   - k8up.yaml
   - kubernetes.yaml
