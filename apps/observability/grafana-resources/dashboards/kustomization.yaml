@@ -10,7 +10,6 @@ resources:
   - kube-state-metrics.yaml
   - node-exporter.yaml
   - power-usage.yaml
-  - prometheus-remote-write.yaml
   - qbittorrent.yaml
   - strava.yaml
   - tailscale.yaml
