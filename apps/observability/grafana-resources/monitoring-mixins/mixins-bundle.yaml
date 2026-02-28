@@ -222,6 +222,8 @@
 "apiVersion": "monitoring.coreos.com/v1"
 "kind": "PrometheusRule"
 "metadata":
+  "labels":
+    "release": "kube-prometheus-stack"
   "name": "cert-manager-mixin-rules"
 "spec":
   "groups": []
@@ -735,6 +737,8 @@
 "apiVersion": "monitoring.coreos.com/v1"
 "kind": "PrometheusRule"
 "metadata":
+  "labels":
+    "release": "kube-prometheus-stack"
   "name": "grafana-mixin-rules"
 "spec":
   "groups":
@@ -769,6 +773,8 @@
 "apiVersion": "monitoring.coreos.com/v1"
 "kind": "PrometheusRule"
 "metadata":
+  "labels":
+    "release": "kube-prometheus-stack"
   "name": "kubernetes-mixin-rules"
 "spec":
   "groups":
@@ -2063,6 +2069,8 @@
 "apiVersion": "monitoring.coreos.com/v1"
 "kind": "PrometheusRule"
 "metadata":
+  "labels":
+    "release": "kube-prometheus-stack"
   "name": "loki-mixin-rules"
 "spec":
   "groups":
@@ -2394,6 +2402,8 @@
 "apiVersion": "monitoring.coreos.com/v1"
 "kind": "PrometheusRule"
 "metadata":
+  "labels":
+    "release": "kube-prometheus-stack"
   "name": "node-mixin-rules"
 "spec":
   "groups":
