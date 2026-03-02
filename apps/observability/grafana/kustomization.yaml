@@ -16,3 +16,5 @@ resources:
   - pvc.yaml
   - httproute.yaml
   - sealed-secret.yaml
+  - backup-schedule.yaml
+  - pre-backup-pod.yaml
