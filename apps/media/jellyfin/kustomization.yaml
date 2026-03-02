@@ -9,6 +9,7 @@ resources:
   - pvc.yaml
   - service.yaml
   - httproute.yaml
+  - pre-backup-pod.yaml
 
 configMapGenerator:
   - name: jellyfin-cm

@@ -1,0 +1,22 @@
+---
+apiVersion: k8up.io/v1
+kind: PreBackupPod
+metadata:
+  name: radarr-db-dump
+spec:
+  backupCommand: sh -c 'sqlite3 /config/radarr.db .dump'
+  pod:
+    spec:
+      containers:
+        - name: radarr-sqlite-dump
+          image: alpine/sqlite:3.51.2
+          command:
+            - 'sleep'
+            - 'infinity'
+          volumeMounts:
+            - name: config-pvc
+              mountPath: "/config"
+      volumes:
+        - name: config-pvc
+          persistentVolumeClaim:
+            claimName: radarr-config

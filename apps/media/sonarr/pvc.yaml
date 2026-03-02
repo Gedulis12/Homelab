@@ -3,6 +3,10 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: sonarr-config
+  annotations:
+    k8up.io/backup: true
+  labels:
+    name: sonarr-config
 spec:
   storageClassName: ""
   accessModes:
