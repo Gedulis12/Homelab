@@ -1,0 +1,22 @@
+---
+apiVersion: k8up.io/v1
+kind: PreBackupPod
+metadata:
+  name: jellyfin-db-dump
+spec:
+  backupCommand: sh -c 'sqlite3 /config/data/data/jellyfin.db .dump'
+  pod:
+    spec:
+      containers:
+        - name: jellyfin-sqlite-dump
+          image: alpine/sqlite:3.51.2
+          command:
+            - 'sleep'
+            - 'infinity'
+          volumeMounts:
+            - name: config-pvc
+              mountPath: "/config"
+      volumes:
+        - name: config-pvc
+          persistentVolumeClaim:
+            claimName: jellyfin-config

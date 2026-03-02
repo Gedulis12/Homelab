@@ -1,0 +1,22 @@
+---
+apiVersion: k8up.io/v1
+kind: PreBackupPod
+metadata:
+  name: sonarr-db-dump
+spec:
+  backupCommand: sh -c 'sqlite3 /config/sonarr.db .dump'
+  pod:
+    spec:
+      containers:
+        - name: sonarr-sqlite-dump
+          image: alpine/sqlite:3.51.2
+          command:
+            - 'sleep'
+            - 'infinity'
+          volumeMounts:
+            - name: config-pvc
+              mountPath: "/config"
+      volumes:
+        - name: config-pvc
+          persistentVolumeClaim:
+            claimName: sonarr-config
