@@ -1,0 +1,31 @@
+apiVersion: k8up.io/v1
+kind: Schedule
+metadata:
+  name: thelounge-backup-schedule
+spec:
+  backend:
+    repoPasswordSecretRef:
+      name: backup-secret
+      key: restic-password
+    b2:
+      bucket: g2net-homelab-backup
+      path: thelounge
+      accountIDSecretRef:
+        name: backup-secret
+        key: b2-account-id
+      accountKeySecretRef:
+        name: backup-secret
+        key: b2-account-key
+  backup:
+    schedule: '@weekly-random'
+    failedJobsHistoryLimit: 2
+    successfulJobsHistoryLimit: 2
+  check:
+    schedule: '@monthly-random'
+  prune:
+    schedule: '@weekly-random'
+    retention:
+      keepLast: 2
+      keepWeekly: 1
+      keepMonthly: 1
+      keepYearly: 1

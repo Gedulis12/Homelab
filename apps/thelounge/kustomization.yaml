@@ -9,3 +9,4 @@ resources:
   - service.yaml
   - httproute.yaml
   - pvc.yaml
+  - backup-schedule.yaml
