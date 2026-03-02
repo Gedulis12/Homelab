@@ -13,3 +13,4 @@ resources:
   - qbittorrent.yaml
   - strava.yaml
   - tailscale.yaml
+  - cloudnative-pg.yaml
