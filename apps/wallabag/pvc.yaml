@@ -3,6 +3,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wallabag-data
+  annotations:
+    k8up.io/backup: true
 spec:
   storageClassName: ""
   accessModes:
@@ -36,6 +38,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wallabag-images
+  annotations:
+    k8up.io/backup: true
 spec:
   storageClassName: ""
   accessModes:
@@ -49,6 +53,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: wallabag-images
+  annotations:
+    k8up.io/backup: true
 spec:
   storageClassName: ""
   capacity:

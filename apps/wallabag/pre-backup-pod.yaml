@@ -1,0 +1,24 @@
+---
+apiVersion: k8up.io/v1
+kind: PreBackupPod
+metadata:
+  name: wallabag-db-dump
+spec:
+  backupCommand: sh -c 'sqlite3 /data/db/wallabag.sqlite .dump'
+  pod:
+    spec:
+      securityContext:
+        runAsUser: 0
+      containers:
+        - name: wallabag-sqlite-dump
+          image: alpine/sqlite:3.51.2
+          command:
+            - 'sleep'
+            - 'infinity'
+          volumeMounts:
+            - name: wallabag-data
+              mountPath: "/data"
+      volumes:
+        - name: wallabag-data
+          persistentVolumeClaim:
+            claimName: wallabag-data
