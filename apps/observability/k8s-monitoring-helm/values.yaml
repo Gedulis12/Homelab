@@ -122,6 +122,8 @@ alloy-profiles:
 
 alloy-metrics:
   enabled: true
+  controller:
+    replicas: 3
 
 alloy-singleton:
   enabled: true
