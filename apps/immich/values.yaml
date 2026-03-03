@@ -24,6 +24,16 @@ machine-learning:
 server:
   controllers:
     main:
+      pod:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                    - key: kubernetes.io/hostname
+                      operator: NotIn
+                      values:
+                        - tvinksonas
       containers:
         main:
           env:
