@@ -56,7 +56,7 @@ annotationAutodiscovery:
   scrapeInterval: 30s
 
 autoInstrumentation:
-  enabled: true
+  enabled: false
   beyla:
     metricsTuning:
       excludeMetrics:
@@ -89,7 +89,7 @@ autoInstrumentation:
             - /readyz
 
 applicationObservability:
-  enabled: true
+  enabled: false
   receivers:
     otlp:
       grpc:
