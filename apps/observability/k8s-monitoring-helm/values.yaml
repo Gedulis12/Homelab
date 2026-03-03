@@ -115,7 +115,7 @@ profiling:
   enabled: true
 
 alloy-receiver:
-  enabled: true
+  enabled: false
 
 alloy-profiles:
   enabled: true
