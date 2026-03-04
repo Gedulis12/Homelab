@@ -5,6 +5,9 @@ metricsProviders:
 profiles:
   - name: default
     pluginConfig:
+      - name: DefaultEvictor
+        args:
+          nodeFit: true
       - name: RemoveDuplicates
       - name: RemovePodsHavingTooManyRestarts
         args:
