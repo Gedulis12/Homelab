@@ -31,9 +31,9 @@ server:
               nodeSelectorTerms:
                 - matchExpressions:
                     - key: kubernetes.io/hostname
-                      operator: NotIn
+                      operator: In
                       values:
-                        - tvinksonas
+                        - n200
       containers:
         main:
           env:
