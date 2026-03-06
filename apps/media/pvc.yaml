@@ -30,13 +30,13 @@ spec:
   nfs:
     path: /mnt/data/media
     server: 192.168.0.135
-    mountOptions:
-      - noatime
-      - vers=3
-      - soft
-      - timeo=600
-      - retrans=5
-      - rsize=8192
-      - wsize=8192
-      - lookupcache=none
-      - tcp
+  mountOptions:
+    - noatime
+    - vers=3
+    - soft
+    - timeo=600
+    - retrans=5
+    - rsize=8192
+    - wsize=8192
+    - lookupcache=none
+    - tcp
