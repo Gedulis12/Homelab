@@ -33,4 +33,14 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   nfs:
     path: /mnt/fast/grafana
+    mountOptions:
+      - noatime
+      - vers=3
+      - soft
+      - timeo=600
+      - retrans=5
+      - rsize=8192
+      - wsize=8192
+      - lookupcache=none
+      - tcp
     server: 192.168.0.222
