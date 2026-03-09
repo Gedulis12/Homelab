@@ -18,6 +18,9 @@
     - Wallabag:
         href: https://wallabag.g2net.xyz/
         icon: wallabag
+    - Immich:
+        href: https://immich.g2net.xyz/
+        icon: immich
 - Media:
     - Jellyfin:
         href: https://jellyfin.g2net.xyz/
@@ -48,3 +51,6 @@
     - Prometheus:
         href: https://prometheus.g2net.xyz/
         icon: prometheus
+    - Loki:
+        href: https://loki.g2net.xyz/ui/
+        icon: loki
