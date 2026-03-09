@@ -36,6 +36,7 @@ spec:
     - noatime
     - vers=3
     - soft
+    - nolock
     - timeo=600
     - retrans=5
     - rsize=8192
