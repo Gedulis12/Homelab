@@ -29,6 +29,11 @@ machine-learning:
       enabled: false
 
 server:
+  persistence:
+    quicksync:
+      enabled: true
+      type: hostPath
+      hostPath: /dev/dri
   controllers:
     main:
       pod:
@@ -43,6 +48,8 @@ server:
                         - n200
       containers:
         main:
+          securityContext:
+            privileged: true
           env:
             DB_HOSTNAME:
               valueFrom:
