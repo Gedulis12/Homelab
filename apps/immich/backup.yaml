@@ -4,6 +4,8 @@ metadata:
   name: immich-backup
   namespace: immich
 spec:
+  podConfigRef:
+    name: immich-podconfig
   failedJobsHistoryLimit: 2
   successfulJobsHistoryLimit: 2
   backend:

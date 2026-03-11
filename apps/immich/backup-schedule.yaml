@@ -4,6 +4,8 @@ kind: Schedule
 metadata:
   name: immich-backup-schedule
 spec:
+  podConfigRef:
+    name: immich-podconfig
   backend:
     repoPasswordSecretRef:
       name: backup-secret
@@ -18,7 +20,7 @@ spec:
         name: backup-secret
         key: b2-account-key
   backup:
-    schedule: '@weekly-random'
+    schedule: '01 00 * * 7'
     failedJobsHistoryLimit: 2
     successfulJobsHistoryLimit: 2
   check:

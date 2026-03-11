@@ -16,4 +16,6 @@ resources:
   - cloudnative-pg.yaml
   - pvc.yaml
   - httproute.yaml
-
+  - sealed-secret.yaml
+  - backup-pod-config.yaml
+  - backup-schedule.yaml

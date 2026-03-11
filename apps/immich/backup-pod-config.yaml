@@ -1,0 +1,56 @@
+---
+apiVersion: k8up.io/v1
+kind: PodConfig
+metadata:
+  name: immich-podconfig
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: database-backup
+          image: alpine:latest
+          command: ['sh', '-c']
+          args:
+            - |
+              set -ex
+
+              apk add --no-cache curl > /dev/null
+
+              API_URL="http://immich-server.immich.svc.cluster.local:2283/api"
+
+              echo "Fetching initial backup count..."
+              INITIAL_COUNT=$(curl -s -X GET "$API_URL/admin/database-backups" -H "x-api-key: $API_KEY" | grep -Eo 'filename' | wc -l)
+              echo "Initial database dump count: $INITIAL_COUNT"
+
+              echo "Triggering new database backup..."
+              curl -s -X POST "$API_URL/jobs" \
+                -H "x-api-key: $API_KEY" \
+                -H "Content-Type: application/json" \
+                -d '{"name":"backup-database"}' > /dev/null
+
+              echo "Waiting for the backup to complete..."
+
+              MAX_RETRIES=30
+              RETRY_INTERVAL=60
+              ATTEMPT=0
+
+              while [ $ATTEMPT -lt $MAX_RETRIES ]; do
+                CURRENT_COUNT=$(curl -s -X GET "$API_URL/admin/database-backups" -H "x-api-key: $API_KEY" | grep -Eo 'filename' | wc -l)
+
+                if [ "$CURRENT_COUNT" -gt "$INITIAL_COUNT" ]; then
+                  echo "Success: Backup completed! Count increased from $INITIAL_COUNT to $CURRENT_COUNT."
+                  exit 0
+                fi
+
+                ATTEMPT=$((ATTEMPT + 1))
+                echo "Still waiting... (Attempt $ATTEMPT/$MAX_RETRIES). Retrying in $RETRY_INTERVAL seconds."
+                sleep $RETRY_INTERVAL
+              done
+
+              echo "Error: Timeout reached. Backup didn't complete within $((MAX_RETRIES * RETRY_INTERVAL)) seconds."
+              exit 1
+          envFrom:
+            - secretRef:
+                name: immich-admin-api-key
+      containers:
+        - name: k8up-immich-backup-pod
