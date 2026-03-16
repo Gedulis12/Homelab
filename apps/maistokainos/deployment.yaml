@@ -7,6 +7,11 @@ metadata:
     app: maistokainos
 spec:
   replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   selector:
     matchLabels:
       app: maistokainos
@@ -31,6 +36,7 @@ spec:
       containers:
         - name: maistokainos
           image: gedulis12/maistokainos.lt:0.0.7
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8081
