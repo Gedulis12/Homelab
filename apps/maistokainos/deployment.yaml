@@ -28,7 +28,7 @@ spec:
         kubernetes.io/hostname: n200
       containers:
         - name: maistokainos
-          image: gedulis12/maistokainos.lt:0.0.9
+          image: gedulis12/maistokainos.lt:0.0.10
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
