@@ -56,7 +56,7 @@ annotationAutodiscovery:
   scrapeInterval: 30s
 
 autoInstrumentation:
-  enabled: false
+  enabled: true
   beyla:
     metricsTuning:
       excludeMetrics:
@@ -89,7 +89,7 @@ autoInstrumentation:
             - /readyz
 
 applicationObservability:
-  enabled: false
+  enabled: true
   receivers:
     otlp:
       grpc:
@@ -115,7 +115,7 @@ profiling:
   enabled: true
 
 alloy-receiver:
-  enabled: false
+  enabled: true
 
 alloy-profiles:
   enabled: true

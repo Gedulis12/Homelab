@@ -67,6 +67,13 @@ spec:
             operator: '='
             scope: span
             tag: name
+      tracesToLogsV2:
+        customQuery: false
+        datasourceUid: loki-main
+        filterBySpanID: true
+        filterByTraceID: true
+        spanStartTimeShift: 5s
+        spanEndTimeShift: 5s
       serviceMap:
         datasourceUid: prometheus-main
 
