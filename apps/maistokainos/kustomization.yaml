@@ -11,3 +11,9 @@ resources:
   - cronjob.yaml
   - service.yaml
   - cf-tunnel.yaml
+  - cloudnative-pg.yaml
+
+configMapGenerator:
+  - name: maistokainos-cm
+    envs:
+      - env.conf

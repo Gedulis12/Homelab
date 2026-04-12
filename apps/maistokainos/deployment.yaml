@@ -28,8 +28,32 @@ spec:
         kubernetes.io/hostname: n200
       containers:
         - name: maistokainos
-          image: gedulis12/maistokainos.lt:0.0.7
+          image: gedulis12/maistokainos.lt:0.0.9
           imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: maistokainos-cm
+          env:
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: maistokainos-database-app
+                  key: host
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: maistokainos-database-app
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: maistokainos-database-app
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: maistokainos-database-app
+                  key: dbname
           ports:
             - name: http
               containerPort: 8081
