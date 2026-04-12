@@ -5,6 +5,7 @@ metadata:
   name: maistokainos
   annotations:
     k8s.grafana.com/scrape: "true"
+    k8s.grafana.com/metrics.portName: "metrics"
 spec:
   selector:
     app: maistokainos
