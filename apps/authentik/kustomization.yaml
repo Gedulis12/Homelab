@@ -1,0 +1,16 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: authentik
+
+helmCharts:
+  - name: authentik
+    repo: https://charts.goauthentik.io
+    namespace: authentik
+    version: 2026.2.2
+    releaseName: authentik
+    valuesFile: values.yaml
+
+resources:
+  - cloudnative-pg.yaml
+  - sealed-secret.yaml

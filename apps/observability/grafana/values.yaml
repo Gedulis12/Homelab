@@ -2,6 +2,38 @@ grafana.ini:
   server:
     domain: grafana.g2net.xyz
     root_url: https://grafana.g2net.xyz
+  auth:
+    signout_redirect_url: "https://auth.g2net.xyz/application/o/grafana/end-session/"
+    oauth_auto_login: true
+  auth.generic_oauth:
+    name: authentik
+    enabled: true
+    client_id: $__file{/etc/secrets/auth_generic_oauth/client_id}
+    client_secret: $__file{/etc/secrets/auth_generic_oauth/client_secret}
+    scopes: "openid profile email entitlements"
+    auth_url: "https://auth.g2net.xyz/application/o/authorize/"
+    token_url: "https://auth.g2net.xyz/application/o/token/"
+    api_url: "https://auth.g2net.xyz/application/o/userinfo/"
+    role_attribute_path: contains(entitlements, 'Grafana Admins') && 'Admin' || contains(entitlements, 'Grafana Editors') && 'Editor' || 'Viewer'
+    allow_assign_grafana_admin: true
+    allow_sign_up: true
+  users:
+    allow_sign_up: true
+    auto_assign_org: true
+    auto_assign_org_id: 1
+
+extraSecretMounts:
+  - name: auth-generic-oauth-secret-mount
+    secretName: auth-generic-oauth-secret
+    defaultMode: 0440
+    mountPath: /etc/secrets/auth_generic_oauth
+    readOnly: true
+
+hostAliases:
+ - ip: "192.168.0.51"
+   hostnames:
+     - "auth.g2net.xyz"
+
 route:
   main:
     enabled: true
