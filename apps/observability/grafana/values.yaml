@@ -4,7 +4,7 @@ grafana.ini:
     root_url: https://grafana.g2net.xyz
   auth:
     signout_redirect_url: "https://auth.g2net.xyz/application/o/grafana/end-session/"
-    oauth_auto_login: true
+    oauth_auto_login: false
   auth.generic_oauth:
     name: authentik
     enabled: true
@@ -14,11 +14,11 @@ grafana.ini:
     auth_url: "https://auth.g2net.xyz/application/o/authorize/"
     token_url: "https://auth.g2net.xyz/application/o/token/"
     api_url: "https://auth.g2net.xyz/application/o/userinfo/"
-    role_attribute_path: contains(entitlements, 'Grafana Admins') && 'Admin' || contains(entitlements, 'Grafana Editors') && 'Editor' || 'Viewer'
+    role_attribute_path: contains(entitlements, 'Grafana Admins') && 'GrafanaAdmin' || contains(entitlements, 'Grafana Editors') && 'Editor' || 'Viewer'
     allow_assign_grafana_admin: true
     allow_sign_up: true
   users:
-    allow_sign_up: true
+    #allow_sign_up: true
     auto_assign_org: true
     auto_assign_org_id: 1
 
@@ -56,6 +56,7 @@ testFramework:
 
 plugins:
   - grafana-strava-datasource
+  - grafana-image-renderer
 
 env:
   # https://grafana.com/grafana/plugins/grafana-strava-datasource/
@@ -66,3 +67,6 @@ admin:
   existingSecret: grafana-admin-credentials
   userKey: admin-user
   passwordKey: admin-password
+
+imageRenderer:
+  enabled: true
