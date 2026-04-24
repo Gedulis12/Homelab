@@ -1,0 +1,29 @@
+postgresql:
+  enabled: false
+
+server:
+  metrics:
+    enabled: true
+    service:
+      annotations:
+        k8s.grafana.com/scrape: "true"
+  route:
+    main:
+      enabled: true
+      hostnames:
+        - auth.g2net.xyz
+      parentRefs:
+        - name: cilium-shared-gateway
+          namespace: kube-system
+          sectionName: https
+
+worker:
+  metrics:
+    enabled: true
+    service:
+      annotations:
+        k8s.grafana.com/scrape: "true"
+
+authentik:
+  existingSecret:
+    secretName: authentik

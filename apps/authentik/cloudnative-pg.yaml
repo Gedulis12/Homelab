@@ -1,0 +1,56 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: authentik-database
+spec:
+  bootstrap:
+    initdb:
+      database: app
+      owner: app
+      secret:
+        name: authentik-postgresql-password 
+  inheritedMetadata:
+    annotations:
+      k8s.grafana.com/scrape: "true"
+      k8s.grafana.com/metrics.portName: metrics
+  instances: 1
+  storage:
+    pvcTemplate:
+      storageClassName: ""
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 1Mi
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.9
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: authentik-database
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
+  claimRef:
+    name: authentik-database-1
+    namespace: authentik
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  nfs:
+    path: /mnt/fast/cnpg/authentik
+    server: 192.168.0.222
+  mountOptions:
+    - noatime
+    - vers=3
+    - soft
+    - timeo=600
+    - retrans=5
+    - rsize=8192
+    - wsize=8192
+    - lookupcache=none
+    - tcp
