@@ -14,3 +14,18 @@ patches:
       - op: add
         path: /metadata/annotations/k8s.grafana.com~1scrape
         value: "true"
+  - target:
+      kind: Deployment
+      name: sealed-secrets-controller
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: sealed-secrets-controller
+      spec:
+        template:
+          spec:
+            containers:
+              - name: sealed-secrets-controller
+                args:
+                  - "--key-renew-period=0"
