@@ -14,3 +14,4 @@ resources:
   - strava.yaml
   - tailscale.yaml
   - cloudnative-pg.yaml
+  - authentik.yaml
