@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         app: jellyfin
+      annotations:
+        instrumentation.opentelemetry.io/inject-dotnet: "observability/otel-instrumentation"
     spec:
       nodeSelector:
         kubernetes.io/hostname: n200
