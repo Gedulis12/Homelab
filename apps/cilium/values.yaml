@@ -29,16 +29,16 @@ hubble:
   relay:
     enabled: true
     prometheus:
-      enabled: true
+      enabled: false
       serviceMonitor:
-        enabled: true
+        enabled: false
         labels:
           release: kube-prometheus-stack
   metrics:
     dashbaords:
-      enabled: true
+      enabled: false
       namespace: observability
-    enableOpenMetrics: true
+    enableOpenMetrics: false
     enabled:
       - dns
       - drop
@@ -48,19 +48,19 @@ hubble:
       - icmp
       - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction
     serviceMonitor:
-      enabled: true
+      enabled: false
       labels:
         release: kube-prometheus-stack
 
 operator:
   dashboards:
-    enabled: true
+    enabled: false
     namespace: observability
   rollOutPods: true
   prometheus:
-    enabled: true
+    enabled: false
     serviceMonitor:
-      enabled: true
+      enabled: false
       labels:
         release: kube-prometheus-stack
 
@@ -93,17 +93,17 @@ gatewayAPI:
     create: "true"
 
 prometheus:
-  enabled: true
+  enabled: false
   serviceMonitor:
     trustCRDsExist: true
-    enabled: true
+    enabled: false
     labels:
       release: kube-prometheus-stack
 
 envoy:
   prometheus:
-    enabled: true
+    enabled: false
     serviceMonitor:
-      enabled: true
+      enabled: false
       labels:
         release: kube-prometheus-stack
