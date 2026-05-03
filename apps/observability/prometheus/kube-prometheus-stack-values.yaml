@@ -21,6 +21,7 @@ prometheus:
   prometheusSpec:
     retention: 120d
     enableRemoteWriteReceiver: true
+    enableOTLPReceiver: true
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
