@@ -1,0 +1,7 @@
+---
+manager:
+  metrics:
+    secure: false
+  autoInstrumentation:
+    go:
+      enabled: true

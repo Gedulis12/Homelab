@@ -1,0 +1,41 @@
+---
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
+metadata:
+  name: otel-instrumentation
+spec:
+  exporter:
+    endpoint: http://k8s-monitoring-alloy-receiver.observability.svc.cluster.local:4317
+
+  propagators:
+    - tracecontext
+    - baggage
+  sampler:
+    type: parentbased_traceidratio
+    argument: "1"
+  java:
+    env:
+      - name: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: http://k8s-monitoring-alloy-receiver.observability.svc.cluster.local:4318
+      - name: OTEL_RESOURCE_ATTRIBUTES
+        value: "span.metrics.skip=true"
+  dotnet:
+    env:
+      - name: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: http://k8s-monitoring-alloy-receiver.observability.svc.cluster.local:4318
+      - name: OTEL_RESOURCE_ATTRIBUTES
+        value: "span.metrics.skip=true"
+      - name: OTEL_DOTNET_AUTO_LOGS_ENABLED
+        value: "true"
+      - name: OTEL_DOTNET_AUTO_LOGS_INCLUDE_FORMATTED_MESSAGE
+        value: "true"
+  go:
+    env:
+      - name: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: http://k8s-monitoring-alloy-receiver.observability.svc.cluster.local:4318
+      - name: OTEL_RESOURCE_ATTRIBUTES
+        value: "span.metrics.skip=true"
+  nodejs:
+    env:
+      - name: OTEL_RESOURCE_ATTRIBUTES
+        value: 'span.metrics.skip=true'
