@@ -94,11 +94,15 @@ applicationObservability:
     otlp:
       grpc:
         enabled: true
+        includeMetadata: true
+      http:
+        enabled: true
+        includeMetadata: true
   connectors:
     spanLogs:
-      enabled: true
+      enabled: false
     spanMetrics:
-      enabled: true
+      enabled: false
 
 prometheusOperatorObjects:
   enabled: true
