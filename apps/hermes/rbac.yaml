@@ -133,5 +133,5 @@ roleRef:
   name: hermes-agent
 subjects:
   - kind: Group
-    name: tag:hermes-agent
+    name: hermes-agents
     apiGroup: rbac.authorization.k8s.io
