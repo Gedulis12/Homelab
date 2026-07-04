@@ -6,3 +6,6 @@ oauth:
 oauthSecretVolume:
   secret:
     secretName: tailscale-operator-oauth
+
+apiServerProxyConfig:
+  mode: "true"
