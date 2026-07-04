@@ -8,5 +8,6 @@ resources:
   - contactpoints.yaml
   - notification-policies.yaml
   - datasources.yaml
+  - service-account.yaml
   - monitoring-mixins
   - dashboards
