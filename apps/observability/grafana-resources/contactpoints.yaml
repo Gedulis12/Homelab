@@ -28,4 +28,3 @@ spec:
             secretKeyRef:
               name: grafana-operator-secrets
               key: telegram-chatid
-
