@@ -132,6 +132,6 @@ roleRef:
   kind: ClusterRole
   name: hermes-agent
 subjects:
-  - kind: ServiceAccount
-    name: hermes-agent
-    namespace: hermes
+  - kind: Group
+    name: tag:hermes-agent
+    apiGroup: rbac.authorization.k8s.io
