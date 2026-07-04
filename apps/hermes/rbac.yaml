@@ -23,6 +23,16 @@ rules:
       - list
       - watch
   - apiGroups:
+      - ""
+    resources:
+      - pods
+      - pods/log
+    verbs:
+      - get
+      - list
+      - watch
+      - delete
+  - apiGroups:
       - apps
     resources:
       - deployments
