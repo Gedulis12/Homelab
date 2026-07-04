@@ -7,8 +7,6 @@ rules:
       - ""
     resources:
       - namespaces
-      - pods
-      - pods/log
       - services
       - configmaps
       - endpoints
