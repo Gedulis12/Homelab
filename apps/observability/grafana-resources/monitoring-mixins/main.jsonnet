@@ -5,6 +5,15 @@ local components = {
     prefix: 'kubernetes',
     folder: 'Kubernetes',
     mixin: mixins.kubernetes,
+    // k3s bundles the scheduler, controller-manager, and kube-proxy into a single
+    // binary with no separate scrape targets for them, so these absent() alerts
+    // would always fire — they're not selector-fixable (no correct job label
+    // exists) like cert-manager's was, so drop them outright.
+    excludeGroups: [
+      'kubernetes-system-scheduler',
+      'kubernetes-system-controller-manager',
+      'kubernetes-system-kube-proxy',
+    ],
   },
   node: {
     prefix: 'node',
@@ -67,9 +76,13 @@ local k8sName(name) =
   );
 
 local mergedGroups(cfg) =
+  local excludeGroups = std.get(cfg, 'excludeGroups', []);
   local alertGroups = std.get(std.get(cfg.mixin, 'prometheusAlerts', {}), 'groups', []);
   local recordGroups = std.get(std.get(cfg.mixin, 'prometheusRules', {}), 'groups', []);
-  local allGroups = alertGroups + recordGroups;
+  local allGroups = std.filter(
+    function(g) !std.member(excludeGroups, g.name),
+    alertGroups + recordGroups
+  );
   local names = std.set(std.map(function(g) g.name, allGroups));
   std.map(
     function(name)
