@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: cilium-dashboard
 spec:
-  folder: Cilium
+  folderRef: cilium-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -18,7 +18,7 @@ kind: GrafanaDashboard
 metadata:
   name: cilium-operator-dashboard
 spec:
-  folder: Cilium
+  folderRef: cilium-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

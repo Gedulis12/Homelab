@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: qbittorrent
 spec:
-  folder: qBittorrent
+  folderRef: qbittorrent-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:

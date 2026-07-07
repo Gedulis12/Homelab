@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: node-exporter
 spec:
-  folder: Host and hardware
+  folderRef: node-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

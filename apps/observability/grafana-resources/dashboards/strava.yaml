@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: strava-activity-analysis
 spec:
-  folder: Strava
+  folderRef: strava-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
@@ -1124,7 +1124,7 @@ kind: GrafanaDashboard
 metadata:
   name: strava-activity-overview
 spec:
-  folder: Strava
+  folderRef: strava-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
@@ -3430,7 +3430,7 @@ kind: GrafanaDashboard
 metadata:
   name: strava-athlete-dashboard
 spec:
-  folder: Strava
+  folderRef: strava-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
@@ -5039,7 +5039,7 @@ kind: GrafanaDashboard
 metadata:
   name: strava-datasource
 spec:
-  folder: Strava
+  folderRef: strava-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
@@ -5991,7 +5991,7 @@ kind: GrafanaDashboard
 metadata:
   name: strava-segment-overview
 spec:
-  folder: Strava
+  folderRef: strava-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:

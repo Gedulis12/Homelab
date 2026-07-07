@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: kube-state-metrics-v2
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

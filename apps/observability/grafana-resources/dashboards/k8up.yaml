@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8up
 spec:
-  folder: k8up
+  folderRef: k8up-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

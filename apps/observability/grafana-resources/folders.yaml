@@ -1,0 +1,87 @@
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: authentik-folder
+spec:
+  title: authentik
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: app-o11y-folder
+spec:
+  title: "App o11y"
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: k8up-folder
+spec:
+  title: k8up
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: home-folder
+spec:
+  title: Home
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: qbittorrent-folder
+spec:
+  title: qBittorrent
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: strava-folder
+spec:
+  title: Strava
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: tailscale-folder
+spec:
+  title: Tailscale
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: cloudnativepg-folder
+spec:
+  title: CloudnativePG
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"

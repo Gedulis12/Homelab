@@ -9,5 +9,6 @@ resources:
   - notification-policies.yaml
   - datasources.yaml
   - service-account.yaml
+  - folders.yaml
   - monitoring-mixins
   - dashboards

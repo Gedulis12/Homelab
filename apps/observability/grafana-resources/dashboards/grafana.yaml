@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: grafana-internal-stats
 spec:
-  folder: Grafana
+  folderRef: grafana-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

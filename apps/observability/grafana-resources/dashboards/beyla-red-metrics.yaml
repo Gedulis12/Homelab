@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: beyla-red-metrics
 spec:
-  folder: "App o11y"
+  folderRef: app-o11y-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
