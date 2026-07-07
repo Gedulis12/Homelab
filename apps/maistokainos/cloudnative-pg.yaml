@@ -13,7 +13,6 @@ spec:
     parameters:
       shared_buffers: "512MB"
       work_mem: "64MB"
-      effective_cache_size: "1536MB"
   resources:
     requests:
       memory: "768Mi"
