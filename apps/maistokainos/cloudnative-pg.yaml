@@ -9,6 +9,15 @@ spec:
       k8s.grafana.com/scrape: "true"
       k8s.grafana.com/metrics.portName: metrics
   instances: 1
+  postgresql:
+    parameters:
+      shared_buffers: "512MB"
+      work_mem: "64MB"
+      effective_cache_size: "1536MB"
+  resources:
+    requests:
+      memory: "768Mi"
+      cpu: "250m"
   storage:
     pvcTemplate:
       storageClassName: ""
