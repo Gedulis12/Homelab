@@ -9,6 +9,16 @@ spec:
       k8s.grafana.com/scrape: "true"
       k8s.grafana.com/metrics.portName: metrics
   instances: 1
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: app
+                operator: In
+                values:
+                  - maistokainos
+          topologyKey: kubernetes.io/hostname
   postgresql:
     parameters:
       shared_buffers: "512MB"
