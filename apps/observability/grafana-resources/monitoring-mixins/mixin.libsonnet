@@ -30,7 +30,11 @@ local node =
   };
 
 local alloy = (import 'alloy-mixin/mixin.libsonnet');
-local certManager = (import 'cert-manager-mixin/mixin.libsonnet');
+local certManager = (import 'cert-manager-mixin/mixin.libsonnet') {
+  _config+:: {
+    certManagerJobLabel: 'integrations/cert-manager',
+  },
+};
 local cilium = (import 'cilium-enterprise-mixin/mixin.libsonnet');
 local goRuntime = (import 'go-runtime-mixin/mixin.libsonnet');
 local grafana = (import 'grafana-mixin/mixin.libsonnet');
