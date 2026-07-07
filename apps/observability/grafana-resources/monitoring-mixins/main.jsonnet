@@ -168,40 +168,44 @@ local convertRule(cfg, groupName, rule) =
       labels: { __converted_prometheus_rule__: 'true' },
     };
 
+// The sole owner of cfg.folder's folder in Grafana — one per component, created
+// fresh (no spec.uid: this repo's pre-existing same-titled folders are deleted as
+// part of adopting this pipeline, precisely so there's no title collision and the
+// operator creates each folder itself rather than ambiguously "adopting" one it
+// didn't create — see https://grafana.github.io/grafana-operator/docs/examples/folder/).
+// Both alertRuleGroupResources and dashboardResources reference it via folderRef;
+// nothing in this pipeline hardcodes or fetches a Grafana folder UID.
+local folderResource(cfg) =
+  {
+    apiVersion: 'grafana.integreatly.org/v1beta1',
+    kind: 'GrafanaFolder',
+    metadata: { name: k8sName(cfg.prefix + '-mixin-folder') },
+    spec: {
+      title: cfg.folder,
+      instanceSelector: { matchLabels: { dashboards: 'grafana' } },
+    },
+  };
+
 local alertRuleGroupResources(cfg) =
   local groups = mergedGroups(cfg);
-  if std.length(groups) > 0 then
-    [
+  std.map(
+    function(g)
       {
         apiVersion: 'grafana.integreatly.org/v1beta1',
-        kind: 'GrafanaFolder',
-        metadata: { name: k8sName(cfg.prefix + '-mixin-folder') },
+        kind: 'GrafanaAlertRuleGroup',
+        metadata: { name: k8sName(cfg.prefix + '-' + g.name + '-mixin-rules') },
         spec: {
-          title: cfg.folder,
+          folderRef: k8sName(cfg.prefix + '-mixin-folder'),
+          interval:
+            if g.interval == null then '1m'
+            else if std.isNumber(g.interval) then '%ds' % g.interval
+            else g.interval,
           instanceSelector: { matchLabels: { dashboards: 'grafana' } },
+          rules: std.map(function(r) convertRule(cfg, g.name, r), g.rules),
         },
       },
-    ] +
-    std.map(
-      function(g)
-        {
-          apiVersion: 'grafana.integreatly.org/v1beta1',
-          kind: 'GrafanaAlertRuleGroup',
-          metadata: { name: k8sName(cfg.prefix + '-' + g.name + '-mixin-rules') },
-          spec: {
-            folderRef: k8sName(cfg.prefix + '-mixin-folder'),
-            interval:
-              if g.interval == null then '1m'
-              else if std.isNumber(g.interval) then '%ds' % g.interval
-              else g.interval,
-            instanceSelector: { matchLabels: { dashboards: 'grafana' } },
-            rules: std.map(function(r) convertRule(cfg, g.name, r), g.rules),
-          },
-        },
-      groups
-    )
-  else
-    [];
+    groups
+  );
 
 
 local dashboardResources(cfg) =
@@ -233,7 +237,7 @@ local dashboardResources(cfg) =
               kind: 'GrafanaDashboard',
               metadata: { name: k8sName(baseName) },
               spec: {
-                folder: cfg.folder,
+                folderRef: k8sName(cfg.prefix + '-mixin-folder'),
                 instanceSelector: {
                   matchLabels: { dashboards: 'grafana' },
                 },
@@ -253,6 +257,8 @@ local dashboardResources(cfg) =
 {
   components: std.mapWithKey(
     function(name, cfg)
+      [folderResource(cfg)]
+      +
       alertRuleGroupResources(cfg)
       +
       dashboardResources(cfg),
@@ -263,6 +269,8 @@ local dashboardResources(cfg) =
     std.flattenArrays(
       std.map(
         function(name)
+          [folderResource(components[name])]
+          +
           alertRuleGroupResources(components[name])
           +
           dashboardResources(components[name]),
