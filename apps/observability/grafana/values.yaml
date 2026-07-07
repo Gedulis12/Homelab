@@ -70,3 +70,6 @@ admin:
 
 imageRenderer:
   enabled: true
+
+nodeSelector:
+  kubernetes.io/hostname: n200
