@@ -15,6 +15,13 @@ spec:
     path: apps/observability/prometheus
     repoURL: https://github.com/gedulis12/homelab
     targetRevision: HEAD
+  ignoreDifferences:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      jsonPointers:
+        - /spec/parentRefs/0/group
+        - /spec/parentRefs/0/kind
+        - /spec/rules/0/matches
   syncPolicy:
     automated:
       allowEmpty: true
