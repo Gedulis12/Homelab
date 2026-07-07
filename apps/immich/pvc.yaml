@@ -34,12 +34,7 @@ spec:
     server: 192.168.0.135
   mountOptions:
     - noatime
-    - vers=3
-    - soft
+    - hard
     - nolock
     - timeo=600
-    - retrans=5
-    - rsize=8192
-    - wsize=8192
-    - lookupcache=none
-    - tcp
+    - retrans=2

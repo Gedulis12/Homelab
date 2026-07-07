@@ -18,14 +18,9 @@ spec:
     server: 192.168.0.222
   mountOptions:
     - noatime
-    - vers=3
-    - soft
+    - hard
     - timeo=600
-    - retrans=5
-    - rsize=8192
-    - wsize=8192
-    - lookupcache=none
-    - tcp
+    - retrans=2
 
 ---
 apiVersion: v1
@@ -61,11 +56,6 @@ spec:
     server: 192.168.0.222
   mountOptions:
     - noatime
-    - vers=3
-    - soft
+    - hard
     - timeo=600
-    - retrans=5
-    - rsize=8192
-    - wsize=8192
-    - lookupcache=none
-    - tcp
+    - retrans=2
