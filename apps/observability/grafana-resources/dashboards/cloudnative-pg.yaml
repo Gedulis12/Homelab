@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: cloudnative-pg
 spec:
-  folder: CloudnativePG
+  folderRef: cloudnativepg-folder
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:

@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: tailscale-machine
 spec:
-  folder: Tailscale
+  folderRef: tailscale-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -20,7 +20,7 @@ kind: GrafanaDashboard
 metadata:
   name: tailscale-overview
 spec:
-  folder: Tailscale
+  folderRef: tailscale-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"

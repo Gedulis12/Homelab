@@ -4,7 +4,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-views-pods
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -20,7 +20,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-views-namespaces
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -36,7 +36,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-views-nodes
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -52,7 +52,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-views-global
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -68,7 +68,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-views-nodes-list
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -86,7 +86,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-views-k3s-cluster
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -102,7 +102,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-system-api-server
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -118,7 +118,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-system-coredns
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
@@ -134,7 +134,7 @@ kind: GrafanaDashboard
 metadata:
   name: k8s-dashboard
 spec:
-  folder: Kubernetes
+  folderRef: kubernetes-mixin-folder
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
