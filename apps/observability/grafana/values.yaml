@@ -21,6 +21,8 @@ grafana.ini:
     #allow_sign_up: true
     auto_assign_org: true
     auto_assign_org_id: 1
+  recording_rules:
+    default_datasource_uid: prometheus-main
 
 extraSecretMounts:
   - name: auth-generic-oauth-secret-mount
