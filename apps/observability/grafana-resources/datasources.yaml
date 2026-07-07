@@ -17,6 +17,14 @@ spec:
     uid: prometheus-main
     jsonData:
       "timeInterval": "60s"
+      # Grafana's recording-rule remote-write path selection reads this field
+      # (pkg/services/ngalert/writer/datasourcewriter.go getRemoteWriteURL) to
+      # decide between Prometheus's /api/v1/write and a Mimir/Cortex-style
+      # /api/v1/push path. Normally auto-detected by the UI's "Save & Test"
+      # buildinfo probe, which never runs for CR-provisioned datasources, so
+      # recording rules remote-write 404 (hitting a push path that doesn't
+      # exist on plain Prometheus) unless set explicitly.
+      "prometheusType": "Prometheus"
 
 ---
 apiVersion: grafana.integreatly.org/v1beta1
