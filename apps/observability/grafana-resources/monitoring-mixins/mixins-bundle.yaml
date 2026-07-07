@@ -917,7 +917,7 @@
   "configMapRef":
     "key": "alloy-cluster-node.json"
     "name": "alloy-mixins-alloy-cluster-node"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -939,7 +939,7 @@
   "configMapRef":
     "key": "alloy-cluster-overview.json"
     "name": "alloy-mixins-alloy-cluster-overview"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -961,7 +961,7 @@
   "configMapRef":
     "key": "alloy-controller.json"
     "name": "alloy-mixins-alloy-controller"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -983,7 +983,7 @@
   "configMapRef":
     "key": "alloy-logs.json"
     "name": "alloy-mixins-alloy-logs"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1005,7 +1005,7 @@
   "configMapRef":
     "key": "alloy-loki.json"
     "name": "alloy-mixins-alloy-loki"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1027,7 +1027,7 @@
   "configMapRef":
     "key": "alloy-opentelemetry.json"
     "name": "alloy-mixins-alloy-opentelemetry"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1049,7 +1049,7 @@
   "configMapRef":
     "key": "alloy-otel-engine-overview.json"
     "name": "alloy-mixins-alloy-otel-engine-overview"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1071,7 +1071,7 @@
   "configMapRef":
     "key": "alloy-prometheus-remote-write.json"
     "name": "alloy-mixins-alloy-prometheus-remote-write"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1093,7 +1093,7 @@
   "configMapRef":
     "key": "alloy-resources.json"
     "name": "alloy-mixins-alloy-resources"
-  "folder": "Alloy"
+  "folderRef": "alloy-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1312,7 +1312,7 @@
   "configMapRef":
     "key": "argocd-overview.json"
     "name": "argocd-mixins-argocd-overview"
-  "folder": "Argocd"
+  "folderRef": "argocd-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -1616,7 +1616,7 @@
   "configMapRef":
     "key": "cert-manager-overview.json"
     "name": "cert-manager-mixins-cert-manager-overview"
-  "folder": "Cert manager"
+  "folderRef": "cert-manager-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3126,7 +3126,7 @@
   "configMapRef":
     "key": "cilium-L3-policy.json"
     "name": "cilium-mixins-cilium-L3-policy"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3148,7 +3148,7 @@
   "configMapRef":
     "key": "cilium-L7-proxy.json"
     "name": "cilium-mixins-cilium-L7-proxy"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3170,7 +3170,7 @@
   "configMapRef":
     "key": "cilium-agent-overview.json"
     "name": "cilium-mixins-cilium-agent-overview"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3192,7 +3192,7 @@
   "configMapRef":
     "key": "cilium-agent.json"
     "name": "cilium-mixins-cilium-agent"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3214,7 +3214,7 @@
   "configMapRef":
     "key": "cilium-api.json"
     "name": "cilium-mixins-cilium-api"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3236,7 +3236,7 @@
   "configMapRef":
     "key": "cilium-bpf.json"
     "name": "cilium-mixins-cilium-bpf"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3258,7 +3258,7 @@
   "configMapRef":
     "key": "cilium-conntrack.json"
     "name": "cilium-mixins-cilium-conntrack"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3280,7 +3280,7 @@
   "configMapRef":
     "key": "cilium-datapath.json"
     "name": "cilium-mixins-cilium-datapath"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3302,7 +3302,7 @@
   "configMapRef":
     "key": "cilium-external-fqdn-proxy.json"
     "name": "cilium-mixins-cilium-external-fqdn-proxy"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3324,7 +3324,7 @@
   "configMapRef":
     "key": "cilium-fqdn-proxy.json"
     "name": "cilium-mixins-cilium-fqdn-proxy"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3346,7 +3346,7 @@
   "configMapRef":
     "key": "cilium-identities.json"
     "name": "cilium-mixins-cilium-identities"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3368,7 +3368,7 @@
   "configMapRef":
     "key": "cilium-kubernetes.json"
     "name": "cilium-mixins-cilium-kubernetes"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3390,7 +3390,7 @@
   "configMapRef":
     "key": "cilium-network.json"
     "name": "cilium-mixins-cilium-network"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3412,7 +3412,7 @@
   "configMapRef":
     "key": "cilium-nodes.json"
     "name": "cilium-mixins-cilium-nodes"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3434,7 +3434,7 @@
   "configMapRef":
     "key": "cilium-operator.json"
     "name": "cilium-mixins-cilium-operator"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3456,7 +3456,7 @@
   "configMapRef":
     "key": "cilium-overview.json"
     "name": "cilium-mixins-cilium-overview"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3478,7 +3478,7 @@
   "configMapRef":
     "key": "cilium-policy.json"
     "name": "cilium-mixins-cilium-policy"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3500,7 +3500,7 @@
   "configMapRef":
     "key": "cilium-resource-utilization.json"
     "name": "cilium-mixins-cilium-resource-utilization"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3522,7 +3522,7 @@
   "configMapRef":
     "key": "hubble-overview.json"
     "name": "cilium-mixins-hubble-overview"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -3544,7 +3544,7 @@
   "configMapRef":
     "key": "hubble-timescape.json"
     "name": "cilium-mixins-hubble-timescape"
-  "folder": "Cilium"
+  "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -4148,10 +4148,20 @@
   "configMapRef":
     "key": "coredns.json"
     "name": "coredns-mixins-coredns"
-  "folder": "Coredns"
+  "folderRef": "coredns-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
+---
+"apiVersion": "grafana.integreatly.org/v1beta1"
+"kind": "GrafanaFolder"
+"metadata":
+  "name": "go-runtime-mixin-folder"
+"spec":
+  "instanceSelector":
+    "matchLabels":
+      "dashboards": "grafana"
+  "title": "Go runtime"
 ---
 "apiVersion": "v1"
 "data":
@@ -4170,7 +4180,7 @@
   "configMapRef":
     "key": "go-runtime.json"
     "name": "go-runtime-mixins-go-runtime"
-  "folder": "Go runtime"
+  "folderRef": "go-runtime-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -4316,7 +4326,7 @@
   "configMapRef":
     "key": "grafana-overview.json"
     "name": "grafana-mixins-grafana-overview"
-  "folder": "Grafana"
+  "folderRef": "grafana-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11080,7 +11090,7 @@
   "configMapRef":
     "key": "apiserver.json"
     "name": "kubernetes-mixins-apiserver"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11102,7 +11112,7 @@
   "configMapRef":
     "key": "cluster-total.json"
     "name": "kubernetes-mixins-cluster-total"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11124,7 +11134,7 @@
   "configMapRef":
     "key": "controller-manager.json"
     "name": "kubernetes-mixins-controller-manager"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11146,7 +11156,7 @@
   "configMapRef":
     "key": "k8s-resources-cluster.json"
     "name": "kubernetes-mixins-k8s-resources-cluster"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11168,7 +11178,7 @@
   "configMapRef":
     "key": "k8s-resources-namespace.json"
     "name": "kubernetes-mixins-k8s-resources-namespace"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11190,7 +11200,7 @@
   "configMapRef":
     "key": "k8s-resources-node.json"
     "name": "kubernetes-mixins-k8s-resources-node"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11212,7 +11222,7 @@
   "configMapRef":
     "key": "k8s-resources-pod.json"
     "name": "kubernetes-mixins-k8s-resources-pod"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11234,7 +11244,7 @@
   "configMapRef":
     "key": "k8s-resources-windows-cluster.json"
     "name": "kubernetes-mixins-k8s-resources-windows-cluster"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11256,7 +11266,7 @@
   "configMapRef":
     "key": "k8s-resources-windows-namespace.json"
     "name": "kubernetes-mixins-k8s-resources-windows-namespace"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11278,7 +11288,7 @@
   "configMapRef":
     "key": "k8s-resources-windows-pod.json"
     "name": "kubernetes-mixins-k8s-resources-windows-pod"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11300,7 +11310,7 @@
   "configMapRef":
     "key": "k8s-resources-workload.json"
     "name": "kubernetes-mixins-k8s-resources-workload"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11322,7 +11332,7 @@
   "configMapRef":
     "key": "k8s-resources-workloads-namespace.json"
     "name": "kubernetes-mixins-k8s-resources-workloads-namespace"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11344,7 +11354,7 @@
   "configMapRef":
     "key": "k8s-windows-cluster-rsrc-use.json"
     "name": "kubernetes-mixins-k8s-windows-cluster-rsrc-use"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11366,7 +11376,7 @@
   "configMapRef":
     "key": "k8s-windows-node-rsrc-use.json"
     "name": "kubernetes-mixins-k8s-windows-node-rsrc-use"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11388,7 +11398,7 @@
   "configMapRef":
     "key": "kubelet.json"
     "name": "kubernetes-mixins-kubelet"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11410,7 +11420,7 @@
   "configMapRef":
     "key": "namespace-by-pod.json"
     "name": "kubernetes-mixins-namespace-by-pod"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11432,7 +11442,7 @@
   "configMapRef":
     "key": "namespace-by-workload.json"
     "name": "kubernetes-mixins-namespace-by-workload"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11454,7 +11464,7 @@
   "configMapRef":
     "key": "persistentvolumesusage.json"
     "name": "kubernetes-mixins-persistentvolumesusage"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11476,7 +11486,7 @@
   "configMapRef":
     "key": "pod-total.json"
     "name": "kubernetes-mixins-pod-total"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11498,7 +11508,7 @@
   "configMapRef":
     "key": "proxy.json"
     "name": "kubernetes-mixins-proxy"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11520,7 +11530,7 @@
   "configMapRef":
     "key": "scheduler.json"
     "name": "kubernetes-mixins-scheduler"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -11542,7 +11552,7 @@
   "configMapRef":
     "key": "workload-total.json"
     "name": "kubernetes-mixins-workload-total"
-  "folder": "Kubernetes"
+  "folderRef": "kubernetes-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12478,7 +12488,7 @@
   "configMapRef":
     "key": "loki-bloom-build.json"
     "name": "loki-mixins-loki-bloom-build"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12500,7 +12510,7 @@
   "configMapRef":
     "key": "loki-bloom-gateway.json"
     "name": "loki-mixins-loki-bloom-gateway"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12522,7 +12532,7 @@
   "configMapRef":
     "key": "loki-chunks.json"
     "name": "loki-mixins-loki-chunks"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12544,7 +12554,7 @@
   "configMapRef":
     "key": "loki-deletion.json"
     "name": "loki-mixins-loki-deletion"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12566,7 +12576,7 @@
   "configMapRef":
     "key": "loki-logs.json"
     "name": "loki-mixins-loki-logs"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12588,7 +12598,7 @@
   "configMapRef":
     "key": "loki-mixin-recording-rules.json"
     "name": "loki-mixins-loki-mixin-recording-rules"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12610,7 +12620,7 @@
   "configMapRef":
     "key": "loki-operational.json"
     "name": "loki-mixins-loki-operational"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12632,7 +12642,7 @@
   "configMapRef":
     "key": "loki-reads-resources.json"
     "name": "loki-mixins-loki-reads-resources"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12654,7 +12664,7 @@
   "configMapRef":
     "key": "loki-reads.json"
     "name": "loki-mixins-loki-reads"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12676,7 +12686,7 @@
   "configMapRef":
     "key": "loki-retention.json"
     "name": "loki-mixins-loki-retention"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12698,7 +12708,7 @@
   "configMapRef":
     "key": "loki-thanos-object-storage.json"
     "name": "loki-mixins-loki-thanos-object-storage"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12720,7 +12730,7 @@
   "configMapRef":
     "key": "loki-writes-resources.json"
     "name": "loki-mixins-loki-writes-resources"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -12742,7 +12752,7 @@
   "configMapRef":
     "key": "loki-writes.json"
     "name": "loki-mixins-loki-writes"
-  "folder": "Loki"
+  "folderRef": "loki-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -14872,7 +14882,7 @@
   "configMapRef":
     "key": "node-cluster-rsrc-use.json"
     "name": "node-mixins-node-cluster-rsrc-use"
-  "folder": "Host and hardware"
+  "folderRef": "node-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -14894,7 +14904,7 @@
   "configMapRef":
     "key": "node-rsrc-use.json"
     "name": "node-mixins-node-rsrc-use"
-  "folder": "Host and hardware"
+  "folderRef": "node-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -14916,7 +14926,7 @@
   "configMapRef":
     "key": "nodes-aix.json"
     "name": "node-mixins-nodes-aix"
-  "folder": "Host and hardware"
+  "folderRef": "node-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -14938,7 +14948,7 @@
   "configMapRef":
     "key": "nodes-darwin.json"
     "name": "node-mixins-nodes-darwin"
-  "folder": "Host and hardware"
+  "folderRef": "node-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -14960,7 +14970,7 @@
   "configMapRef":
     "key": "nodes.json"
     "name": "node-mixins-nodes"
-  "folder": "Host and hardware"
+  "folderRef": "node-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -16414,7 +16424,7 @@
   "configMapRef":
     "key": "prometheus-remote-write.json"
     "name": "prometheus-mixins-prometheus-remote-write"
-  "folder": "Prometheus"
+  "folderRef": "prometheus-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
@@ -16436,7 +16446,7 @@
   "configMapRef":
     "key": "prometheus.json"
     "name": "prometheus-mixins-prometheus"
-  "folder": "Prometheus"
+  "folderRef": "prometheus-mixin-folder"
   "instanceSelector":
     "matchLabels":
       "dashboards": "grafana"
