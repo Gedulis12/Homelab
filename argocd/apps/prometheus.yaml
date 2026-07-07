@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: observability
+  name: prometheus
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
     namespace: observability
     server: https://kubernetes.default.svc
   source:
-    path: apps/observability
+    path: apps/observability/prometheus
     repoURL: https://github.com/gedulis12/homelab
     targetRevision: HEAD
   syncPolicy:
