@@ -32,12 +32,10 @@ spec:
                 /opt/itarmykit-headless/kit-headless-supervisor identity opt-in 1
               fi
               /opt/itarmykit-headless/kit-headless-supervisor settings set proxy 1
+              /opt/itarmykit-headless/kit-headless-supervisor settings set cpuLimitPercent 30
+              /opt/itarmykit-headless/kit-headless-supervisor settings set bandwidthLimitMbps 100
               exec /opt/itarmykit-headless/kit-headless-supervisor run
           env:
-            - name: KIT_CPU_LIMIT_PERCENT
-              value: "30"
-            - name: KIT_BANDWIDTH_LIMIT_MBPS
-              value: "100"
             - name: PARTICIPANT_ID
               valueFrom:
                 secretKeyRef:
