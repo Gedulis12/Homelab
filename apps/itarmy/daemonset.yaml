@@ -31,6 +31,7 @@ spec:
                 /opt/itarmykit-headless/kit-headless-supervisor identity set-api-key "$API_KEY"
                 /opt/itarmykit-headless/kit-headless-supervisor identity opt-in 1
               fi
+              /opt/itarmykit-headless/kit-headless-supervisor settings set proxy 1
               exec /opt/itarmykit-headless/kit-headless-supervisor run
           env:
             - name: KIT_CPU_LIMIT_PERCENT
