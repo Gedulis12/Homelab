@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: itarmy
+  labels:
+    app: itarmy
+spec:
+  selector:
+    matchLabels:
+      app: itarmy
+  template:
+    metadata:
+      labels:
+        app: itarmy
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      tolerations:
+        - operator: Exists
+      containers:
+        - name: itarmykit
+          image: registry.download.itarmy.com.ua/itarmykit-headless:2.2.8
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -c
+            - |
+              if [ -n "$PARTICIPANT_ID" ] && [ -n "$API_KEY" ]; then
+                /opt/itarmykit-headless/kit-headless-supervisor identity set-participant-id "$PARTICIPANT_ID"
+                /opt/itarmykit-headless/kit-headless-supervisor identity set-api-key "$API_KEY"
+                /opt/itarmykit-headless/kit-headless-supervisor identity opt-in 1
+              fi
+              exec /opt/itarmykit-headless/kit-headless-supervisor run
+          env:
+            - name: KIT_CPU_LIMIT_PERCENT
+              value: "30"
+            - name: KIT_BANDWIDTH_LIMIT_MBPS
+              value: "100"
+            - name: PARTICIPANT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: itarmy-identity
+                  key: participant-id
+                  optional: true
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: itarmy-identity
+                  key: api-key
+                  optional: true
