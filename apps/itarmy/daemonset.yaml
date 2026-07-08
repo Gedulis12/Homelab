@@ -38,6 +38,7 @@ spec:
               exec /opt/itarmykit-headless/kit-headless-supervisor run
           securityContext:
             privileged: true
+            runAsUser: 0
           env:
             - name: PARTICIPANT_ID
               valueFrom:
