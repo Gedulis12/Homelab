@@ -34,7 +34,10 @@ spec:
               /opt/itarmykit-headless/kit-headless-supervisor settings set proxy 1
               /opt/itarmykit-headless/kit-headless-supervisor settings set cpuLimitPercent 30
               /opt/itarmykit-headless/kit-headless-supervisor settings set bandwidthLimitMbps 100
+              /opt/itarmykit-headless/kit-headless-supervisor settings set enableSyn 1
               exec /opt/itarmykit-headless/kit-headless-supervisor run
+          securityContext:
+            privileged: true
           env:
             - name: PARTICIPANT_ID
               valueFrom:
