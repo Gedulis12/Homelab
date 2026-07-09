@@ -8,11 +8,13 @@ rules:
     resources:
       - pods
       - pods/log
+      - pods/exec
     verbs:
       - get
       - list
       - watch
       - delete
+      - create
   - apiGroups:
       - "*"
     resources:
