@@ -18,6 +18,11 @@ spec:
         kubernetes.io/os: linux
       tolerations:
         - operator: Exists
+      volumes:
+        - name: itarmy-data
+          hostPath:
+            path: /opt/itarmykit/
+            type: DirectoryOrCreate
       containers:
         - name: itarmykit
           image: registry.download.itarmy.com.ua/itarmykit-headless:2.2.8
@@ -36,6 +41,9 @@ spec:
               /opt/itarmykit-headless/kit-headless-supervisor settings set bandwidthLimitMbps 100
               /opt/itarmykit-headless/kit-headless-supervisor settings set enableSyn 1
               exec /opt/itarmykit-headless/kit-headless-supervisor run
+          volumeMounts:
+            - name: itarmy-data
+              mountPath: /var/lib/itarmykit-headless/
           securityContext:
             privileged: true
             runAsUser: 0
