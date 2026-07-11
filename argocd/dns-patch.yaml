@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-server
+spec:
+  template:
+    spec:
+      hostAliases:
+        - ip: "192.168.0.51"
+          hostnames:
+            - "auth.g2net.xyz"
