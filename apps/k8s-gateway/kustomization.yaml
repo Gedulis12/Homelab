@@ -8,6 +8,6 @@ helmCharts:
   - name: k8s-gateway
     repo: https://k8s-gateway.github.io/k8s_gateway/
     namespace: kube-system
-    version: 3.2.7
+    version: 3.7.2
     releaseName: excoredns
     valuesFile: values.yaml
