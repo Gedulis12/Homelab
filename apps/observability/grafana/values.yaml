@@ -59,6 +59,7 @@ testFramework:
 plugins:
   - grafana-strava-datasource
   - grafana-image-renderer
+  - grafana-lokioperational-app
 
 env:
   # https://grafana.com/grafana/plugins/grafana-strava-datasource/
