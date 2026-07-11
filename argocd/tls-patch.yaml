@@ -5,3 +5,9 @@ metadata:
   name: argocd-cmd-params-cm
 data:
   server.insecure: "true"
+  # Controller: number of status processors (default 20)
+  controller.status.processors: "40"
+  # Controller: number of operation processors (default 10)
+  controller.operation.processors: "20"
+  # Server: webhook refresh workers (default 20)
+  server.webhook.refresh.workers: "30"
