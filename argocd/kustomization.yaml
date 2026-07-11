@@ -26,7 +26,7 @@ patches:
         path: /data/oidc.config
         value: |
           name: Authentik
-          issuer: https://auth.g2net.xyz/application/o/argocd/
+          issuer: https://auth.g2net.xyz/application/o/argo-cd/
           clientID: $argocd-oidc-secret:client-id
           clientSecret: $argocd-oidc-secret:client-secret
           requestedScopes: ["openid", "profile", "email", "entitlements"]
