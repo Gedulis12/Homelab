@@ -74,5 +74,11 @@ admin:
 imageRenderer:
   enabled: true
 
+extraSecretMounts:
+  - name: loki-operational-plugin-provisioning
+    mountPath: /etc/grafana/provisioning/plugins
+    secretName: loki-operational-plugin-provisioning
+    readOnly: true
+
 nodeSelector:
   kubernetes.io/hostname: n200
