@@ -8,6 +8,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.0/manifests/install.yaml
   - httproute.yaml
   - apps/app-of-apps.yaml
+  - oidc-sealed-secret.yaml
 
 patches:
   - target:
@@ -18,6 +19,23 @@ patches:
       - op: add
         path: /data/kustomize.buildOptions
         value: --enable-helm
+      - op: add
+        path: /data/url
+        value: https://argocd.g2net.xyz
+      - op: add
+        path: /data/oidc.config
+        value: |
+          name: Authentik
+          issuer: https://auth.g2net.xyz/application/o/argocd/
+          clientID: $argocd-oidc-secret:client-id
+          clientSecret: $argocd-oidc-secret:client-secret
+          requestedScopes: ["openid", "profile", "email", "entitlements"]
+          requestedIDTokenClaims: {"groups": {"essential": true}, "entitlements": {"essential": true}}
+  - target:
+      kind: ConfigMap
+      name: argocd-rbac-cm
+      version: v1
+    path: rbac-cm-patch.yaml
   - target:
       version: v1
       kind: Service
