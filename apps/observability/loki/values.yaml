@@ -1,5 +1,7 @@
 ---
 loki:
+  ui:
+    enabled: true
   commonConfig:
     replication_factor: 1
   schemaConfig:
