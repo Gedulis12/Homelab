@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
         - name: prowlarr-sqlite-dump
-          image: alpine/sqlite:3.51.2
+          image: alpine/sqlite:3.53.2
           command:
             - 'sleep'
             - 'infinity'
