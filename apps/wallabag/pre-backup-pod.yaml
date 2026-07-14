@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: wallabag-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /data/db/wallabag.sqlite ".clone /tmp/copy.sqlite" && sqlite3 /tmp/copy.sqlite .dump'
+  backupCommand: sh -c 'sqlite3 /data/db/wallabag.sqlite ".timeout 30000" ".backup /tmp/backup.sqlite" && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:

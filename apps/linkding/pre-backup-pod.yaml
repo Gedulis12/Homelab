@@ -6,7 +6,7 @@ metadata:
   labels:
     name: linkding
 spec:
-  backupCommand: sh -c 'sqlite3 /data/db.sqlite3 ".clone /tmp/copy.sqlite" && sqlite3 /tmp/copy.sqlite .dump'
+  backupCommand: sh -c 'sqlite3 /data/db.sqlite3 ".timeout 30000" ".backup /tmp/backup.sqlite" && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:
@@ -33,7 +33,7 @@ metadata:
   labels:
     name: linkding
 spec:
-  backupCommand: sh -c 'sqlite3 /data/tasks.sqlite3 ".clone /tmp/copy.sqlite" && sqlite3 /tmp/copy.sqlite .dump'
+  backupCommand: sh -c 'sqlite3 /data/tasks.sqlite3 ".timeout 30000" ".backup /tmp/backup.sqlite" && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:
