@@ -6,7 +6,7 @@ metadata:
   labels:
     name: grafana
 spec:
-  backupCommand: sh -c 'sqlite3 /data/grafana.db ".timeout 30000" ".backup /tmp/backup.sqlite" && sqlite3 /tmp/backup.sqlite ".dump"'
+  backupCommand: sh -c 'sqlite3 /data/grafana.db ".timeout 120000" ".dump"'
   pod:
     spec:
       containers:
