@@ -6,7 +6,7 @@ metadata:
   labels:
     name: linkding
 spec:
-  backupCommand: sh -c 'sqlite3 /data/db.sqlite3 ".timeout 120000" ".dump"'
+  backupCommand: sh -c 'sqlite3 /data/db.sqlite3 ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; cp /data/db.sqlite3 /tmp/backup.sqlite && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:
@@ -33,7 +33,7 @@ metadata:
   labels:
     name: linkding
 spec:
-  backupCommand: sh -c 'sqlite3 /data/tasks.sqlite3 ".timeout 120000" ".dump"'
+  backupCommand: sh -c 'sqlite3 /data/tasks.sqlite3 ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; cp /data/tasks.sqlite3 /tmp/backup.sqlite && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:

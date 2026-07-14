@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: jellyfin-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /config/data/data/jellyfin.db ".timeout 120000" ".dump"'
+  backupCommand: sh -c 'sqlite3 /config/data/data/jellyfin.db ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; cp /config/data/data/jellyfin.db /tmp/backup.sqlite && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       containers:

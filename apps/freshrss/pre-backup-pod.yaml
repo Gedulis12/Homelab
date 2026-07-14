@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: freshrss-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /data/www/freshrss/data/users/gedas/db.sqlite ".timeout 120000" ".dump"'
+  backupCommand: sh -c 'sqlite3 /data/www/freshrss/data/users/gedas/db.sqlite ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; cp /data/www/freshrss/data/users/gedas/db.sqlite /tmp/backup.sqlite && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:
