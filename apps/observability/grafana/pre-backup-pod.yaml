@@ -6,7 +6,7 @@ metadata:
   labels:
     name: grafana
 spec:
-  backupCommand: sh -c 'sqlite3 /data/grafana.db .dump'
+  backupCommand: sh -c 'sqlite3 /data/grafana.db "VACUUM INTO '\''/tmp/copy.sqlite'\''" && sqlite3 /tmp/copy.sqlite .dump'
   pod:
     spec:
       containers:
