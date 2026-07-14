@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: sonarr-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /config/sonarr.db ".clone /tmp/copy.sqlite" && sqlite3 /tmp/copy.sqlite .dump'
+  backupCommand: sh -c 'sqlite3 /config/sonarr.db ".timeout 30000" ".backup /tmp/backup.sqlite" && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       containers:
