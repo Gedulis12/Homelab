@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: radarr-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /config/radarr.db "VACUUM INTO '\''/tmp/copy.sqlite'\''" && sqlite3 /tmp/copy.sqlite .dump'
+  backupCommand: sh -c 'sqlite3 /config/radarr.db ".clone /tmp/copy.sqlite" && sqlite3 /tmp/copy.sqlite .dump'
   pod:
     spec:
       containers:
