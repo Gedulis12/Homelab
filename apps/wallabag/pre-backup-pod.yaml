@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: wallabag-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /data/db/wallabag.sqlite ".timeout 120000" ".dump"'
+  backupCommand: sh -c 'sqlite3 /data/db/wallabag.sqlite ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; cp /data/db/wallabag.sqlite /tmp/backup.sqlite && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       securityContext:

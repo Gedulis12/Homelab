@@ -4,7 +4,7 @@ kind: PreBackupPod
 metadata:
   name: radarr-db-dump
 spec:
-  backupCommand: sh -c 'sqlite3 /config/radarr.db ".timeout 120000" ".dump"'
+  backupCommand: sh -c 'sqlite3 /config/radarr.db ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; cp /config/radarr.db /tmp/backup.sqlite && sqlite3 /tmp/backup.sqlite ".dump"'
   pod:
     spec:
       containers:
