@@ -1,0 +1,26 @@
+---
+apiVersion: k8up.io/v1
+kind: PreBackupPod
+metadata:
+  name: actualbudget-db-dump
+  labels:
+    name: actualbudget
+spec:
+  backupCommand: sh -c 'mkdir -p /tmp/actualbudget-backup && for db in /data/server-files/account.sqlite /data/user-files/*.sqlite; do [ -f "$db" ] || continue; sqlite3 "$db" ".timeout 30000" "PRAGMA wal_checkpoint(TRUNCATE);" 2>/dev/null; name=$(basename "$db" .sqlite); cp "$db" "/tmp/actualbudget-backup/${name}.sqlite" && sqlite3 "/tmp/actualbudget-backup/${name}.sqlite" ".dump" > "/tmp/actualbudget-backup/${name}.sql"; done && cp /data/user-files/*.blob /tmp/actualbudget-backup/ 2>/dev/null || true && cp /data/.migrate /tmp/actualbudget-backup/ 2>/dev/null || true && tar cz -C /tmp/actualbudget-backup .'
+  pod:
+    spec:
+      securityContext:
+        runAsUser: 0
+      containers:
+        - name: actualbudget-sqlite-dump
+          image: alpine/sqlite:3.53.2
+          command:
+            - 'sleep'
+            - 'infinity'
+          volumeMounts:
+            - name: actualbudget-data
+              mountPath: /data
+      volumes:
+        - name: actualbudget-data
+          persistentVolumeClaim:
+            claimName: actualbudget-data
