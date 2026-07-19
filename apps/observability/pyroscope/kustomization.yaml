@@ -8,7 +8,7 @@ helmCharts:
   - name: pyroscope
     repo: https://grafana.github.io/helm-charts
     namespace: observability
-    version: 1.15.1
+    version: 2.1.1
     releaseName: pyroscope
     valuesFile: values.yaml
 

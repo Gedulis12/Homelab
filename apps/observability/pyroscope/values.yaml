@@ -12,6 +12,15 @@ pyroscope:
                 operator: NotIn
                 values:
                   - pi
+  # Explicitly use filesystem backend (default in v2, but explicit is safer)
+  structuredConfig:
+    storage:
+      backend: filesystem
+
+architecture:
+  storage:
+    v1: false
+    v2: true
 
 serviceMonitor:
   enabled: true
