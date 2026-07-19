@@ -77,6 +77,7 @@ autoInstrumentation:
           exclude_services:
             - k8s_namespace: observability
             - k8s_namespace: immich
+            - k8s_namespace: authentik
             - exe_path: .*alloy.*|.*otelcol.*|.*beyla.*
         routes:
           patterns:
