@@ -263,7 +263,7 @@ local dashboardResources(cfg) =
                   matchLabels: { dashboards: 'grafana' },
                 },
                 configMapRef: {
-                  name: cmName,
+                  name: k8sName(cmName),
                   key: fileName,
                 },
               },
