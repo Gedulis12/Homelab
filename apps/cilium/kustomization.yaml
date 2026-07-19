@@ -16,6 +16,7 @@ resources:
   - ip-pool.yaml
   - announcement-policy.yaml
   - gateway.yaml
+  - gateway-class-config.yaml
 
 patches:
   - target:
@@ -26,3 +27,16 @@ patches:
       - op: add
         path: /data/bpf-filter-riority
         value: "2"
+  - target:
+      kind: GatewayClass
+      name: cilium
+      group: gateway.networking.k8s.io
+      version: v1
+    patch: |-
+      - op: add
+        path: /spec/parametersRef
+        value:
+          group: cilium.io
+          kind: CiliumGatewayClassConfig
+          name: cilium
+          namespace: kube-system
