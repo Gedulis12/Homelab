@@ -32,6 +32,10 @@ spec:
         - /spec/rules/0/backendRefs/0/kind
         - /spec/rules/0/backendRefs/0/weight
         - /spec/rules/0/matches
+    - group: cilium.io
+      kind: CiliumGatewayClassConfig
+      jq:
+        - '.spec.telemetry.accessLogs[0] |= with_entries(select(.key != "text"))'
   syncPolicy:
     automated:
       allowEmpty: true
