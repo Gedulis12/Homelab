@@ -17,5 +17,6 @@ resources:
   - pvc.yaml
   - httproute.yaml
   - sealed-secret.yaml
+  - grafana-datasource.yaml
   - backup-pod-config.yaml
   - backup-schedule.yaml

@@ -1,0 +1,28 @@
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: immich
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  valuesFrom:
+    - targetPath: "secureJsonData.password"
+      valueFrom:
+        secretKeyRef:
+          name: immich-database-app
+          key: password
+  datasource:
+    name: Immich
+    type: postgres
+    access: proxy
+    url: immich-database-rw.immich.svc:5432
+    database: app
+    user: app
+    isDefault: false
+    editable: false
+    uid: immich-db
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1600
