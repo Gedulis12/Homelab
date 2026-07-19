@@ -4,6 +4,7 @@ kind: GrafanaDatasource
 metadata:
   name: immich
 spec:
+  allowCrossNamespaceImport: true
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
