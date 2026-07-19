@@ -4,7 +4,7 @@ metadata:
   name: descheduler-cronjob
   namespace: kube-system
 spec:
-  schedule: "*/2 * * * *"
+  schedule: "*/15 * * * *"
   jobTemplate:
     spec:
       template:
