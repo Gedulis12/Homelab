@@ -18,5 +18,6 @@ resources:
   - httproute.yaml
   - sealed-secret.yaml
   - grafana-datasource.yaml
+  - grafana-dashboard.yaml
   - backup-pod-config.yaml
   - backup-schedule.yaml
