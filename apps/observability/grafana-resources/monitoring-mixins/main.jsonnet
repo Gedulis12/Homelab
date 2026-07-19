@@ -109,13 +109,24 @@ local mergedGroups(cfg) =
     names
   );
 
+local ruleNameOf(rule) =
+  if std.objectHas(rule, 'alert') then rule.alert else rule.record;
+
 // Reproduces Grafana's own `/api/convert/prometheus/config/v1/rules` translation
 // (verified by converting real mixin rules through that endpoint and inspecting the
 // exported result), so it can run as a pure, offline jsonnet render instead of a live
 // API round-trip.
-local convertRule(cfg, groupName, rule) =
-  local ruleName = if std.objectHas(rule, 'alert') then rule.alert else rule.record;
-  local uid = std.md5(cfg.prefix + '/' + groupName + '/' + ruleName);
+//
+// `index`/`total` disambiguate rules that share a name within a group: Prometheus
+// permits several recording rules with the same `record:` (or alerts with the same
+// `alert:`) name, but Grafana enforces a unique (folder, title) and a unique rule uid,
+// so an un-suffixed conversion makes the operator's PutAlertRuleGroup fail with 409.
+// When a name recurs (total > 1) we suffix the title with its 1-based occurrence and
+// always fold `index` into the uid to keep both unique.
+local convertRule(cfg, groupName, rule, index, occurrence, total) =
+  local ruleName = ruleNameOf(rule);
+  local title = if total > 1 then '%s %d' % [ruleName, occurrence] else ruleName;
+  local uid = std.md5(cfg.prefix + '/' + groupName + '/' + ruleName + '/' + index);
   local promQuery = {
     refId: 'query',
     queryType: 'prometheus',
@@ -134,7 +145,7 @@ local convertRule(cfg, groupName, rule) =
   if std.objectHas(rule, 'alert') then
     {
       uid: uid,
-      title: rule.alert,
+      title: title,
       condition: 'threshold',
       data: [
         promQuery,
@@ -175,7 +186,7 @@ local convertRule(cfg, groupName, rule) =
   else
     {
       uid: uid,
-      title: rule.record,
+      title: title,
       // condition/noDataState/execErrState/for are required by the CRD schema but
       // unused by Grafana for recording rules; placeholders satisfy validation.
       condition: 'query',
@@ -222,7 +233,17 @@ local alertRuleGroupResources(cfg) =
             else if std.isNumber(g.interval) then '%ds' % g.interval
             else g.interval,
           instanceSelector: { matchLabels: { dashboards: 'grafana' } },
-          rules: std.map(function(r) convertRule(cfg, g.name, r), g.rules),
+          rules: std.mapWithIndex(
+            function(i, r)
+              local name = ruleNameOf(r);
+              local total = std.length(std.filter(function(x) ruleNameOf(x) == name, g.rules));
+              // 1-based count of same-named rules at or before this index
+              local occurrence = std.length(std.filter(
+                function(j) ruleNameOf(g.rules[j]) == name, std.range(0, i)
+              ));
+              convertRule(cfg, g.name, r, i, occurrence, total),
+            g.rules
+          ),
         },
       },
     groups

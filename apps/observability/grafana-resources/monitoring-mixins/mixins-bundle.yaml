@@ -77,7 +77,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ClusterNotConverging"
-    "uid": "7d831561556976c187d01f1d86175d87"
+    "uid": "2dbfcae7453819e0952d6df426d429f8"
   - "annotations":
       "description": "Nodes report different number of peers vs. the count of observed Alloy metrics. Some Alloy metrics may be missing or the cluster is in a split brain state. Job is {{ $labels.job }}"
       "summary": "Nodes report different number of peers vs. the count of observed Alloy metrics."
@@ -138,7 +138,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ClusterNodeCountMismatch"
-    "uid": "6171ae7579997b184a497fd62b4c9bad"
+    "uid": "269cd37cbede7f5ff92cbb3dc2bd5639"
   - "annotations":
       "description": "Cluster node is reporting a gossip protocol health score > 0. Job is {{ $labels.job }}"
       "summary": "Cluster unhealthy."
@@ -197,7 +197,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ClusterNodeUnhealthy"
-    "uid": "60e94b5b96026c5bef2d601056dbffe1"
+    "uid": "ae4ef0801dde4dbcdc234ffa6d578523"
   - "annotations":
       "description": "A node tried to join the cluster with a name conflicting with an existing peer. Job is {{ $labels.job }}"
       "summary": "Cluster Node Name Conflict."
@@ -255,7 +255,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ClusterNodeNameConflict"
-    "uid": "ec9f308b61f9909194a7dd278c20839c"
+    "uid": "5101b9b80adae9838226aca562b3f7bf"
   - "annotations":
       "description": "There is a node within the cluster that is stuck in Terminating state. Job is {{ $labels.job }}"
       "summary": "Cluster node stuck in Terminating state."
@@ -313,7 +313,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ClusterNodeStuckTerminating"
-    "uid": "44edeb361c424ff117f112fc49b3ff58"
+    "uid": "de03a9579ff5b3ebc84de5ac2d29e0ab"
   - "annotations":
       "description": "Cluster nodes are not using the same configuration file. Job is {{ $labels.job }}"
       "summary": "Cluster configuration drifting."
@@ -374,7 +374,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ClusterConfigurationDrift"
-    "uid": "2e38785eedc1483b40558a8a0f6f98d2"
+    "uid": "6311bc11440a5b83c5c0fe04d8292bde"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -444,7 +444,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "SlowComponentEvaluations"
-    "uid": "b7f33ea67dd2a30dc01bd48946ab47a4"
+    "uid": "b18b1a8d0f875ca71c769115e2cebbdc"
   - "annotations":
       "description": "Unhealthy components detected under job {{ $labels.job }}"
       "summary": "Unhealthy components detected."
@@ -502,7 +502,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "UnhealthyComponents"
-    "uid": "a556f9e135b673d33b6006ed93b8444a"
+    "uid": "53be85111a9ac3e2ed7a97592831f39b"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -578,7 +578,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "OtelcolReceiverRefusedSpans"
-    "uid": "0989eb84ba0f3a159738362c0b2b4e81"
+    "uid": "9e4046d1868e2f69c2bf50572b9ae20a"
   - "annotations":
       "description": "The receiver could not push some metric points to the pipeline under job {{ $labels.job }}. This could be due to reaching a limit such as the ones imposed by otelcol.processor.memory_limiter."
       "summary": "The receiver pushing metrics to the pipeline success rate is below 95%."
@@ -642,7 +642,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "OtelcolReceiverRefusedMetrics"
-    "uid": "c8fa580f865cc0c837b4eb88724c713f"
+    "uid": "e44414bf59ef011ebc56f568198079c9"
   - "annotations":
       "description": "The receiver could not push some log records to the pipeline under job {{ $labels.job }}. This could be due to reaching a limit such as the ones imposed by otelcol.processor.memory_limiter."
       "summary": "The receiver pushing logs to the pipeline success rate is below 95%."
@@ -706,7 +706,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "OtelcolReceiverRefusedLogs"
-    "uid": "8b9d901310cf20905d0ec45496c87f98"
+    "uid": "8496682ae13c001f748e04bb201cfafd"
   - "annotations":
       "description": "The exporter failed to send spans to their destination under job {{ $labels.job }}. There could be an issue with the payload or with the destination endpoint."
       "summary": "The exporter sending spans success rate is below 95%."
@@ -770,7 +770,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "OtelcolExporterFailedSpans"
-    "uid": "059f1d5bad2b5ff6f474235f19b2f115"
+    "uid": "f5411eaf050a0f056e16ea40a66c2aa6"
   - "annotations":
       "description": "The exporter failed to send metric points to their destination under job {{ $labels.job }}. There could be an issue with the payload or with the destination endpoint."
       "summary": "The exporter sending metrics success rate is below 95%."
@@ -834,7 +834,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "OtelcolExporterFailedMetrics"
-    "uid": "8fb1132cd6857c8333c337e25800a410"
+    "uid": "c3479fa49cac3944e7e5d0fafe79bd16"
   - "annotations":
       "description": "The exporter failed to send log records to their destination under job {{ $labels.job }}. There could be an issue with the payload or with the destination endpoint."
       "summary": "The exporter sending logs success rate is below 95%."
@@ -898,7 +898,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "OtelcolExporterFailedLogs"
-    "uid": "b67190035585858935c67cd57198c8eb"
+    "uid": "2e93a86f72dc1634e5ffe64479fa9980"
 ---
 "apiVersion": "v1"
 "data":
@@ -1176,7 +1176,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ArgoAppOutOfSync"
-    "uid": "ed20ea14e003a9b5b1026254be9c541c"
+    "uid": "3e6587b380afae03dab6373a6ddc497e"
   - "annotations":
       "description": "Application {{ $labels.name }} has sync phase as {{ $labels.phase }}."
       "summary": "Application Sync Failed."
@@ -1234,7 +1234,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "ArgoAppSyncFailed"
-    "uid": "2672fa1a5d25c3098bf9ef0915b5777a"
+    "uid": "ed9e02b3caf04cba4434bf944a70ea2a"
   - "annotations":
       "description": |
         ArgoCD has not reported any applications data for the past 15 minutes which means that it must be down or not functioning properly.  
@@ -1293,7 +1293,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "ArgoAppMissing"
-    "uid": "27b0ed6a2f857bca53ee7d8448b67d74"
+    "uid": "913fb74b1a005a5b12e439d89ff0e729"
 ---
 "apiVersion": "v1"
 "data":
@@ -1396,7 +1396,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CertManagerAbsent"
-    "uid": "d06efb30b5e47b3a52941e0e35dc766f"
+    "uid": "46d3e7064803fbbeaad49868c042f5c1"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -1471,7 +1471,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CertManagerCertExpirySoon"
-    "uid": "cac66255102ece66adea1381f5a09f4a"
+    "uid": "669981392227f6904bd2d081ec15b881"
   - "annotations":
       "dashboard_url": "https://grafana.example.com/d/TvuRo2iMk/cert-manager"
       "description": "This certificate has not been ready to serve traffic for at least 10m. If the cert is being renewed or there is another valid cert, the ingress controller _may_ be able to serve that instead."
@@ -1534,7 +1534,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CertManagerCertNotReady"
-    "uid": "b7899e793d262492109c3bcf617ff03d"
+    "uid": "b76c47684608a6e58ac07972b79dee1a"
   - "annotations":
       "dashboard_url": "https://grafana.example.com/d/TvuRo2iMk/cert-manager"
       "description": "Depending on the rate limit, cert-manager may be unable to generate certificates for up to a week."
@@ -1597,7 +1597,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CertManagerHittingRateLimits"
-    "uid": "56295ee4f25d460664170d47a8b9273c"
+    "uid": "0e4c1f14c21dfe1bc8040d71cbada308"
 ---
 "apiVersion": "v1"
 "data":
@@ -1699,7 +1699,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "CiliumAgentApiHighErrorRate"
-    "uid": "5018a5eb196c0de4ba8f5ec0d862e3a0"
+    "uid": "03183f68da3e7914bd7605f6ee1e5eb4"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -1769,7 +1769,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumAgentRemoteClusterNotReady"
-    "uid": "a4bdee0048b6d0d8169dc46650e3c13f"
+    "uid": "12666d71db518395b890ea04cc427277"
   - "annotations":
       "description": "Agent fails to mesh with {{$labels.target_cluster}}"
       "summary": "Agent fails to mesh with remote cluster."
@@ -1827,7 +1827,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumAgentRemoteClusterFailing"
-    "uid": "7905b3ec75dae3274e64c674db016091"
+    "uid": "839a9257c690911d61c64adfab6cc090"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -1897,7 +1897,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumAgentConntrackTableFull"
-    "uid": "98c599caf9541ccec8ded8c041dd5801"
+    "uid": "ee316ca8560641cc983839847a45a2df"
   - "annotations":
       "description": "Cilium Agent Conntrack GC runs on Agent Pod {{$labels.pod}} has been reported as not completing. Runs reported \"uncompleted\" may indicate a problem with ConnTrack GC.\nCilium failing to GC its ConnTrack table may cause further ConnTrack issues later. This may result in dropped packets or other issues."
       "summary": "Cilium Agent Conntrack GC runs are failing on Agent Pod."
@@ -1955,7 +1955,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentConnTrackFailedGarbageCollectorRuns"
-    "uid": "dd5c93cc91a69b6945a9522cd7fb9a86"
+    "uid": "3e2066e3a964c05545ab7073926deb1d"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2025,7 +2025,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "CiliumAgentHighDeniedRate"
-    "uid": "6a4d505e52b02897432b970b82b2fc2a"
+    "uid": "3dbd5da3fa87f1dc2355e10f25498e7d"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2095,7 +2095,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentEndpointFailures"
-    "uid": "ee0eb7181274c39eb2e11db7c31e8160"
+    "uid": "f1076c50439d414ed81c171ae16ee87b"
   - "annotations":
       "description": "API calls to Cilium Agent API to create or update Endpoints are failing on pod {{$labels.pod}} ({{$labels.method}} {{$labels.return_code}}).\n\nThis may cause problems for Pod scheduling"
       "summary": "API calls to Cilium Agent API to create or update Endpoints are failing."
@@ -2153,7 +2153,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentEndpointUpdateFailure"
-    "uid": "e743a5adeb239320b369efcb8a70dbda"
+    "uid": "9687d6e6c90dd6289d0c05da3890849e"
   - "annotations":
       "description": "Cilium Endpoint API endpoint rate limiter on Pod {{$labels.pod}} is reporting errors while doing endpoint create.\nThis may cause CNI and prevent Cilium scheduling."
       "summary": "Cilium Endpoint API endpoint rate limiter is reporting errors while doing endpoint create."
@@ -2211,7 +2211,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "CiliumAgentContainerNetworkInterfaceApiErrorEndpointCreate"
-    "uid": "54cdfdc215b8620f74ad5cb6849279bd"
+    "uid": "63b4651f0f03dc5806ff68e153ff0f71"
   - "annotations":
       "description": "API calls to Cilium Endpoints API on Agent Pod {{$labels.pod}} are failing due to server errors ({{$labels.return_code}}).\n\nThis could indicate issues with Ciliums ability to create endpoints which can result in failure to schedule Kubernetes Pods."
       "summary": "API calls to Cilium Endpoints API are failing due to server errors."
@@ -2269,7 +2269,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentApiEndpointErrors"
-    "uid": "eb79e07e3ce7f709258fd01a5b30691b"
+    "uid": "2306ca60f0403eda4a1a242a551f6379"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2339,7 +2339,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumOperatorExhaustedIpamIps"
-    "uid": "d4e3ddd30963f32a0216ffa9b3c62102"
+    "uid": "9673165b1e4a733bd200ac587835ad55"
   - "annotations":
       "description": "Cilium Operator {{$labels.pod}} has used up over 90% of its available IPs. If available IPs become exhausted then the operator may not be able to schedule Pods.\n\nThis may be caused by number of Pods being scheduled exceeding the you cloud platforms network limits or issues with Cilium rate limiting."
       "summary": "Cilium Operator has used up over 90% of its available IPs."
@@ -2397,7 +2397,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumOperatorLowAvailableIpamIps"
-    "uid": "e3793ee58a97ab2700d1dbe767f7d3a2"
+    "uid": "6a7baaf43dfe5641930ce8ba07946c2d"
   - "annotations":
       "description": "Cilium Operator {{$labels.pod}} has high error rate while trying to create/attach ENIs for IPAM.\n\nThis may be caused by exceeding Node instance ENI/Address limts, as well as errors with Cilium Operators cloud configuration."
       "summary": "Cilium Operator has high error rate while trying to create/attach ENIs for IPAM."
@@ -2455,7 +2455,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumOperatorEniIpamErrors"
-    "uid": "5930e3ed02366b08750fbf40aeade8de"
+    "uid": "7e9db4f8d43bc9578b2aaca0cfb760c0"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2525,7 +2525,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumNodeLocalHighIdentityAllocation"
-    "uid": "cc5fd47958d5cd1a27a07683c931a551"
+    "uid": "1e9d0184f875347ff63f84e37e403805"
   - "annotations":
       "description": "Cilium is using a very high percent of its maximum cluster identity limit ({{value}}/65280) . If this capacity is exhausted Cilium may be unable to allocate new identities. Very high identity allocations can also indicate other problems"
       "summary": "Cilium is using a very high percent of its maximum cluster identity limit (65280)."
@@ -2583,7 +2583,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "RunningOutOfCiliumClusterIdentities"
-    "uid": "e21c39043e6a12b1ab1ba7d4212c420c"
+    "uid": "62137d9fd86bb2aad30e056fb839f7cd"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2653,7 +2653,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumKvstoremeshRemoteClusterNotReady"
-    "uid": "5a296a76b94fcf670eb3c58219698d75"
+    "uid": "e1f885573edaf9d452a448cca6990cd4"
   - "annotations":
       "description": "Kvstoremesh fails to mesh with {{$labels.target_cluster}}"
       "summary": "Kvstoremesh fails to mesh with remote cluster."
@@ -2711,7 +2711,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumKvstoremeshRemoteClusterFailing"
-    "uid": "767fb9cd9e5c3120a52f1981d6f62dc3"
+    "uid": "a1df5406d0d1bfb813772dccb0d6bf0c"
   - "annotations":
       "description": "Kvstoremesh fails to mesh with {{$labels.target_cluster}}"
       "summary": "Kvstoremesh fails to mesh with remote cluster."
@@ -2769,7 +2769,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumKvstoremeshErrors"
-    "uid": "2d69808194183bfbcfe18e457fe1e925"
+    "uid": "46d2be4fd00b75643722c8be09ce670a"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2839,7 +2839,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentMapOperationFailures"
-    "uid": "0730244e403dfab1523f5f4748091789"
+    "uid": "2263cd5f1b726388d0e9ce60dbdd2a08"
   - "annotations":
       "description": "Map {{$labels.map_name}} on Cilium Agent Pod is currently experiencing high map pressure. The map is currently over 90% full. Full maps will begin to experience errors on updates which may result in unexpected behaviour."
       "summary": "Map on Cilium Agent Pod is currently experiencing high map pressure."
@@ -2897,7 +2897,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentBpfMapPressure"
-    "uid": "67897ba8374e2e771c9c12deb95e3126"
+    "uid": "ae46a5b448baefa244459404776766e8"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -2967,7 +2967,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CiliumAgentNatTableFull"
-    "uid": "46598162b5c9a2440d4e5dde5a7ae42e"
+    "uid": "753f478349c851c1c57a917b394fb6da"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -3037,7 +3037,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "CiliumUnreachableNodes"
-    "uid": "ccf183ece9f893dd3e0dcf8810eec9c1"
+    "uid": "854c3f04e316b6fd8605d4f9ad6e528d"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -3107,7 +3107,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CiliumAgentPolicyMapPressure"
-    "uid": "b2b1f0b2c4abd9c91e0588ca02c9a94e"
+    "uid": "57469af944e107b3c514efded78d56d9"
 ---
 "apiVersion": "v1"
 "data":
@@ -3629,7 +3629,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CoreDNSDown"
-    "uid": "46eb519473b29a025239dbf907abdfb4"
+    "uid": "960e3da5bdd3e6c1624ef3cabe6ef5a6"
   - "annotations":
       "description": "CoreDNS has 99th percentile latency of {{ $value }} seconds for server {{ $labels.server }} zone {{ $labels.zone }} ."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednslatencyhigh"
@@ -3689,7 +3689,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CoreDNSLatencyHigh"
-    "uid": "0d1ff8061a8f5fedc387948bcc69f573"
+    "uid": "94e48db7128ba7dedfa31d3ab03e1ade"
   - "annotations":
       "description": "CoreDNS is returning SERVFAIL for {{ $value | humanizePercentage }} of requests."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednserrorshigh"
@@ -3750,8 +3750,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "CoreDNSErrorsHigh"
-    "uid": "84fc34fb99e97f88a9043bd645e1cd02"
+    "title": "CoreDNSErrorsHigh 1"
+    "uid": "44158d3e27f2a4d433cb91052304b7e7"
   - "annotations":
       "description": "CoreDNS is returning SERVFAIL for {{ $value | humanizePercentage }} of requests."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednserrorshigh"
@@ -3812,8 +3812,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "CoreDNSErrorsHigh"
-    "uid": "84fc34fb99e97f88a9043bd645e1cd02"
+    "title": "CoreDNSErrorsHigh 2"
+    "uid": "ee30f0efa61ad9c9692982cff82787f6"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -3885,7 +3885,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "CoreDNSForwardLatencyHigh"
-    "uid": "a67b29dc55e478dc24b8b5eceb67739a"
+    "uid": "2ead0f8b60e05e397608ea092ad6f9dd"
   - "annotations":
       "description": "CoreDNS is returning SERVFAIL for {{ $value | humanizePercentage }} of forward requests to {{ $labels.to }}."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednsforwarderrorshigh"
@@ -3946,8 +3946,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "CoreDNSForwardErrorsHigh"
-    "uid": "6fc7573cbb73f4101215fb5f242a45a4"
+    "title": "CoreDNSForwardErrorsHigh 1"
+    "uid": "67a9cc61683585833a72f95bb1f6dd72"
   - "annotations":
       "description": "CoreDNS is returning SERVFAIL for {{ $value | humanizePercentage }} of forward requests to {{ $labels.to }}."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednsforwarderrorshigh"
@@ -4008,8 +4008,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "CoreDNSForwardErrorsHigh"
-    "uid": "6fc7573cbb73f4101215fb5f242a45a4"
+    "title": "CoreDNSForwardErrorsHigh 2"
+    "uid": "298b7bd67b0bc80b0d13727d5571d787"
   - "annotations":
       "description": "CoreDNS health checks have failed to upstream server {{ $labels.to }}."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednsforwardhealthcheckfailurecount"
@@ -4069,7 +4069,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CoreDNSForwardHealthcheckFailureCount"
-    "uid": "31f403de6bf8f15f3a50446904667a33"
+    "uid": "b20ed097a0e3bd7eaabc4ebfd30bdfb4"
   - "annotations":
       "description": "CoreDNS health checks have failed for all upstream servers."
       "runbook_url": "https://github.com/povilasv/coredns-mixin/tree/master/runbook.md#alert-name-corednsforwardhealthcheckbrokencount"
@@ -4129,7 +4129,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "CoreDNSForwardHealthcheckBrokenCount"
-    "uid": "92fab11c44dc7aac1e9a171db5b64668"
+    "uid": "c43329b62429c8cc1d4206032dd1e637"
 ---
 "apiVersion": "v1"
 "data":
@@ -4266,7 +4266,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "GrafanaRequestsFailing"
-    "uid": "5fb1927ecd1b2b5cc718734b280ebca1"
+    "uid": "503fa6c5c31c48747d5281462effb688"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4307,7 +4307,7 @@
       "from": "query"
       "metric": "namespace_job_handler_statuscode:grafana_http_request_duration_seconds_count:rate5m"
     "title": "namespace_job_handler_statuscode:grafana_http_request_duration_seconds_count:rate5m"
-    "uid": "fa37cc138d840e3e3f99b3b40104b02c"
+    "uid": "3d6f5240e8e8fc367116b4f66a2ac167"
 ---
 "apiVersion": "v1"
 "data":
@@ -4383,7 +4383,7 @@
       "from": "query"
       "metric": "cluster:namespace:pod_cpu:active:kube_pod_container_resource_limits"
     "title": "cluster:namespace:pod_cpu:active:kube_pod_container_resource_limits"
-    "uid": "92fa26a897b87cec4c6a6eee7a9e92da"
+    "uid": "779f00f231076fa92ce2c9f5e78868dd"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -4420,7 +4420,7 @@
       "from": "query"
       "metric": "namespace_cpu:kube_pod_container_resource_limits:sum"
     "title": "namespace_cpu:kube_pod_container_resource_limits:sum"
-    "uid": "f65b3e3d3e4af670c51713b91824a415"
+    "uid": "ef58e6642feb97da998035327265d8ca"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4464,7 +4464,7 @@
       "from": "query"
       "metric": "cluster:namespace:pod_cpu:active:kube_pod_container_resource_requests"
     "title": "cluster:namespace:pod_cpu:active:kube_pod_container_resource_requests"
-    "uid": "6f5cc9257bc2ab9dc1f18ba510d32c6d"
+    "uid": "bd492e1a977242d5b47c20d089ec5bfb"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -4501,7 +4501,7 @@
       "from": "query"
       "metric": "namespace_cpu:kube_pod_container_resource_requests:sum"
     "title": "namespace_cpu:kube_pod_container_resource_requests:sum"
-    "uid": "a3c8b09cc1d657dc4f793f1a731c6a1e"
+    "uid": "1501a7895a0681a76bbf51561483caa4"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4546,7 +4546,7 @@
       "from": "query"
       "metric": "node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate5m"
     "title": "node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate5m"
-    "uid": "8f357883841e917682f71bdcb41ad77c"
+    "uid": "cadab60ab7246121f2b4770b881f9870"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -4579,7 +4579,7 @@
       "from": "query"
       "metric": "node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate"
     "title": "node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate"
-    "uid": "94d4d3d6ea8ca53d7760c08f93435601"
+    "uid": "7f8a3e50bec94f9c203f6400402ba8f5"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4623,7 +4623,7 @@
       "from": "query"
       "metric": "node_namespace_pod_container:container_memory_cache"
     "title": "node_namespace_pod_container:container_memory_cache"
-    "uid": "9dc9b2532b924a223e20c1683ba89efb"
+    "uid": "b81efc3620f454dcffe89b7b0ba76c13"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4667,7 +4667,7 @@
       "from": "query"
       "metric": "cluster:namespace:pod_memory:active:kube_pod_container_resource_limits"
     "title": "cluster:namespace:pod_memory:active:kube_pod_container_resource_limits"
-    "uid": "e82a3ff6eca118520d5261d6d5678f5a"
+    "uid": "f3a40180b05fed2b170bc73b9f9f05fe"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -4704,7 +4704,7 @@
       "from": "query"
       "metric": "namespace_memory:kube_pod_container_resource_limits:sum"
     "title": "namespace_memory:kube_pod_container_resource_limits:sum"
-    "uid": "db41755b17fca6ceb9f44bf25e645692"
+    "uid": "797e307bcdeb56ee8de9277c12a2bad7"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4748,7 +4748,7 @@
       "from": "query"
       "metric": "cluster:namespace:pod_memory:active:kube_pod_container_resource_requests"
     "title": "cluster:namespace:pod_memory:active:kube_pod_container_resource_requests"
-    "uid": "2d577daeb510f4a6f75a7fabbe7de6f1"
+    "uid": "9b89e444c400753b8e0d66f3b0a49bdf"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -4785,7 +4785,7 @@
       "from": "query"
       "metric": "namespace_memory:kube_pod_container_resource_requests:sum"
     "title": "namespace_memory:kube_pod_container_resource_requests:sum"
-    "uid": "d7673d6aa56ad6024cbc84926a81c9f2"
+    "uid": "53b65cf354f1a85842cdbb31940b16ef"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4829,7 +4829,7 @@
       "from": "query"
       "metric": "node_namespace_pod_container:container_memory_rss"
     "title": "node_namespace_pod_container:container_memory_rss"
-    "uid": "92aba04a822647137cbb8df873f93fba"
+    "uid": "e4416823eb73d7272d1a84d7d64bdf53"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4873,7 +4873,7 @@
       "from": "query"
       "metric": "node_namespace_pod_container:container_memory_swap"
     "title": "node_namespace_pod_container:container_memory_swap"
-    "uid": "b6945a8e33ce6de78cd4b961dc7da155"
+    "uid": "ad24d0d686293e1d0b813f0169f18805"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4917,7 +4917,7 @@
       "from": "query"
       "metric": "node_namespace_pod_container:container_memory_working_set_bytes"
     "title": "node_namespace_pod_container:container_memory_working_set_bytes"
-    "uid": "966a2cb2b4786cb501d4dfb45054f19b"
+    "uid": "b238ac81e8e7d030d55b9ca32076213a"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4969,8 +4969,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 1"
+    "uid": "2d3f162d46ae0351386afbdd0d507532"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5010,8 +5010,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 2"
+    "uid": "0ea54c86e7861a35daabd3ca7a5756c1"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5044,8 +5044,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 3"
+    "uid": "2c518920d72b75a5c57650f08472e48f"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5077,8 +5077,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 4"
+    "uid": "063715d54478441bb98e5277202b61b3"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5118,8 +5118,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 5"
+    "uid": "eac34fc8072cf2121974db4eb09249f9"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5151,8 +5151,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 6"
+    "uid": "32074f74de51ccefc692eeea27b9e779"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5184,8 +5184,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 7"
+    "uid": "3cf18330def464f0e041209f0f3100ef"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5249,8 +5249,8 @@
     "record":
       "from": "query"
       "metric": "namespace_workload_pod:kube_pod_owner:relabel"
-    "title": "namespace_workload_pod:kube_pod_owner:relabel"
-    "uid": "da511000a3c04632824307431b91f2f8"
+    "title": "namespace_workload_pod:kube_pod_owner:relabel 8"
+    "uid": "424cc70a1330b2173147829b97e91716"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -5291,7 +5291,7 @@
       "from": "query"
       "metric": "code_verb:apiserver_request_total:increase30d"
     "title": "code_verb:apiserver_request_total:increase30d"
-    "uid": "affb3f8c1b56e309998d6f69acd049eb"
+    "uid": "22a782beef83babd9be13e84e547b3f6"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5319,8 +5319,8 @@
     "record":
       "from": "query"
       "metric": "code:apiserver_request_total:increase30d"
-    "title": "code:apiserver_request_total:increase30d"
-    "uid": "ff1181404086998dc4a49ec879891014"
+    "title": "code:apiserver_request_total:increase30d 1"
+    "uid": "1ec72877af52ca2c5e200830050d8b82"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5348,8 +5348,8 @@
     "record":
       "from": "query"
       "metric": "code:apiserver_request_total:increase30d"
-    "title": "code:apiserver_request_total:increase30d"
-    "uid": "ff1181404086998dc4a49ec879891014"
+    "title": "code:apiserver_request_total:increase30d 2"
+    "uid": "37936bdb8871fd32836d46edc392f530"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5378,7 +5378,7 @@
       "from": "query"
       "metric": "cluster_verb_scope_le:apiserver_request_sli_duration_seconds_bucket:increase1h"
     "title": "cluster_verb_scope_le:apiserver_request_sli_duration_seconds_bucket:increase1h"
-    "uid": "b4e98ac6bd7bc778eac3abade0cfe4ec"
+    "uid": "dd206e4c3bf969ecfe7e9ab84ec89ae7"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5407,7 +5407,7 @@
       "from": "query"
       "metric": "cluster_verb_scope_le:apiserver_request_sli_duration_seconds_bucket:increase30d"
     "title": "cluster_verb_scope_le:apiserver_request_sli_duration_seconds_bucket:increase30d"
-    "uid": "8edb16bac879e00d33dfce47340e409b"
+    "uid": "1bc1730d85bc4ecf1fff5eaf8eec1cb4"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5436,7 +5436,7 @@
       "from": "query"
       "metric": "cluster_verb_scope:apiserver_request_sli_duration_seconds_count:increase1h"
     "title": "cluster_verb_scope:apiserver_request_sli_duration_seconds_count:increase1h"
-    "uid": "821c0e3255deb7a588cfb241e3a14597"
+    "uid": "999a28ab794843938487f1b6887def97"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5465,7 +5465,7 @@
       "from": "query"
       "metric": "cluster_verb_scope:apiserver_request_sli_duration_seconds_count:increase30d"
     "title": "cluster_verb_scope:apiserver_request_sli_duration_seconds_count:increase30d"
-    "uid": "0c84148b6d31e6e771ab9aa0cca6d0e2"
+    "uid": "250731e1e7db22fd5d866384b8d4cbe6"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5516,8 +5516,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:availability30d"
-    "title": "apiserver_request:availability30d"
-    "uid": "290b658f5673d63abfacc45dedcd78f8"
+    "title": "apiserver_request:availability30d 1"
+    "uid": "5e6303e4a81262975ed08f350a45c439"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5561,8 +5561,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:availability30d"
-    "title": "apiserver_request:availability30d"
-    "uid": "290b658f5673d63abfacc45dedcd78f8"
+    "title": "apiserver_request:availability30d 2"
+    "uid": "4df1f313fb905a4b078a2f52d0b64b3c"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5602,8 +5602,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:availability30d"
-    "title": "apiserver_request:availability30d"
-    "uid": "290b658f5673d63abfacc45dedcd78f8"
+    "title": "apiserver_request:availability30d 3"
+    "uid": "189fe10b38ca47293e8ef7b79df0aad2"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5631,8 +5631,8 @@
     "record":
       "from": "query"
       "metric": "code_resource:apiserver_request_total:rate5m"
-    "title": "code_resource:apiserver_request_total:rate5m"
-    "uid": "577012857b63df4d2d27971bfe4d8d2b"
+    "title": "code_resource:apiserver_request_total:rate5m 1"
+    "uid": "1118d1f089b970062613851e9c1534d7"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5660,8 +5660,8 @@
     "record":
       "from": "query"
       "metric": "code_resource:apiserver_request_total:rate5m"
-    "title": "code_resource:apiserver_request_total:rate5m"
-    "uid": "577012857b63df4d2d27971bfe4d8d2b"
+    "title": "code_resource:apiserver_request_total:rate5m 2"
+    "uid": "22aacf922329d31c338971b6679572b2"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5689,8 +5689,8 @@
     "record":
       "from": "query"
       "metric": "code_verb:apiserver_request_total:increase1h"
-    "title": "code_verb:apiserver_request_total:increase1h"
-    "uid": "b09dbf77c3ea8e21afeb0266b4da8ab3"
+    "title": "code_verb:apiserver_request_total:increase1h 1"
+    "uid": "d2ffbabf1c0c3965f2c1f38dbdcb436e"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5718,8 +5718,8 @@
     "record":
       "from": "query"
       "metric": "code_verb:apiserver_request_total:increase1h"
-    "title": "code_verb:apiserver_request_total:increase1h"
-    "uid": "b09dbf77c3ea8e21afeb0266b4da8ab3"
+    "title": "code_verb:apiserver_request_total:increase1h 2"
+    "uid": "67aea8f3940fc8b64ba2eef8ce75e17c"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5747,8 +5747,8 @@
     "record":
       "from": "query"
       "metric": "code_verb:apiserver_request_total:increase1h"
-    "title": "code_verb:apiserver_request_total:increase1h"
-    "uid": "b09dbf77c3ea8e21afeb0266b4da8ab3"
+    "title": "code_verb:apiserver_request_total:increase1h 3"
+    "uid": "e0d25cc529fe7673f481b69cb31e056a"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5776,8 +5776,8 @@
     "record":
       "from": "query"
       "metric": "code_verb:apiserver_request_total:increase1h"
-    "title": "code_verb:apiserver_request_total:increase1h"
-    "uid": "b09dbf77c3ea8e21afeb0266b4da8ab3"
+    "title": "code_verb:apiserver_request_total:increase1h 4"
+    "uid": "db3a3950dff5e4b1e985cfc277e9888a"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -5839,8 +5839,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate1d"
-    "title": "apiserver_request:burnrate1d"
-    "uid": "69289ae0c8d84a0fb2327f0e05937d51"
+    "title": "apiserver_request:burnrate1d 1"
+    "uid": "5ec6d7715bc7c6c6b6d0f0cde3e68e0b"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5890,8 +5890,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate1h"
-    "title": "apiserver_request:burnrate1h"
-    "uid": "e2fc23e7242f685f2f9d409f6ebe21a8"
+    "title": "apiserver_request:burnrate1h 1"
+    "uid": "7382a09794e495f3d56b3d5284799569"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5941,8 +5941,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate2h"
-    "title": "apiserver_request:burnrate2h"
-    "uid": "3c68425bc8801fd00da03bf5128f08dc"
+    "title": "apiserver_request:burnrate2h 1"
+    "uid": "a6efa50f089372c50136360240092d77"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -5992,8 +5992,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate30m"
-    "title": "apiserver_request:burnrate30m"
-    "uid": "d658a89a498050a1d115bd58bd580245"
+    "title": "apiserver_request:burnrate30m 1"
+    "uid": "e07811562bcd8e0017f899c98e86a750"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6043,8 +6043,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate3d"
-    "title": "apiserver_request:burnrate3d"
-    "uid": "6f5fbd7c88844b332eff1f1a015c26c8"
+    "title": "apiserver_request:burnrate3d 1"
+    "uid": "857a12e7283b06608c0fb3c8f4379852"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6094,8 +6094,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate5m"
-    "title": "apiserver_request:burnrate5m"
-    "uid": "ca2e93b496f8be5f7b769f2c94da38bd"
+    "title": "apiserver_request:burnrate5m 1"
+    "uid": "a3c295c63e2557c050223d1c27209de7"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6145,8 +6145,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate6h"
-    "title": "apiserver_request:burnrate6h"
-    "uid": "1a0bf09815b640993a7946867c48ada0"
+    "title": "apiserver_request:burnrate6h 1"
+    "uid": "56cd1725302ef4496f98c2c65f52a9ca"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6185,8 +6185,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate1d"
-    "title": "apiserver_request:burnrate1d"
-    "uid": "69289ae0c8d84a0fb2327f0e05937d51"
+    "title": "apiserver_request:burnrate1d 2"
+    "uid": "e56b85b3df0282ec80ef65e794632726"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6225,8 +6225,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate1h"
-    "title": "apiserver_request:burnrate1h"
-    "uid": "e2fc23e7242f685f2f9d409f6ebe21a8"
+    "title": "apiserver_request:burnrate1h 2"
+    "uid": "a8ea982932fb79d0bd5f0da4291fa629"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6265,8 +6265,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate2h"
-    "title": "apiserver_request:burnrate2h"
-    "uid": "3c68425bc8801fd00da03bf5128f08dc"
+    "title": "apiserver_request:burnrate2h 2"
+    "uid": "01fe6408de3d2f260aa8f3b2568523f4"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6305,8 +6305,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate30m"
-    "title": "apiserver_request:burnrate30m"
-    "uid": "d658a89a498050a1d115bd58bd580245"
+    "title": "apiserver_request:burnrate30m 2"
+    "uid": "68c0db3e3ae91e8f5aac1c9b9e0c996a"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6345,8 +6345,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate3d"
-    "title": "apiserver_request:burnrate3d"
-    "uid": "6f5fbd7c88844b332eff1f1a015c26c8"
+    "title": "apiserver_request:burnrate3d 2"
+    "uid": "e425140256bc7615bd9698a5d726c7bf"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6385,8 +6385,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate5m"
-    "title": "apiserver_request:burnrate5m"
-    "uid": "ca2e93b496f8be5f7b769f2c94da38bd"
+    "title": "apiserver_request:burnrate5m 2"
+    "uid": "ec3cb8dc327a1aef1fdc5fe917d54c3d"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6425,8 +6425,8 @@
     "record":
       "from": "query"
       "metric": "apiserver_request:burnrate6h"
-    "title": "apiserver_request:burnrate6h"
-    "uid": "1a0bf09815b640993a7946867c48ada0"
+    "title": "apiserver_request:burnrate6h 2"
+    "uid": "59a71bb23bfe5bef71b3455e6024d04f"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -6466,8 +6466,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:apiserver_request_sli_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:apiserver_request_sli_duration_seconds:histogram_quantile"
-    "uid": "8ee070ffeae17b6f898afca30fa27ad0"
+    "title": "cluster_quantile:apiserver_request_sli_duration_seconds:histogram_quantile 1"
+    "uid": "719aaf7e551ecac421c5c2d748a78bb2"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6495,8 +6495,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:apiserver_request_sli_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:apiserver_request_sli_duration_seconds:histogram_quantile"
-    "uid": "8ee070ffeae17b6f898afca30fa27ad0"
+    "title": "cluster_quantile:apiserver_request_sli_duration_seconds:histogram_quantile 2"
+    "uid": "e833fcc05097eb850da959530247c3c4"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -6571,8 +6571,8 @@
       "severity": "critical"
       "short": "5m"
     "noDataState": "OK"
-    "title": "KubeAPIErrorBudgetBurn"
-    "uid": "df01c5ecf30dcecfb87b888b6d15189d"
+    "title": "KubeAPIErrorBudgetBurn 1"
+    "uid": "eb7a02452c1b6943d206ad607370e32b"
   - "annotations":
       "description": "The API server is burning too much error budget."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn"
@@ -6635,8 +6635,8 @@
       "severity": "critical"
       "short": "30m"
     "noDataState": "OK"
-    "title": "KubeAPIErrorBudgetBurn"
-    "uid": "df01c5ecf30dcecfb87b888b6d15189d"
+    "title": "KubeAPIErrorBudgetBurn 2"
+    "uid": "be75b45697ced77f5590e22c427489da"
   - "annotations":
       "description": "The API server is burning too much error budget."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn"
@@ -6699,8 +6699,8 @@
       "severity": "warning"
       "short": "2h"
     "noDataState": "OK"
-    "title": "KubeAPIErrorBudgetBurn"
-    "uid": "df01c5ecf30dcecfb87b888b6d15189d"
+    "title": "KubeAPIErrorBudgetBurn 3"
+    "uid": "eba35e1028b0ee12f40d7efa04619828"
   - "annotations":
       "description": "The API server is burning too much error budget."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn"
@@ -6763,8 +6763,8 @@
       "severity": "warning"
       "short": "6h"
     "noDataState": "OK"
-    "title": "KubeAPIErrorBudgetBurn"
-    "uid": "df01c5ecf30dcecfb87b888b6d15189d"
+    "title": "KubeAPIErrorBudgetBurn 4"
+    "uid": "0b3fa5971a3ba7eaea2842357d9fc12f"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -6804,8 +6804,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
-    "uid": "ee0fbfb27fd9f719bd2989de63c53c56"
+    "title": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile 1"
+    "uid": "06d568972bcc685f573d58ca9e44437b"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6833,8 +6833,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
-    "uid": "5ea524af8419f9f2c56074fda04a3d5e"
+    "title": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile 1"
+    "uid": "ac334e931b523814a56d0458f6ba6bc3"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6862,8 +6862,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-    "uid": "304773e71b9aa5ea2298aaca804d6994"
+    "title": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile 1"
+    "uid": "8fb584db8720b41bb354835ffa22071b"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6891,8 +6891,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
-    "uid": "ee0fbfb27fd9f719bd2989de63c53c56"
+    "title": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile 2"
+    "uid": "6397caec91e982f4690395d559cad6f7"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6920,8 +6920,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
-    "uid": "5ea524af8419f9f2c56074fda04a3d5e"
+    "title": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile 2"
+    "uid": "6e67f2ae0bbfab967787f707c7c2f192"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6949,8 +6949,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-    "uid": "304773e71b9aa5ea2298aaca804d6994"
+    "title": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile 2"
+    "uid": "34146b4281bda4709c5680fe7a7aea05"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -6978,8 +6978,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
-    "uid": "ee0fbfb27fd9f719bd2989de63c53c56"
+    "title": "cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile 3"
+    "uid": "1858eddf54f66ea9a3bc5734f746f7eb"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -7007,8 +7007,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
-    "uid": "5ea524af8419f9f2c56074fda04a3d5e"
+    "title": "cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile 3"
+    "uid": "2db6564c6a7783c279c1f18c3a0ac753"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -7036,8 +7036,8 @@
     "record":
       "from": "query"
       "metric": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-    "title": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-    "uid": "304773e71b9aa5ea2298aaca804d6994"
+    "title": "cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile 3"
+    "uid": "ffe830fb2c6232119eab14edcb410974"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -7082,8 +7082,8 @@
     "record":
       "from": "query"
       "metric": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
-    "title": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
-    "uid": "762568b8e0ab7d4f021fd84dd78d8456"
+    "title": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile 1"
+    "uid": "3064570f30fdc20b03182d8ee33d7819"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -7116,8 +7116,8 @@
     "record":
       "from": "query"
       "metric": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
-    "title": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
-    "uid": "762568b8e0ab7d4f021fd84dd78d8456"
+    "title": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile 2"
+    "uid": "49e10b64f383efb3fb8f436515ddf2a6"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -7150,8 +7150,8 @@
     "record":
       "from": "query"
       "metric": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
-    "title": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
-    "uid": "762568b8e0ab7d4f021fd84dd78d8456"
+    "title": "node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile 3"
+    "uid": "9287719b71046b0e1accda90f90b5265"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -7223,7 +7223,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubePodCrashLooping"
-    "uid": "3d502cd2b37367c713c0cf6744ee597e"
+    "uid": "f5cde82a96e29a0e05492cf207cec0bb"
   - "annotations":
       "description": "Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-ready state for longer than 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodnotready"
@@ -7289,7 +7289,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubePodNotReady"
-    "uid": "d5c84e818758212f941cd96d9c7242b3"
+    "uid": "cc77d8f3eb3066f8f86952e079326743"
   - "annotations":
       "description": "Deployment generation for {{ $labels.namespace }}/{{ $labels.deployment }} does not match, this indicates that the Deployment has failed but has not been rolled back."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentgenerationmismatch"
@@ -7351,7 +7351,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeDeploymentGenerationMismatch"
-    "uid": "55861a2378272b11cda81ffa536a06c1"
+    "uid": "58e51426b976dbe1b1f8786d510c2ef1"
   - "annotations":
       "description": "Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has not matched the expected number of replicas for longer than 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentreplicasmismatch"
@@ -7419,7 +7419,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeDeploymentReplicasMismatch"
-    "uid": "e302e11ae33b4d33f5ddee60cc0f49e5"
+    "uid": "6126e46451f9f9c3966ce6efb0e413b1"
   - "annotations":
       "description": "Rollout of deployment {{ $labels.namespace }}/{{ $labels.deployment }} is not progressing for longer than 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentrolloutstuck"
@@ -7480,7 +7480,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeDeploymentRolloutStuck"
-    "uid": "eaff37223ed4d8c095f8bc086000db48"
+    "uid": "2563454f6ca3eb3c55dbcf662f7f7326"
   - "annotations":
       "description": "StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has not matched the expected number of replicas for longer than 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetreplicasmismatch"
@@ -7548,7 +7548,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeStatefulSetReplicasMismatch"
-    "uid": "f0a0ea3f77f9b5cd043e1ea1a81705cc"
+    "uid": "e766dd50819b00d29824bbceca45f551"
   - "annotations":
       "description": "StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset }} does not match, this indicates that the StatefulSet has failed but has not been rolled back."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetgenerationmismatch"
@@ -7610,7 +7610,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeStatefulSetGenerationMismatch"
-    "uid": "91bf5399d01aa88e736b3635f5c90505"
+    "uid": "3f19a2978fc80bca2b3f6f451a371a23"
   - "annotations":
       "description": "StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update has not been rolled out."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetupdatenotrolledout"
@@ -7686,7 +7686,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeStatefulSetUpdateNotRolledOut"
-    "uid": "cfda60162993a0838c345160cc03c874"
+    "uid": "1bd37ec45e5d92dbde9b3245c9431fe7"
   - "annotations":
       "description": "DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} has not finished or progressed for at least 15m."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetrolloutstuck"
@@ -7768,7 +7768,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeDaemonSetRolloutStuck"
-    "uid": "e7016f6b76b084a629673b9cd16ed77f"
+    "uid": "f010018c73189f8d0779d7a78ddcfe34"
   - "annotations":
       "description": "pod/{{ $labels.pod }} in namespace {{ $labels.namespace }} on container {{ $labels.container}} has been in waiting state for longer than 1 hour. (reason: \"{{ $labels.reason }}\")."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecontainerwaiting"
@@ -7828,7 +7828,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeContainerWaiting"
-    "uid": "e5882821a8676ef103e833b1a4755a81"
+    "uid": "c230f1d5553bfc4db709077a146789d3"
   - "annotations":
       "description": "{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are not scheduled."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetnotscheduled"
@@ -7890,7 +7890,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeDaemonSetNotScheduled"
-    "uid": "2f56a751ed580eb72e729a024074a535"
+    "uid": "65415058afa0b7d2227bb0c885093c59"
   - "annotations":
       "description": "{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are running where they are not supposed to run."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetmisscheduled"
@@ -7950,7 +7950,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeDaemonSetMisScheduled"
-    "uid": "fc188dbd22fbda3ea21160b54aa95f58"
+    "uid": "272b6509f8c4b617349fb8da9679fc9a"
   - "annotations":
       "description": "Job {{ $labels.namespace }}/{{ $labels.job_name }} is taking more than {{ \"43200\" | humanizeDuration }} to complete."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobnotcompleted"
@@ -8012,7 +8012,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeJobNotCompleted"
-    "uid": "c58c7cc415618ef41cb0c00f3ad34603"
+    "uid": "7ef9e8acc648ad84293c4cacdf112615"
   - "annotations":
       "description": "Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete. Removing failed job after investigation should clear this alert."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobfailed"
@@ -8072,7 +8072,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeJobFailed"
-    "uid": "5992eb727c162184a98af3ba0f63770f"
+    "uid": "9117a7964380ddb054d4d80aa696e28f"
   - "annotations":
       "description": "HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler  }} has not matched the desired number of replicas for longer than 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpareplicasmismatch"
@@ -8144,7 +8144,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeHpaReplicasMismatch"
-    "uid": "d858c63ac7cc08c650869dfc5d7b2807"
+    "uid": "cac17c7a5533616d498098c7c9c2ab97"
   - "annotations":
       "description": "HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler  }} has been running at max replicas for longer than 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpamaxedout"
@@ -8206,7 +8206,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeHpaMaxedOut"
-    "uid": "8a3feda34aff7163d3204a78ccd341c6"
+    "uid": "e2c3ee4ef25ec7171fac121410c18295"
   - "annotations":
       "description": "PDB {{ $labels.namespace }}/{{ $labels.poddisruptionbudget }} expects {{ $value }} more healthy pods. The desired number of healthy pods has not been met for at least 15m."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepdbnotenoughhealthypods"
@@ -8271,7 +8271,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubePdbNotEnoughHealthyPods"
-    "uid": "5063aa4eb0f34a378b0f05afe184f90e"
+    "uid": "6db14de9fc05b3276a2cfe2b80ae079f"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -8366,7 +8366,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeCPUOvercommit"
-    "uid": "35b253006dd89463b7ca21237c078371"
+    "uid": "ab85ee4ea519583cae67bf21589b50e8"
   - "annotations":
       "description": "Cluster has overcommitted memory resource requests for Pods by {{ $value | humanize }} bytes and cannot tolerate node failure."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryovercommit"
@@ -8449,7 +8449,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeMemoryOvercommit"
-    "uid": "ca65b0e6df0253257994fe1a6b8efcd6"
+    "uid": "29b82a74a1509c41612267812fc480f1"
   - "annotations":
       "description": "Cluster has overcommitted CPU resource requests for Namespaces."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuquotaovercommit"
@@ -8515,7 +8515,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeCPUQuotaOvercommit"
-    "uid": "664a08c2259176fb253a84ae2b56bf48"
+    "uid": "d40207127d3eebe7e48818e33a0458c2"
   - "annotations":
       "description": "Cluster has overcommitted memory resource requests for Namespaces."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryquotaovercommit"
@@ -8581,7 +8581,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeMemoryQuotaOvercommit"
-    "uid": "0922cf082d88a30cc35bdff334abbf13"
+    "uid": "5abac24cd649ac01cd5db05271d76c1f"
   - "annotations":
       "description": "Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotaalmostfull"
@@ -8650,7 +8650,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "KubeQuotaAlmostFull"
-    "uid": "cf6a50453e246556ab93dd4410194f0d"
+    "uid": "c44fc1fb422ee6b6163d12bb5a392477"
   - "annotations":
       "description": "Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotafullyused"
@@ -8719,7 +8719,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "KubeQuotaFullyUsed"
-    "uid": "8b5b95dfc8d0f96931caccd9a71a5b41"
+    "uid": "2e16aaa81ad74c2bdf25ab046b2a322b"
   - "annotations":
       "description": "Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotaexceeded"
@@ -8787,7 +8787,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeQuotaExceeded"
-    "uid": "3d0ad22b75e90111742a7259410e2e6c"
+    "uid": "b70cd4df6890f61e1bf993a4e3bd99db"
   - "annotations":
       "description": "{{ $value | humanizePercentage }} throttling of CPU in namespace {{ $labels.namespace }} for container {{ $labels.container }} in pod {{ $labels.pod }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-cputhrottlinghigh"
@@ -8862,7 +8862,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "CPUThrottlingHigh"
-    "uid": "7d9f16c272a54f0a36ce32e4ddba9ffc"
+    "uid": "767e4eac7291b5da85b16a042fc96a82"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -8943,8 +8943,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "KubePersistentVolumeFillingUp"
-    "uid": "688514378210b86fd21805fcf20ffc57"
+    "title": "KubePersistentVolumeFillingUp 1"
+    "uid": "6687c2723202d48787b8aae4ccf6944f"
   - "annotations":
       "description": "Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} {{ with $labels.cluster -}} on Cluster {{ . }} {{- end }} is expected to fill up within four days. Currently {{ $value | humanizePercentage }} is available."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup"
@@ -9015,8 +9015,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "KubePersistentVolumeFillingUp"
-    "uid": "688514378210b86fd21805fcf20ffc57"
+    "title": "KubePersistentVolumeFillingUp 2"
+    "uid": "0fb2febd6feb492a4eb941076950be97"
   - "annotations":
       "description": "The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} {{ with $labels.cluster -}} on Cluster {{ . }} {{- end }} only has {{ $value | humanizePercentage }} free inodes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeinodesfillingup"
@@ -9085,8 +9085,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "KubePersistentVolumeInodesFillingUp"
-    "uid": "b63b5cdadb915c652456f6d28eb37ac9"
+    "title": "KubePersistentVolumeInodesFillingUp 1"
+    "uid": "292440de8a59037af067925c2bc42627"
   - "annotations":
       "description": "Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} {{ with $labels.cluster -}} on Cluster {{ . }} {{- end }} is expected to run out of inodes within four days. Currently {{ $value | humanizePercentage }} of its inodes are free."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeinodesfillingup"
@@ -9157,8 +9157,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "KubePersistentVolumeInodesFillingUp"
-    "uid": "b63b5cdadb915c652456f6d28eb37ac9"
+    "title": "KubePersistentVolumeInodesFillingUp 2"
+    "uid": "cb649bfcb14dd6e2b922d5caa3b72c0b"
   - "annotations":
       "description": "The persistent volume {{ $labels.persistentvolume }} {{ with $labels.cluster -}} on Cluster {{ . }} {{- end }} has status {{ $labels.phase }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeerrors"
@@ -9218,7 +9218,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "KubePersistentVolumeErrors"
-    "uid": "4e6e89d7aa2be43dd2c367429366e71c"
+    "uid": "3145d1512e486079645216ebd667dbf7"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -9290,7 +9290,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeVersionMismatch"
-    "uid": "65976437f6c132abfb5bb56e638f8881"
+    "uid": "dd52c577b01e87bbdee33e4739dc8e21"
   - "annotations":
       "description": "Kubernetes API server client '{{ $labels.job }}/{{ $labels.instance }}' is experiencing {{ $value | humanizePercentage }} errors."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclienterrors"
@@ -9353,7 +9353,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeClientErrors"
-    "uid": "6b452862e083e238480b3eb0672361e8"
+    "uid": "8ba52ae8a04dd3fc105258c2d10ba534"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -9426,8 +9426,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "KubeClientCertificateExpiration"
-    "uid": "108b0e06dd0401598e8c8a33789f84ee"
+    "title": "KubeClientCertificateExpiration 1"
+    "uid": "b905ab3b4f96bf8a271fb9fcfed42697"
   - "annotations":
       "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 24.0 hours."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration"
@@ -9488,8 +9488,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "KubeClientCertificateExpiration"
-    "uid": "108b0e06dd0401598e8c8a33789f84ee"
+    "title": "KubeClientCertificateExpiration 2"
+    "uid": "7dc29d30f1e54e715be8ca3a1621255d"
   - "annotations":
       "description": "Kubernetes aggregated API {{ $labels.instance }}/{{ $labels.name }} has reported {{ $labels.reason }} errors."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeaggregatedapierrors"
@@ -9549,7 +9549,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeAggregatedAPIErrors"
-    "uid": "b58b5f249ba03c14ad22cc364601f56c"
+    "uid": "90dfb4e63ccc6660673423df28f670cf"
   - "annotations":
       "description": "Kubernetes aggregated API {{ $labels.name }}/{{ $labels.namespace }} has been only {{ $value | humanize }}% available over the last 10m."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeaggregatedapidown"
@@ -9609,7 +9609,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeAggregatedAPIDown"
-    "uid": "364d7f0ba611798dc59164fb845a36a8"
+    "uid": "3300bf8e2391ecb5b732c68f730127ec"
   - "annotations":
       "description": "KubeAPI has disappeared from Prometheus target discovery."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapidown"
@@ -9669,7 +9669,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "KubeAPIDown"
-    "uid": "f8b32c7cf9c6ec7e333626ab430fa12d"
+    "uid": "55b33a893a66b43d4fc537a441c4bbf7"
   - "annotations":
       "description": "The kubernetes apiserver has terminated {{ $value | humanizePercentage }} of its incoming requests."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapiterminatedrequests"
@@ -9729,7 +9729,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeAPITerminatedRequests"
-    "uid": "da99069b6c090bf6ebdcb6251fd2e83d"
+    "uid": "1828f0c05e905ac564ddf7390b7c24b2"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -9803,7 +9803,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeNodeNotReady"
-    "uid": "5f80a37b5434720c6c31868d39c421d5"
+    "uid": "8e47363211512c7958141bbc555fe0e3"
   - "annotations":
       "description": "{{ $labels.node }} has active Condition {{ $labels.condition }}. This is caused by resource usage exceeding eviction thresholds."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodepressure"
@@ -9865,7 +9865,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "KubeNodePressure"
-    "uid": "f252ebc0640b18ec0cd7f98f9497d2e0"
+    "uid": "76723082ff1085e02d061804d3050462"
   - "annotations":
       "description": "{{ $labels.node }} is unreachable and some workloads may be rescheduled."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodeunreachable"
@@ -9925,7 +9925,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeNodeUnreachable"
-    "uid": "e5ceefde28557160f39f5d9c1970a752"
+    "uid": "11a4864d12619a8a124fe27bbd23f9fd"
   - "annotations":
       "description": "Kubelet '{{ $labels.node }}' is running at {{ $value | humanizePercentage }} of its Pod capacity."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubelettoomanypods"
@@ -9997,7 +9997,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "KubeletTooManyPods"
-    "uid": "f4b4f71c2ed1c5de3952c9426a16c5ef"
+    "uid": "284a1801f652602baed5ae3eb810ad06"
   - "annotations":
       "description": "The readiness status of node {{ $labels.node }} has changed {{ $value }} times in the last 15 minutes."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodereadinessflapping"
@@ -10059,7 +10059,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeNodeReadinessFlapping"
-    "uid": "5a13a89c77bb9944b4d88b3e140e7861"
+    "uid": "da7cedf56a498790a779e00195efa4a8"
   - "annotations":
       "description": "Node {{ $labels.node }} is evicting Pods due to {{ $labels.eviction_signal }}.  Eviction occurs when eviction thresholds are crossed, typically caused by Pods exceeding RAM/ephemeral-storage limits."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodeeviction"
@@ -10124,7 +10124,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "KubeNodeEviction"
-    "uid": "e8dd0843a8691c28a95f025c241697e0"
+    "uid": "f550ce28576005b5fe33603d4632d4c8"
   - "annotations":
       "description": "The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration of {{ $value }} seconds on node {{ $labels.node }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletplegdurationhigh"
@@ -10184,7 +10184,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeletPlegDurationHigh"
-    "uid": "ebad6cf20bf6afde30e177522a653065"
+    "uid": "c9b2e22d8bbd66a588e62ef2a968b760"
   - "annotations":
       "description": "Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletpodstartuplatencyhigh"
@@ -10255,7 +10255,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeletPodStartUpLatencyHigh"
-    "uid": "fe6211e8b1effa932fc9645114280b9e"
+    "uid": "2aab1bfbc7b00b984c3a1277303147ee"
   - "annotations":
       "description": "Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletclientcertificateexpiration"
@@ -10314,8 +10314,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "KubeletClientCertificateExpiration"
-    "uid": "2cc525d6ef88edd1cd1c1b5fd1f45541"
+    "title": "KubeletClientCertificateExpiration 1"
+    "uid": "da7e80d9f26d3d324b92653e1028b428"
   - "annotations":
       "description": "Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletclientcertificateexpiration"
@@ -10374,8 +10374,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "KubeletClientCertificateExpiration"
-    "uid": "2cc525d6ef88edd1cd1c1b5fd1f45541"
+    "title": "KubeletClientCertificateExpiration 2"
+    "uid": "af96acb11568b582e8fe2a5f2ea18c44"
   - "annotations":
       "description": "Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletservercertificateexpiration"
@@ -10434,8 +10434,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "KubeletServerCertificateExpiration"
-    "uid": "3d78fc744fbd4fe39bfb810ec1db4c4c"
+    "title": "KubeletServerCertificateExpiration 1"
+    "uid": "22a857787974496db9dd649c880741ee"
   - "annotations":
       "description": "Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletservercertificateexpiration"
@@ -10494,8 +10494,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "KubeletServerCertificateExpiration"
-    "uid": "3d78fc744fbd4fe39bfb810ec1db4c4c"
+    "title": "KubeletServerCertificateExpiration 2"
+    "uid": "7846dc4221c0ed59220295196cfe262a"
   - "annotations":
       "description": "Kubelet on node {{ $labels.node }} has failed to renew its client certificate ({{ $value | humanize }} errors in the last 5 minutes)."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletclientcertificaterenewalerrors"
@@ -10555,7 +10555,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeletClientCertificateRenewalErrors"
-    "uid": "71735a9ec106a197e55064b07de402df"
+    "uid": "abe0165f1b8701b524c98a5fabf77737"
   - "annotations":
       "description": "Kubelet on node {{ $labels.node }} has failed to renew its server certificate ({{ $value | humanize }} errors in the last 5 minutes)."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletservercertificaterenewalerrors"
@@ -10615,7 +10615,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "KubeletServerCertificateRenewalErrors"
-    "uid": "dbc160fa546145ef39598e0413a57eda"
+    "uid": "4533aaeeaff795efc65306ff13a0bc00"
   - "annotations":
       "description": "Kubelet has disappeared from Prometheus target discovery."
       "runbook_url": "https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletdown"
@@ -10677,7 +10677,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "KubeletDown"
-    "uid": "fceb7dd95f4f99c8bdc282a76cd765db"
+    "uid": "36433b11b6398e0bc49760c4ffbda8f7"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -10721,7 +10721,7 @@
       "from": "query"
       "metric": "node_namespace_pod:kube_pod_info:"
     "title": "node_namespace_pod:kube_pod_info:"
-    "uid": "7f342b67c0e3cb9807c8b9335f4e0156"
+    "uid": "457ddb764546291fd8c6f0534531efb0"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -10754,7 +10754,7 @@
       "from": "query"
       "metric": "node:node_num_cpu:sum"
     "title": "node:node_num_cpu:sum"
-    "uid": "61d230040e518a5df32e1a3d361a8f3b"
+    "uid": "39299719bddc6fb24e6f7614283efbea"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -10791,7 +10791,7 @@
       "from": "query"
       "metric": ":node_memory_MemAvailable_bytes:sum"
     "title": ":node_memory_MemAvailable_bytes:sum"
-    "uid": "46ea4bd5f31fd2607662f7a9973b976b"
+    "uid": "7cdbf4f65b0cbd60aaf5da5de3eaba70"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -10824,7 +10824,7 @@
       "from": "query"
       "metric": "node:node_cpu_utilization:ratio_rate5m"
     "title": "node:node_cpu_utilization:ratio_rate5m"
-    "uid": "9aeaecd06588d671e7e6d8f279169033"
+    "uid": "6bbc4e12b64fea4b629ab3c395fe33da"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -10855,7 +10855,7 @@
       "from": "query"
       "metric": "cluster:node_cpu:ratio_rate5m"
     "title": "cluster:node_cpu:ratio_rate5m"
-    "uid": "3522e41e2a76fc680e677957507fbcd3"
+    "uid": "f05dc2e614fa8b0993d3442ac66a0289"
 ---
 "apiVersion": "v1"
 "data":
@@ -11424,7 +11424,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "LokiRequestErrors"
-    "uid": "b0f97c66b4f5ed14c07410c6a4c6d194"
+    "uid": "27d2730393a0261ff31e68cbaca83790"
   - "annotations":
       "description": |
         {{ $labels.cluster }} {{ $labels.job }} is experiencing {{ printf "%.2f" $value }}% increase of panics.
@@ -11484,7 +11484,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "LokiRequestPanics"
-    "uid": "c19a9a0468b9ea0196d8b20846d2a42d"
+    "uid": "f20dfb18c6b95585be8b502de103fc8d"
   - "annotations":
       "description": |
         {{ $labels.cluster }} {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $value }}s 99th percentile latency.
@@ -11544,7 +11544,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "LokiRequestLatency"
-    "uid": "be086eeedcd5be7533cd6e09052dc6b5"
+    "uid": "dde08b361c880f2fc4a8f3c600a7c821"
   - "annotations":
       "description": |
         {{ $labels.cluster }} {{ $labels.namespace }} has had {{ printf "%.0f" $value }} compactors running for more than 5m. Only one compactor should run at a time.
@@ -11604,7 +11604,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "LokiTooManyCompactorsRunning"
-    "uid": "9266c8bac20384181e64e6ee9e7b6f26"
+    "uid": "a0a62261c8f36d08e7ea98dd7690e219"
   - "annotations":
       "description": |
         {{ $labels.cluster }} {{ $labels.namespace }} has not run compaction in the last 3 hours since the last compaction. This may indicate a problem with the compactor.
@@ -11669,8 +11669,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "LokiCompactorHasNotSuccessfullyRunCompaction"
-    "uid": "0e41e4d794864840f6642ab229e6fe61"
+    "title": "LokiCompactorHasNotSuccessfullyRunCompaction 1"
+    "uid": "7d6a85b8aa38cff759174c01c9ee7821"
   - "annotations":
       "description": |
         {{ $labels.cluster }} {{ $labels.namespace }} has not run compaction in the last 3h since startup. This may indicate a problem with the compactor.
@@ -11736,8 +11736,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "LokiCompactorHasNotSuccessfullyRunCompaction"
-    "uid": "0e41e4d794864840f6642ab229e6fe61"
+    "title": "LokiCompactorHasNotSuccessfullyRunCompaction 2"
+    "uid": "4d0e7aacfcb6f686d26764e38b86058d"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -11777,7 +11777,7 @@
       "from": "query"
       "metric": "cluster_job:loki_request_duration_seconds:99quantile"
     "title": "cluster_job:loki_request_duration_seconds:99quantile"
-    "uid": "8e60a5f9e271e49b35cfce7bee0227fc"
+    "uid": "b2a4435cc652ea061cbfcafddb958bae"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11805,7 +11805,7 @@
       "from": "query"
       "metric": "cluster_job:loki_request_duration_seconds:50quantile"
     "title": "cluster_job:loki_request_duration_seconds:50quantile"
-    "uid": "04a7522bfa9ff2ded5856836da96a846"
+    "uid": "638e13980d8afb33eef28f8c85b840fe"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11833,7 +11833,7 @@
       "from": "query"
       "metric": "cluster_job:loki_request_duration_seconds:avg"
     "title": "cluster_job:loki_request_duration_seconds:avg"
-    "uid": "1d9157bdc457967eddda6b045d762441"
+    "uid": "db341786c10c3c3e5edd8f799e0a78e8"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11861,7 +11861,7 @@
       "from": "query"
       "metric": "cluster_job:loki_request_duration_seconds_bucket:sum_rate"
     "title": "cluster_job:loki_request_duration_seconds_bucket:sum_rate"
-    "uid": "0f1348a721219e219bda6069349ebed5"
+    "uid": "625b9a2ffe28506aac627c54031310fb"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11889,7 +11889,7 @@
       "from": "query"
       "metric": "cluster_job:loki_request_duration_seconds_sum:sum_rate"
     "title": "cluster_job:loki_request_duration_seconds_sum:sum_rate"
-    "uid": "641673bbfc0aa90179f370231e573cb7"
+    "uid": "91110f18374f0e95d7614dae593f5952"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11917,7 +11917,7 @@
       "from": "query"
       "metric": "cluster_job:loki_request_duration_seconds_count:sum_rate"
     "title": "cluster_job:loki_request_duration_seconds_count:sum_rate"
-    "uid": "7bd9e6a1fdef052fdbe3ae9a93bee5cb"
+    "uid": "5b1f3892094fde93fe82bec7d98ae2a3"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11945,7 +11945,7 @@
       "from": "query"
       "metric": "cluster_job_route:loki_request_duration_seconds:99quantile"
     "title": "cluster_job_route:loki_request_duration_seconds:99quantile"
-    "uid": "f056bcd6159c6ad22a401c68078bd547"
+    "uid": "168c92c61ed0959c89a6871364f84821"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -11973,7 +11973,7 @@
       "from": "query"
       "metric": "cluster_job_route:loki_request_duration_seconds:50quantile"
     "title": "cluster_job_route:loki_request_duration_seconds:50quantile"
-    "uid": "407edbd354264a926d4c2cd11fe4fd9d"
+    "uid": "ff7c5a489b2ef13f60a4c8fa89f8d275"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12001,7 +12001,7 @@
       "from": "query"
       "metric": "cluster_job_route:loki_request_duration_seconds:avg"
     "title": "cluster_job_route:loki_request_duration_seconds:avg"
-    "uid": "797b76bc775adaad642c414e14cf0677"
+    "uid": "8528df1355bb2100a6f7e1f0381149e9"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12029,7 +12029,7 @@
       "from": "query"
       "metric": "cluster_job_route:loki_request_duration_seconds_bucket:sum_rate"
     "title": "cluster_job_route:loki_request_duration_seconds_bucket:sum_rate"
-    "uid": "3205feea9bf5a292e174815f35c613ee"
+    "uid": "1aaa24df1217a5d18a03eec7d3bb7ba4"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12057,7 +12057,7 @@
       "from": "query"
       "metric": "cluster_job_route:loki_request_duration_seconds_sum:sum_rate"
     "title": "cluster_job_route:loki_request_duration_seconds_sum:sum_rate"
-    "uid": "fd29bc81f83a741848d0631433ce4620"
+    "uid": "681c0cc0ec1c805e0048781f5cad7903"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12085,7 +12085,7 @@
       "from": "query"
       "metric": "cluster_job_route:loki_request_duration_seconds_count:sum_rate"
     "title": "cluster_job_route:loki_request_duration_seconds_count:sum_rate"
-    "uid": "ab4c805f39ccad6683203301ffbc9ebd"
+    "uid": "9f48fb85470b9b564ca7bdba84e89f1d"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12113,7 +12113,7 @@
       "from": "query"
       "metric": "cluster_namespace_job_route:loki_request_duration_seconds:99quantile"
     "title": "cluster_namespace_job_route:loki_request_duration_seconds:99quantile"
-    "uid": "8e68a9911ac9e0172c337c3789f657fb"
+    "uid": "c4ddf26b677c71f0e028f2d5d81d8c3d"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12141,7 +12141,7 @@
       "from": "query"
       "metric": "cluster_namespace_job_route:loki_request_duration_seconds:50quantile"
     "title": "cluster_namespace_job_route:loki_request_duration_seconds:50quantile"
-    "uid": "f1bf3ef840dd0f1ec9965735829f2b01"
+    "uid": "9049a725c6d4552747108479714a31a7"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12169,7 +12169,7 @@
       "from": "query"
       "metric": "cluster_namespace_job_route:loki_request_duration_seconds:avg"
     "title": "cluster_namespace_job_route:loki_request_duration_seconds:avg"
-    "uid": "199b83a8b26d3ec010a21e805f22e33c"
+    "uid": "ad6ce167fb38190c2b247fb2207e2ad4"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12197,7 +12197,7 @@
       "from": "query"
       "metric": "cluster_namespace_job_route:loki_request_duration_seconds_bucket:sum_rate"
     "title": "cluster_namespace_job_route:loki_request_duration_seconds_bucket:sum_rate"
-    "uid": "7be8a8657dfdc2ed641cec64e0339ae4"
+    "uid": "d93dae4f6cc9bb9d9ce0d7524bf7ecd3"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12225,7 +12225,7 @@
       "from": "query"
       "metric": "cluster_namespace_job_route:loki_request_duration_seconds_sum:sum_rate"
     "title": "cluster_namespace_job_route:loki_request_duration_seconds_sum:sum_rate"
-    "uid": "d623912f74764b5a7e0e13f0995216ac"
+    "uid": "932857b35ebc390670d15b4d802afdeb"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -12253,7 +12253,7 @@
       "from": "query"
       "metric": "cluster_namespace_job_route:loki_request_duration_seconds_count:sum_rate"
     "title": "cluster_namespace_job_route:loki_request_duration_seconds_count:sum_rate"
-    "uid": "ab29b09ac0f60b041915691e19e829d7"
+    "uid": "99c7696db6fdbf70d0e8b6c4f2cdf374"
 ---
 "apiVersion": "v1"
 "data":
@@ -12625,8 +12625,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "NodeFilesystemSpaceFillingUp"
-    "uid": "5ea45e21a018bf0f94d22b62e4d892b8"
+    "title": "NodeFilesystemSpaceFillingUp 1"
+    "uid": "d4f890076e19119382cbc7066a28d689"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left and is filling up fast."
       "summary": "Filesystem is predicted to run out of space within the next 4 hours."
@@ -12690,8 +12690,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "NodeFilesystemSpaceFillingUp"
-    "uid": "5ea45e21a018bf0f94d22b62e4d892b8"
+    "title": "NodeFilesystemSpaceFillingUp 2"
+    "uid": "204ff78bd53aed75f855a0e4ff7844e9"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left."
       "summary": "Filesystem has less than 5% space left."
@@ -12753,8 +12753,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "NodeFilesystemAlmostOutOfSpace"
-    "uid": "50dcdc71eebad3b230e9c107e843a14f"
+    "title": "NodeFilesystemAlmostOutOfSpace 1"
+    "uid": "a3904f5053923e8854739db2bca28469"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left."
       "summary": "Filesystem has less than 3% space left."
@@ -12816,8 +12816,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "NodeFilesystemAlmostOutOfSpace"
-    "uid": "50dcdc71eebad3b230e9c107e843a14f"
+    "title": "NodeFilesystemAlmostOutOfSpace 2"
+    "uid": "eff0eed9089dd9c856fe3078fe80fbbd"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left and is filling up."
       "summary": "Filesystem is predicted to run out of inodes within the next 24 hours."
@@ -12881,8 +12881,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "NodeFilesystemFilesFillingUp"
-    "uid": "c61f1358cae65c02e04af671acedd469"
+    "title": "NodeFilesystemFilesFillingUp 1"
+    "uid": "c037f9446fe872980b7545a870bed7ab"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left and is filling up fast."
       "summary": "Filesystem is predicted to run out of inodes within the next 4 hours."
@@ -12946,8 +12946,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "NodeFilesystemFilesFillingUp"
-    "uid": "c61f1358cae65c02e04af671acedd469"
+    "title": "NodeFilesystemFilesFillingUp 2"
+    "uid": "685a604a88c31191b33403c124022b12"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left."
       "summary": "Filesystem has less than 5% inodes left."
@@ -13009,8 +13009,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "NodeFilesystemAlmostOutOfFiles"
-    "uid": "6b1f1680d5a1d5f1be7843ef7eff37b4"
+    "title": "NodeFilesystemAlmostOutOfFiles 1"
+    "uid": "fc605137a6334d5cda13e7811428b761"
   - "annotations":
       "description": "Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left."
       "summary": "Filesystem has less than 3% inodes left."
@@ -13072,8 +13072,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "NodeFilesystemAlmostOutOfFiles"
-    "uid": "6b1f1680d5a1d5f1be7843ef7eff37b4"
+    "title": "NodeFilesystemAlmostOutOfFiles 2"
+    "uid": "9c9cb4fad5e139c2e076fb992dfb3964"
   - "annotations":
       "description": "{{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} receive errors in the last two minutes."
       "summary": "Network interface is reporting many receive errors."
@@ -13132,7 +13132,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeNetworkReceiveErrs"
-    "uid": "e641d07302e84017dd262c2126a85b3b"
+    "uid": "c94f36a0b3e03c987d86ab78e5d45bd0"
   - "annotations":
       "description": "{{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} transmit errors in the last two minutes."
       "summary": "Network interface is reporting many transmit errors."
@@ -13191,7 +13191,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeNetworkTransmitErrs"
-    "uid": "91f51364ff0e75c692c16cce0ef1601e"
+    "uid": "6e3fae315e703d93d874744851e2a505"
   - "annotations":
       "description": "{{ $labels.instance }} {{ $value | humanizePercentage }} of conntrack entries are used."
       "summary": "Number of conntrack are getting close to the limit."
@@ -13250,7 +13250,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeHighNumberConntrackEntriesUsed"
-    "uid": "9a2d7f301c9a8543aaa448425217981f"
+    "uid": "80d14f60f22c63a338327c1fce5ee209"
   - "annotations":
       "description": "Node Exporter text file collector on {{ $labels.instance }} failed to scrape."
       "summary": "Node Exporter text file collector failed to scrape."
@@ -13309,7 +13309,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeTextFileCollectorScrapeError"
-    "uid": "1d5be75dd811aa6ff882ccfaac04be44"
+    "uid": "d0a058e23596ccfd81a4b85a85ba935d"
   - "annotations":
       "description": "Clock at {{ $labels.instance }} is out of sync by more than 0.05s. Ensure NTP is configured correctly on this host."
       "summary": "Clock skew detected."
@@ -13378,7 +13378,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeClockSkewDetected"
-    "uid": "f7a8f8386835dd92a8f9b401e6059ea5"
+    "uid": "e28603b9e53685f83b40a8c4429bc1a8"
   - "annotations":
       "description": "Clock at {{ $labels.instance }} is not synchronising. Ensure NTP is configured on this host."
       "summary": "Clock not synchronising."
@@ -13439,7 +13439,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeClockNotSynchronising"
-    "uid": "fd362eb1c2c18c2cdbf0feef3d53e533"
+    "uid": "bb0dd9760fdb993d5bfe00d75e994189"
   - "annotations":
       "description": "RAID array '{{ $labels.device }}' at {{ $labels.instance }} is in degraded state due to one or more disks failures. Number of spare drives is insufficient to fix issue automatically."
       "summary": "RAID Array is degraded."
@@ -13498,7 +13498,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "NodeRAIDDegraded"
-    "uid": "6b5d394049972ee74a0e6655c8f6a3e0"
+    "uid": "a607f711b5e919d9dfb5367892791d69"
   - "annotations":
       "description": "At least one device in RAID array at {{ $labels.instance }} failed. Array '{{ $labels.device }}' needs attention and possibly a disk swap."
       "summary": "Failed device in RAID array."
@@ -13557,7 +13557,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeRAIDDiskFailure"
-    "uid": "9c8cdeffdab04019a7d2a319122d5eeb"
+    "uid": "abb0330296fba01a8f42a0a61aa4033e"
   - "annotations":
       "description": "File descriptors limit at {{ $labels.instance }} is currently at {{ printf \"%.2f\" $value }}%."
       "summary": "Kernel is predicted to exhaust file descriptors limit soon."
@@ -13617,8 +13617,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "warning"
     "noDataState": "OK"
-    "title": "NodeFileDescriptorLimit"
-    "uid": "527eedd779d304504f1b7b35904a749c"
+    "title": "NodeFileDescriptorLimit 1"
+    "uid": "4e30147ba4f9f83763f364deac4d9691"
   - "annotations":
       "description": "File descriptors limit at {{ $labels.instance }} is currently at {{ printf \"%.2f\" $value }}%."
       "summary": "Kernel is predicted to exhaust file descriptors limit soon."
@@ -13678,8 +13678,8 @@
       "__converted_prometheus_rule__": "true"
       "severity": "critical"
     "noDataState": "OK"
-    "title": "NodeFileDescriptorLimit"
-    "uid": "527eedd779d304504f1b7b35904a749c"
+    "title": "NodeFileDescriptorLimit 2"
+    "uid": "437b43c2a34c3cdbd5897869c74e3a17"
   - "annotations":
       "description": |
         CPU usage at {{ $labels.instance }} has been above 90% for the last 15 minutes, is currently at {{ printf "%.2f" $value }}%.
@@ -13739,7 +13739,7 @@
       "severity": "info"
     "noDataState": "OK"
     "title": "NodeCPUHighUsage"
-    "uid": "121c5e6b764c6adfb6ffbf28f20d600b"
+    "uid": "fcd01692b7880019ce99e75c246ebd27"
   - "annotations":
       "description": |
         System load per core at {{ $labels.instance }} has been above 2 for the last 15 minutes, is currently at {{ printf "%.2f" $value }}.
@@ -13801,7 +13801,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeSystemSaturation"
-    "uid": "e4edb18206e81c35e4cbd38bae7aaf33"
+    "uid": "8a6ac57bb6ed62cb75acfdf7d0187813"
   - "annotations":
       "description": |
         Memory major pages are occurring at very high rate at {{ $labels.instance }}, 500 major page faults per second for the last 15 minutes, is currently at {{ printf "%.2f" $value }}.
@@ -13862,7 +13862,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeMemoryMajorPagesFaults"
-    "uid": "acb61ae888424344326feae1e0b895bf"
+    "uid": "9490befc168a657d1d84c122bd1b0a93"
   - "annotations":
       "description": |
         Memory is filling up at {{ $labels.instance }}, has been above 90% for the last 15 minutes, is currently at {{ printf "%.2f" $value }}%.
@@ -13922,7 +13922,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeMemoryHighUtilization"
-    "uid": "0f9735c556436fe48a2cde3a8aa3fb17"
+    "uid": "c1d587d0ec3cc5d7306a9e0244be2ab1"
   - "annotations":
       "description": |
         Disk IO queue (aqu-sq) is high on {{ $labels.device }} at {{ $labels.instance }}, has been above 10 for the last 30 minutes, is currently at {{ printf "%.2f" $value }}.
@@ -13983,7 +13983,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeDiskIOSaturation"
-    "uid": "23f1031ac5c90003eea017e6ebf10a29"
+    "uid": "779af93a544c09aae55d037fbdf51697"
   - "annotations":
       "description": "Systemd service {{ $labels.name }} has entered failed state at {{ $labels.instance }}"
       "summary": "Systemd service has entered failed state."
@@ -14042,7 +14042,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeSystemdServiceFailed"
-    "uid": "c5ba43906a098eb119a21fc75957ddd3"
+    "uid": "d8943de4e81dd3fad2c448e8736d77df"
   - "annotations":
       "description": "Systemd service {{ $labels.name }} has being restarted too many times at {{ $labels.instance }} for the last 15 minutes. Please check if service is crash looping."
       "summary": "Systemd service keeps restaring, possibly crash looping."
@@ -14101,7 +14101,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeSystemdServiceCrashlooping"
-    "uid": "131757dc25233c4e5a5c65f1963dbc50"
+    "uid": "79c435924deaa4d8835862deac44869f"
   - "annotations":
       "description": "Bonding interface {{ $labels.master }} on {{ $labels.instance }} is in degraded state due to one or more slave failures."
       "summary": "Bonding interface is degraded."
@@ -14160,7 +14160,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "NodeBondingDegraded"
-    "uid": "55b5394f72f3375c36da5502a7e30673"
+    "uid": "1c51cbc9efc927f4a397cba653f0b8ec"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -14203,7 +14203,7 @@
       "from": "query"
       "metric": "instance:node_num_cpu:sum"
     "title": "instance:node_num_cpu:sum"
-    "uid": "0dfdf6f6800550926bdec93f9c80a2d5"
+    "uid": "f4ddaada2d38a88e6cbf01d78619079a"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14234,7 +14234,7 @@
       "from": "query"
       "metric": "instance:node_cpu_utilisation:rate5m"
     "title": "instance:node_cpu_utilisation:rate5m"
-    "uid": "6a9f60aee199ed434863018f44c6e430"
+    "uid": "bd8ec4bdcf9095e2ad46912d318120c8"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14267,7 +14267,7 @@
       "from": "query"
       "metric": "instance:node_load1_per_cpu:ratio"
     "title": "instance:node_load1_per_cpu:ratio"
-    "uid": "e2341b3b832e958555a4ec8a100f225a"
+    "uid": "799da7f9150a647e65015b8f1162baa0"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14312,7 +14312,7 @@
       "from": "query"
       "metric": "instance:node_memory_utilisation:ratio"
     "title": "instance:node_memory_utilisation:ratio"
-    "uid": "322f6cd8666ccea14caa64a94f2d4de4"
+    "uid": "e067be726bb3fbfb3558c50715a96586"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14341,7 +14341,7 @@
       "from": "query"
       "metric": "instance:node_vmstat_pgmajfault:rate5m"
     "title": "instance:node_vmstat_pgmajfault:rate5m"
-    "uid": "89fd451377bcde00b8e8afd910dd51c0"
+    "uid": "4de9c9412b3a0304dfde22a3377a4430"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14370,7 +14370,7 @@
       "from": "query"
       "metric": "instance_device:node_disk_io_time_seconds:rate5m"
     "title": "instance_device:node_disk_io_time_seconds:rate5m"
-    "uid": "503965e79661a0c3d41aed7041f553a5"
+    "uid": "72afef880e111deed4af21b54a50a24d"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14399,7 +14399,7 @@
       "from": "query"
       "metric": "instance_device:node_disk_io_time_weighted_seconds:rate5m"
     "title": "instance_device:node_disk_io_time_weighted_seconds:rate5m"
-    "uid": "304084fc71daf36a1a098747f9582b88"
+    "uid": "07f758771bcbcbbf9c97cc7ae8d36f78"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14430,7 +14430,7 @@
       "from": "query"
       "metric": "instance:node_network_receive_bytes_excluding_lo:rate5m"
     "title": "instance:node_network_receive_bytes_excluding_lo:rate5m"
-    "uid": "dc81755798cf86c8dbb95ccc2856e75c"
+    "uid": "137b2ca47e1b074b96b3573728743894"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14461,7 +14461,7 @@
       "from": "query"
       "metric": "instance:node_network_transmit_bytes_excluding_lo:rate5m"
     "title": "instance:node_network_transmit_bytes_excluding_lo:rate5m"
-    "uid": "a615ba47befc02a9674a50d817077dc5"
+    "uid": "e973e983b14ec8973084485c3a1af3c8"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14492,7 +14492,7 @@
       "from": "query"
       "metric": "instance:node_network_receive_drop_excluding_lo:rate5m"
     "title": "instance:node_network_receive_drop_excluding_lo:rate5m"
-    "uid": "736b2ec2f20a89be81e3a88d6b84c6ee"
+    "uid": "662a112c3b4740de1041be3a318a853e"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14523,7 +14523,7 @@
       "from": "query"
       "metric": "instance:node_network_transmit_drop_excluding_lo:rate5m"
     "title": "instance:node_network_transmit_drop_excluding_lo:rate5m"
-    "uid": "75170840f9065f29dbb1eac104e71e48"
+    "uid": "f4de8b9fee5bc00d091594e967494838"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14554,7 +14554,7 @@
       "from": "query"
       "metric": "instance:node_network_receive_bytes_physical:rate5m"
     "title": "instance:node_network_receive_bytes_physical:rate5m"
-    "uid": "86b7bb9f40211836a26490a587948aae"
+    "uid": "b28d55419c1cb4fc98ed1d509fda0d1d"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14585,7 +14585,7 @@
       "from": "query"
       "metric": "instance:node_network_transmit_bytes_physical:rate5m"
     "title": "instance:node_network_transmit_bytes_physical:rate5m"
-    "uid": "9fe179d984bd71557df48dc507d7868b"
+    "uid": "95767c87770f30c45e208fc15c9c9481"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14616,7 +14616,7 @@
       "from": "query"
       "metric": "instance:node_network_receive_drop_physical:rate5m"
     "title": "instance:node_network_receive_drop_physical:rate5m"
-    "uid": "1fb7657f1812d9bbfc9e9d3fdd09ace2"
+    "uid": "0930627f2e4239ef082ddd1da9d8154e"
   - "condition": "query"
     "data":
     - "datasourceUid": "prometheus-main"
@@ -14647,7 +14647,7 @@
       "from": "query"
       "metric": "instance:node_network_transmit_drop_physical:rate5m"
     "title": "instance:node_network_transmit_drop_physical:rate5m"
-    "uid": "7c20dea5b90078aeebc5f95ad6c1eda9"
+    "uid": "50fb5ecde24a2000ef561eb238c65f7c"
 ---
 "apiVersion": "v1"
 "data":
@@ -14840,7 +14840,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "PrometheusBadConfig"
-    "uid": "a37d673aaeb600334a19dd19d0eb536e"
+    "uid": "5e2b91fefe53b9fbdb485e7788f6b8a6"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has failed to refresh SD with mechanism {{$labels.mechanism}}."
       "summary": "Failed Prometheus SD refresh."
@@ -14899,7 +14899,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusSDRefreshFailure"
-    "uid": "df279eb7b09a065087a46805ad5a618d"
+    "uid": "b5c5724ec7ed522a45ac06020376901e"
   - "annotations":
       "description": "Kubernetes service discovery of Prometheus {{$labels.instance}} is experiencing {{ printf \"%.0f\" $value }} failures with LIST/WATCH requests to the Kubernetes API in the last 5 minutes."
       "summary": "Requests in Kubernetes SD are failing."
@@ -14958,7 +14958,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusKubernetesListWatchFailures"
-    "uid": "fa428a210cfc0eea133efd14d7ea2648"
+    "uid": "ac71e0276c02ebdc89eb0465efb7fc45"
   - "annotations":
       "description": "Alert notification queue of Prometheus {{$labels.instance}} is running full."
       "summary": "Prometheus alert notification queue predicted to run full in less than 30m."
@@ -15023,7 +15023,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusNotificationQueueRunningFull"
-    "uid": "6b5a4f9f108b8621ff935ad23d4f5a1a"
+    "uid": "4cd9cf53cec8fed04d6bd4dae16209bc"
   - "annotations":
       "description": "{{ printf \"%.1f\" $value }}% of alerts sent by Prometheus {{$labels.instance}} to Alertmanager {{$labels.alertmanager}} were affected by errors."
       "summary": "More than 1% of alerts sent by Prometheus to a specific Alertmanager were affected by errors."
@@ -15088,7 +15088,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusErrorSendingAlertsToSomeAlertmanagers"
-    "uid": "6b17400e939a989bf13fcdcefd805d5a"
+    "uid": "e9fafd0c41e7975dd3ae9d5401ce5b5b"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has detected {{$value | humanize}} reload failures over the last 3h."
       "summary": "Prometheus has issues reloading blocks from disk."
@@ -15147,7 +15147,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusTSDBReloadsFailing"
-    "uid": "593c3d24831dcea7f5c76bb56356f530"
+    "uid": "33c9a759541f3c17884e63ccb9e34870"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has detected {{$value | humanize}} compaction failures over the last 3h."
       "summary": "Prometheus has issues compacting blocks."
@@ -15206,7 +15206,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusTSDBCompactionsFailing"
-    "uid": "d818299e188e32b2702946432c9d42e2"
+    "uid": "8765bec4b9b35956c746ac83c56b68cc"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} is not ingesting samples."
       "summary": "Prometheus is not ingesting samples."
@@ -15273,7 +15273,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusNotIngestingSamples"
-    "uid": "a5a78209a807239f4725721a201fb970"
+    "uid": "51e5373d9e1fadfa72192d10ae6bb854"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} is dropping {{ printf \"%.4g\" $value  }} samples/s with different values but duplicated timestamp."
       "summary": "Prometheus is dropping samples with duplicate timestamps."
@@ -15332,7 +15332,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusDuplicateTimestamps"
-    "uid": "23a24085fefd834aeca60e76bfefbc84"
+    "uid": "363367c38f46d79c76b836da32746f85"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} is dropping {{ printf \"%.4g\" $value  }} samples/s with timestamps arriving out of order."
       "summary": "Prometheus drops samples with out-of-order timestamps."
@@ -15391,7 +15391,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusOutOfOrderTimestamps"
-    "uid": "d8239456a42faf3b5d1a7bc1b75be2b6"
+    "uid": "f7ce7feb281e490c1a86b8de5aaabdef"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} failed to send {{ printf \"%.1f\" $value }}% of the samples to {{ $labels.remote_name}}:{{ $labels.url }}"
       "summary": "Prometheus fails to send samples to remote storage."
@@ -15460,7 +15460,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "PrometheusRemoteStorageFailures"
-    "uid": "2361a69af6af18f3fc0c8e22471a8a47"
+    "uid": "e4e8d0788e0dc12279d7376b08815536"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} remote write is {{ printf \"%.1f\" $value }}s behind for {{ $labels.remote_name}}:{{ $labels.url }}."
       "summary": "Prometheus remote write is behind."
@@ -15526,7 +15526,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "PrometheusRemoteWriteBehind"
-    "uid": "d8b6b9efdc30856fef2289c55bfd640c"
+    "uid": "9488440435863ad17b57e88c45fae094"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} remote write desired shards calculation wants to run {{ $value }} shards for queue {{ $labels.remote_name}}:{{ $labels.url }}, which is more than the max of {{ printf `prometheus_remote_storage_shards_max{instance=\"%s\",job=\"kube-prometheus-stack-prometheus\"}` $labels.instance | query | first | value }}."
       "summary": "Prometheus remote write desired shards calculation wants to run more than configured max shards."
@@ -15591,7 +15591,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusRemoteWriteDesiredShards"
-    "uid": "f2a79940e12d026d589aded90870c7ba"
+    "uid": "11a7042a95895cf05628c76f92b57731"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has failed to evaluate {{ printf \"%.0f\" $value }} rules in the last 5m."
       "summary": "Prometheus is failing rule evaluations."
@@ -15650,7 +15650,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "PrometheusRuleFailures"
-    "uid": "338297b4b7d8a7762f45c6eae0c94156"
+    "uid": "b4b6b529222b897589bcc6757bb7847a"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has missed {{ printf \"%.0f\" $value }} rule group evaluations in the last 5m."
       "summary": "Prometheus is missing rule evaluations due to slow rule group evaluation."
@@ -15709,7 +15709,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusMissingRuleEvaluations"
-    "uid": "f6ed124ae90b55b84bbf30cf534a817c"
+    "uid": "3f4e9d44104895e6dbe0fd74274934cd"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has dropped {{ printf \"%.0f\" $value }} targets because the number of targets exceeded the configured target_limit."
       "summary": "Prometheus has dropped targets because some scrape configs have exceeded the targets limit."
@@ -15768,7 +15768,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusTargetLimitHit"
-    "uid": "f262ff0e00eb9a14e5fd3a6348a54079"
+    "uid": "d64444d68869a2e41545f2124e0cb225"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has dropped {{ printf \"%.0f\" $value }} targets because some samples exceeded the configured label_limit, label_name_length_limit or label_value_length_limit."
       "summary": "Prometheus has dropped targets because some scrape configs have exceeded the labels limit."
@@ -15827,7 +15827,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusLabelLimitHit"
-    "uid": "2bd0d15082009003dd69eae1c6a4f81d"
+    "uid": "62b724779b794e34e590e9bf03dad7a6"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has failed {{ printf \"%.0f\" $value }} scrapes in the last 5m because some targets exceeded the configured body_size_limit."
       "summary": "Prometheus has dropped some targets that exceeded body size limit."
@@ -15886,7 +15886,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusScrapeBodySizeLimitHit"
-    "uid": "28a7b617bce533cbc98e690907a7e3b7"
+    "uid": "652470203165b2073bd3506024ab6b09"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} has failed {{ printf \"%.0f\" $value }} scrapes in the last 5m because some targets exceeded the configured sample_limit."
       "summary": "Prometheus has failed scrapes that have exceeded the configured sample limit."
@@ -15945,7 +15945,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusScrapeSampleLimitHit"
-    "uid": "3097cc1a3aa9df685ccacdcde2464a2d"
+    "uid": "9a0e87411d1ae025ae979e3eea9b4de9"
   - "annotations":
       "description": "{{ printf \"%.0f\" $value }} targets in Prometheus {{$labels.instance}} have failed to sync because invalid configuration was supplied."
       "summary": "Prometheus has failed to sync targets."
@@ -16004,7 +16004,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "PrometheusTargetSyncFailure"
-    "uid": "44d731ca230cd63c4d21d10783589dbe"
+    "uid": "0fbdda0196d3631e050bd5ffc66933ea"
   - "annotations":
       "description": "Prometheus {{$labels.instance}} query API has less than 20% available capacity in its query engine for the last 15 minutes."
       "summary": "Prometheus is reaching its maximum capacity serving concurrent requests."
@@ -16063,7 +16063,7 @@
       "severity": "warning"
     "noDataState": "OK"
     "title": "PrometheusHighQueryLoad"
-    "uid": "b5e6ec9cfccc30ab668e2d5633de0378"
+    "uid": "a12394573b772ad2f9d8966c90aebcbf"
   - "annotations":
       "description": "{{ printf \"%.1f\" $value }}% minimum errors while sending alerts from Prometheus {{$labels.instance}} to any Alertmanager."
       "summary": "Prometheus encounters more than 3% errors sending alerts to any Alertmanager."
@@ -16128,7 +16128,7 @@
       "severity": "critical"
     "noDataState": "OK"
     "title": "PrometheusErrorSendingAlertsToAnyAlertmanager"
-    "uid": "79eaa9c0a557e0dd45aeb7b282e6e65d"
+    "uid": "39ba9c3a8895d9efcc8975043de5ba37"
 ---
 "apiVersion": "v1"
 "data":
