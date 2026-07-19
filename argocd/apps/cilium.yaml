@@ -32,6 +32,11 @@ spec:
         - /spec/rules/0/backendRefs/0/kind
         - /spec/rules/0/backendRefs/0/weight
         - /spec/rules/0/matches
+    - group: cilium.io
+      kind: CiliumGatewayClassConfig
+      jsonPointers:
+        - /spec/telemetry/accessLogs/0/targets
+        - /spec/telemetry/accessLogs/0/text
   syncPolicy:
     automated:
       allowEmpty: true
