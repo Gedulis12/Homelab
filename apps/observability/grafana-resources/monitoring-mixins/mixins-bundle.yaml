@@ -3125,7 +3125,7 @@
 "spec":
   "configMapRef":
     "key": "cilium-L3-policy.json"
-    "name": "cilium-mixins-cilium-L3-policy"
+    "name": "cilium-mixins-cilium-l3-policy"
   "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
@@ -3147,7 +3147,7 @@
 "spec":
   "configMapRef":
     "key": "cilium-L7-proxy.json"
-    "name": "cilium-mixins-cilium-L7-proxy"
+    "name": "cilium-mixins-cilium-l7-proxy"
   "folderRef": "cilium-mixin-folder"
   "instanceSelector":
     "matchLabels":
