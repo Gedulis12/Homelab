@@ -21,3 +21,12 @@ resources:
   - grafana-dashboard.yaml
   - backup-pod-config.yaml
   - backup-schedule.yaml
+
+configMapGenerator:
+  # Delivers the dashboard JSON to the GrafanaDashboard via configMapRef.
+  # disableNameSuffixHash keeps the name stable so the CRD reference holds.
+  - name: immich-library-dashboard
+    files:
+      - immich-library.json=dashboards/immich-library.json
+    options:
+      disableNameSuffixHash: true
