@@ -27,5 +27,9 @@ spec:
     jsonData:
       sslmode: disable
       postgresVersion: 1600
+      # The grafana-postgresql-datasource plugin reads the default database from
+      # jsonData.database; the legacy top-level `database` field above only feeds
+      # the backend, so without this the panel editor errors "no default database".
+      database: app
     secureJsonData:
       password: ${password}
