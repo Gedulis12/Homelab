@@ -30,6 +30,10 @@ extraSecretMounts:
     defaultMode: 0440
     mountPath: /etc/secrets/auth_generic_oauth
     readOnly: true
+  - name: loki-operational-plugin-provisioning
+    mountPath: /etc/grafana/provisioning/plugins
+    secretName: loki-operational-plugin-provisioning
+    readOnly: true
 
 hostAliases:
  - ip: "192.168.0.51"
@@ -73,12 +77,12 @@ admin:
 
 imageRenderer:
   enabled: true
-
-extraSecretMounts:
-  - name: loki-operational-plugin-provisioning
-    mountPath: /etc/grafana/provisioning/plugins
-    secretName: loki-operational-plugin-provisioning
-    readOnly: true
+  # Pin the shared Grafana<->renderer auth token to a stable SealedSecret.
+  # The chart otherwise generates it with randAlphaNum guarded by `lookup`, which
+  # returns empty under ArgoCD's `helm template` (no cluster access) — so the token
+  # was regenerated on every render, and the two pods drifted to mismatched tokens,
+  # causing renders to fail with 401 Unauthorized.
+  existingSecret: grafana-image-renderer-token
 
 nodeSelector:
   kubernetes.io/hostname: n200
