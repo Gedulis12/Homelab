@@ -54,6 +54,7 @@ local components = {
     prefix: 'prometheus',
     folder: 'Prometheus',
     mixin: mixins.prometheus,
+    excludeRules: ['PrometheusNotConnectedToAlertmanagers'],
   },
   argocd: {
     prefix: 'argocd',
@@ -77,6 +78,7 @@ local k8sName(name) =
 
 local mergedGroups(cfg) =
   local excludeGroups = std.get(cfg, 'excludeGroups', []);
+  local excludeRules = std.get(cfg, 'excludeRules', []);
   local alertGroups = std.get(std.get(cfg.mixin, 'prometheusAlerts', {}), 'groups', []);
   local recordGroups = std.get(std.get(cfg.mixin, 'prometheusRules', {}), 'groups', []);
   local allGroups = std.filter(
@@ -93,7 +95,13 @@ local mergedGroups(cfg) =
         ),
         rules: std.flattenArrays(
           std.map(
-            function(g) g.rules,
+            function(g)
+              std.filter(
+                function(r)
+                  local ruleName = if std.objectHas(r, 'alert') then r.alert else r.record;
+                  !std.member(excludeRules, ruleName),
+                g.rules
+              ),
             std.filter(function(g) g.name == name, allGroups)
           )
         ),
