@@ -25,7 +25,7 @@ spec:
             type: DirectoryOrCreate
       containers:
         - name: itarmykit
-          image: registry.download.itarmy.com.ua/itarmykit-headless:2.2.8
+          image: registry.download.itarmy.com.ua/itarmykit-headless:2.3.0
           imagePullPolicy: IfNotPresent
           command:
             - /bin/sh
