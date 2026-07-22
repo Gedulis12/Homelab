@@ -36,10 +36,39 @@ patches:
       name: argocd-rbac-cm
       version: v1
     path: rbac-cm-patch.yaml
+  # Remove blanket scrape annotation - most argocd services don't serve metrics
+  # Target only services with real prometheus endpoints:
   - target:
       version: v1
       kind: Service
-      labelSelector: app.kubernetes.io/part-of=argocd
+      name: argocd-repo-server
+    patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape.portName
+        value: metrics
+  - target:
+      version: v1
+      kind: Service
+      name: argocd-metrics
+    patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
+  - target:
+      version: v1
+      kind: Service
+      name: argocd-server-metrics
+    patch: |-
+      - op: add
+        path: /metadata/annotations/k8s.grafana.com~1scrape
+        value: "true"
+  - target:
+      version: v1
+      kind: Service
+      name: argocd-notifications-controller-metrics
     patch: |-
       - op: add
         path: /metadata/annotations/k8s.grafana.com~1scrape

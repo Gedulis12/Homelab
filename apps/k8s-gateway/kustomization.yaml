@@ -11,3 +11,10 @@ helmCharts:
     version: 3.7.2
     releaseName: excoredns
     valuesFile: values.yaml
+
+patches:
+  - path: metrics-port-patch.yaml
+    target:
+      kind: Service
+      name: excoredns-k8s-gateway
+      version: v1

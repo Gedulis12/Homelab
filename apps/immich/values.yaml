@@ -9,6 +9,7 @@ service:
   main:
     annotations:
       k8s.grafana.com/scrape: "true"
+      k8s.grafana.com/scrape.portName: "metrics-api"
 
 immich:
   persistence:
