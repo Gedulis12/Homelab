@@ -117,7 +117,7 @@ prometheusOperatorObjects:
 # pprof - profiles.grafana.com/cpu.scheme: scheme
 # pprof - profiles.grafana.com/cpu.container: container
 profiling:
-  enabled: true
+  enabled: false
 
 alloy-receiver:
   enabled: true
