@@ -54,9 +54,8 @@ annotationAutodiscovery:
   scrapeInterval: 30s
 
 autoInstrumentation:
-  enabled: true
+  enabled: false
   beyla:
-    enabled: false
     metricsTuning:
       excludeMetrics:
         - http_client_request_body_size.*
