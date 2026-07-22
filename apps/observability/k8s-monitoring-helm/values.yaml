@@ -123,7 +123,7 @@ alloy-receiver:
   enabled: true
 
 alloy-profiles:
-  enabled: true
+  enabled: false
 
 alloy-metrics:
   enabled: true
