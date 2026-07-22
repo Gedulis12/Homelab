@@ -4,9 +4,12 @@ watchedResources:
   - "Ingress"
   - "Service"
   - "HTTPRoute"
+# DNS-only service (port 53) + prometheus metrics on port 9153.
+# The chart enables the prometheus CoreDNS plugin but doesn't expose the port.
+# Scrape annotation on the DNS port always times out — target only port 9153.
 service:
   loadBalancerIP: 192.168.0.53
   annotations:
     k8s.grafana.com/scrape: "true"
-
+    k8s.grafana.com/scrape.port: "9153"
 replicaCount: 3
