@@ -18,9 +18,9 @@ spec:
 
               API_URL="http://immich-server.immich.svc.cluster.local:2283/api"
 
-              echo "Fetching initial backup count..."
-              INITIAL_COUNT=$(curl -s -X GET "$API_URL/admin/database-backups" -H "x-api-key: $API_KEY" | grep -Eo 'filename' | wc -l)
-              echo "Initial database dump count: $INITIAL_COUNT"
+              echo "Fetching current backup fingerprint..."
+              BEFORE_HASH=$(curl -s -X GET "$API_URL/admin/database-backups" -H "x-api-key: $API_KEY" | grep -o '"filename":"[^"]*"' | sort | sha256sum)
+              echo "Current backup hash: $BEFORE_HASH"
 
               echo "Triggering new database backup..."
               curl -s -X POST "$API_URL/jobs" \
@@ -31,14 +31,14 @@ spec:
               echo "Waiting for the backup to complete..."
 
               MAX_RETRIES=30
-              RETRY_INTERVAL=60
+              RETRY_INTERVAL=10
               ATTEMPT=0
 
               while [ $ATTEMPT -lt $MAX_RETRIES ]; do
-                CURRENT_COUNT=$(curl -s -X GET "$API_URL/admin/database-backups" -H "x-api-key: $API_KEY" | grep -Eo 'filename' | wc -l)
+                AFTER_HASH=$(curl -s -X GET "$API_URL/admin/database-backups" -H "x-api-key: $API_KEY" | grep -o '"filename":"[^"]*"' | sort | sha256sum)
 
-                if [ "$CURRENT_COUNT" -gt "$INITIAL_COUNT" ]; then
-                  echo "Success: Backup completed! Count increased from $INITIAL_COUNT to $CURRENT_COUNT."
+                if [ "$AFTER_HASH" != "$BEFORE_HASH" ]; then
+                  echo "Success: New backup detected!"
                   exit 0
                 fi
 
