@@ -21,7 +21,7 @@ spec:
         kubernetes.io/hostname: n200
       initContainers:
         - name: copy-config
-          image: busybox:latest
+          image: busybox:1.38.0
           command: ['sh', '-xe', '-c']
           args:
             - cp -f -L -v /config-init/* /config/;
@@ -37,7 +37,7 @@ spec:
               mountPath: "/config"
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:latest
+          image: lscr.io/linuxserver/jellyfin:10.11.11ubu2604-ls43
           securityContext:
             privileged: true
           env:
