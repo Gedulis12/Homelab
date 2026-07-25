@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
         - name: copy-config
-          image: busybox:latest
+          image: busybox:1.38.0
           command: ['sh', '-xe', '-c']
           args:
             - cp -f -L -v /config-init/* /config/;
@@ -33,7 +33,7 @@ spec:
               mountPath: "/config"
       containers:
         - name: radarr
-          image: lscr.io/linuxserver/radarr:latest
+          image: lscr.io/linuxserver/radarr:6.3.0.10514-ls312
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
