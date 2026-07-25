@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
         - name: copy-config
-          image: busybox:latest
+          image: busybox:1.38.0
           command: ['sh', '-xe', '-c']
           args:
             - mkdir -pv /config/qBittorrent;
@@ -34,7 +34,7 @@ spec:
               mountPath: "/config"
       containers:
         - name: qbittorrent
-          image: lscr.io/linuxserver/qbittorrent:latest
+          image: lscr.io/linuxserver/qbittorrent:5.2.3_v2.0.13-ls469
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
