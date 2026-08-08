@@ -6,6 +6,8 @@ destinations:
   - name: loki
     type: loki
     url: http://loki-gateway/loki/api/v1/push
+    batchSize: "10MiB"
+    batchWait: "5s"
   - name: prometheus
     type: prometheus
     url: http://prometheus-operated:9090/api/v1/write
