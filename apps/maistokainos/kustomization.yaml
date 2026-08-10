@@ -12,6 +12,7 @@ resources:
   - service.yaml
   - cf-tunnel.yaml
   - cloudnative-pg.yaml
+  - cnp.yaml
 
 configMapGenerator:
   - name: maistokainos-cm
