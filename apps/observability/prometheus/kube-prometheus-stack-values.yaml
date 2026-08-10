@@ -34,6 +34,10 @@ prometheus:
                   operator: NotIn
                   values:
                     - pi
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                    - n200
     storageSpec:
       volumeClaimTemplate:
         metadata:

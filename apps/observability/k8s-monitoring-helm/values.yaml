@@ -128,6 +128,9 @@ alloy-profiles:
 
 alloy-metrics:
   enabled: true
+  controller:
+    nodeSelector:
+      kubernetes.io/hostname: n200
 
 alloy-singleton:
   enabled: true
