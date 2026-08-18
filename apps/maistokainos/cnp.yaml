@@ -226,12 +226,10 @@ spec:
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-world-https
+  name: allow-world-http
   namespace: maistokainos
 spec:
-  endpointSelector:
-    matchLabels:
-      app: maistokainos
+  endpointSelector: {}
   egress:
     - toEntities:
         - world
