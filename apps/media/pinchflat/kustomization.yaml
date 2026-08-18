@@ -5,11 +5,8 @@ kind: Kustomization
 namespace: media
 
 resources:
-  - jellyfin
-  - qbittorrent
-  - radarr
-  - sonarr
-  - prowlarr
-  - pinchflat
+  - deployment.yaml
   - pvc.yaml
-  - backup-schedule.yaml
+  - service.yaml
+  - httproute.yaml
+  - pre-backup-pod.yaml
