@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinchflat
+  labels:
+    app: pinchflat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pinchflat
+  template:
+    metadata:
+      labels:
+        app: pinchflat
+    spec:
+      containers:
+        - name: pinchflat
+          image: ghcr.io/kieraneglin/pinchflat:latest
+          env:
+            - name: TZ
+              value: "Europe/Vilnius"
+            - name: JOURNAL_MODE
+              value: delete
+          ports:
+            - name: http
+              containerPort: 8945
+              protocol: TCP
+          volumeMounts:
+            - name: download-pvc
+              mountPath: "/downloads"
+            - name: config-pvc
+              mountPath: "/config"
+      volumes:
+        - name: download-pvc
+          persistentVolumeClaim:
+            claimName: youtube-downloads
+        - name: config-pvc
+          persistentVolumeClaim:
+            claimName: pinchflat-config
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: NotIn
+                    values:
+                      - pi
