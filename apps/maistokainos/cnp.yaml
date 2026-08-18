@@ -1,10 +1,260 @@
+---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: maistokainos
+  name: allow-dns
   namespace: maistokainos
 spec:
   endpointSelector: {}
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+            - port: "53"
+              protocol: TCP
+          rules:
+            dns:
+              - matchPattern: "*"
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-k8s-api-server
+  namespace: maistokainos
+spec:
+  endpointSelector: {}
+  egress:
+    - toEntities:
+        - kube-apiserver
+      toPorts:
+        - ports:
+            - port: "6443"
+              protocol: TCP
+            - port: "443"
+              protocol: TCP
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-observability-app
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app: maistokainos
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-metrics
+      toPorts:
+        - ports:
+            - port: "8081"
+              protocol: TCP
+          rules:
+            http:
+              - {}
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-receiver
+      toPorts:
+        - ports:
+            - port: "4317"
+              protocol: TCP
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-observability-cloudflared
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      pod: cloudflared
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-metrics
+      toPorts:
+        - ports:
+            - port: "2000"
+              protocol: TCP
+          rules:
+            http:
+              - {}
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-receiver
+      toPorts:
+        - ports:
+            - port: "4317"
+              protocol: TCP
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-observability-postgresql
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: postgresql
+      app.kubernetes.io/instance: maistokainos-database
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-metrics
+      toPorts:
+        - ports:
+            - port: "9187"
+              protocol: TCP
+          rules:
+            http:
+              - {}
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-receiver
+      toPorts:
+        - ports:
+            - port: "4317"
+              protocol: TCP
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: postgresql-ingress-from-app
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: postgresql
+      app.kubernetes.io/instance: maistokainos-database
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app: maistokainos
+      toPorts:
+        - ports:
+            - port: "5432"
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: app-egress-to-postgresql
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app: maistokainos
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: postgresql
+            app.kubernetes.io/instance: maistokainos-database
+      toPorts:
+        - ports:
+            - port: "5432"
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: ingress-to-db
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: postgresql
+      app.kubernetes.io/instance: maistokainos-database
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: cnpg
+            app.kubernetes.io/name: cloudnative-pg
+      toPorts:
+        - ports:
+            - port: "8000"
+              protocol: TCP
+    - fromEndpoints:
+        - matchLabels:
+            app: maistokainos
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-cloudflared-tunnel
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      pod: cloudflared
+  egress:
+    - toFQDNs:
+        - matchPattern: "*.v2.argotunnel.com"
+      toPorts:
+        - ports:
+            - port: "7844"
+              protocol: TCP
+            - port: "7844"
+              protocol: UDP
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-world-https
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app: maistokainos
+  egress:
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP
+            - port: "80"
+              protocol: TCP
+          rules:
+            http:
+              - {}
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-ingress-from-cloudflared
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      app: maistokainos
   ingress:
     - fromEndpoints:
         - matchLabels:
@@ -16,68 +266,18 @@ spec:
           rules:
             http:
               - {}
-    - fromEndpoints:
-        - matchLabels:
-            app: maistokainos
-      toPorts:
-        - ports:
-            - port: "5432"
-    - fromEndpoints:
-        - matchLabels:
-            io.kubernetes.pod.namespace: observability
-      toPorts:
-        - ports:
-            - port: "8081"
-              protocol: TCP
-          rules:
-            http:
-              - {}
-        - ports:
-            - port: "2000"
-              protocol: TCP
-          rules:
-            http:
-              - {}
-        - ports:
-            - port: "9187"
-              protocol: TCP
-          rules:
-            http:
-              - {}
+
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-egress-to-app
+  namespace: maistokainos
+spec:
+  endpointSelector:
+    matchLabels:
+      pod: cloudflared
   egress:
-    - toEndpoints:
-        - matchLabels:
-            io.kubernetes.pod.namespace: kube-system
-            k8s-app: kube-dns
-      toPorts:
-        - ports:
-            - port: "53"
-              protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
-    - toEndpoints:
-        - matchLabels:
-            io.kubernetes.pod.namespace: observability
-      toPorts:
-        - ports:
-            - port: "4317"
-    - toEntities:
-        - world
-      toPorts:
-        - ports:
-            - port: "443"
-    - toFQDNs:
-        - matchPattern: "*.v2.argotunnel.com"
-      toPorts:
-        - ports:
-            - port: "7844"
-    - toEndpoints:
-        - matchLabels:
-            app.kubernetes.io/name: postgresql
-      toPorts:
-        - ports:
-            - port: "5432"
     - toEndpoints:
         - matchLabels:
             app: maistokainos
