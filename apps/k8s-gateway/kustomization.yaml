@@ -4,6 +4,9 @@ kind: Kustomization
 
 namespace: kube-system
 
+resources:
+  - coredns-custom.yaml
+
 helmCharts:
   - name: k8s-gateway
     repo: https://k8s-gateway.github.io/k8s_gateway/

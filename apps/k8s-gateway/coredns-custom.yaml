@@ -1,0 +1,21 @@
+---
+# Makes in-cluster CoreDNS forward the split-horizon g2net.xyz zone to the
+# authoritative k8s-gateway resolver (this app). Without this, pods resolve
+# g2net.xyz via the node's upstream DNS, which returns NXDOMAIN for internal
+# hostnames — breaking server-side calls to *.g2net.xyz (e.g. ActualBudget's
+# OpenID callback resolving auth.g2net.xyz).
+#
+# k3s's CoreDNS auto-mounts a ConfigMap named `coredns-custom` at
+# /etc/coredns/custom and its Corefile does `import /etc/coredns/custom/*.server`.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  g2net.server: |
+    g2net.xyz {
+        errors
+        cache 30
+        forward . 192.168.0.53
+    }
