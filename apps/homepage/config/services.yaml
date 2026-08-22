@@ -21,6 +21,12 @@
     - Immich:
         href: https://immich.g2net.xyz/
         icon: immich
+    - Pinchflat:
+        href: https://pinchflat.g2net.xyz/
+        icon: pinchflat
+    - Actualbudget:
+        href: https://actualbudget.g2net.xyz/
+        icon: actual-budget
 - Media:
     - Jellyfin:
         href: https://jellyfin.g2net.xyz/
@@ -37,14 +43,13 @@
     - Prowlarr:
         href: https://prowlarr.g2net.xyz/
         icon: prowlarr
-- K8S:
+- Infra:
     - ArgoCD:
         href: https://argocd.g2net.xyz/
         icon: argo-cd
     - Hubble:
         href: https://hubble.g2net.xyz/
         icon: sh-cilium-hubble.svg
-- Observability:
     - Grafana:
         href: https://grafana.g2net.xyz/
         icon: grafana
@@ -54,3 +59,6 @@
     - Loki:
         href: https://loki.g2net.xyz/ui/
         icon: loki
+    - Authentik:
+        href: https://auth.g2net.xyz/ui/
+        icon: authentik
