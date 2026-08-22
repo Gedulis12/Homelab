@@ -21,6 +21,8 @@ spec:
           ports:
             - containerPort: 5006
           env:
+            - name: ACTUAL_USER_CREATION_MODE
+              value: login
             - name: TZ
               value: Europe/Vilnius
           volumeMounts:
