@@ -15,6 +15,20 @@ helmCharts:
     version: 10.0.61
     releaseName: reflector
 
+patches:
+  # In-cluster DNS forwards g2net.xyz to k8s-gateway, which returns NXDOMAIN for
+  # _acme-challenge TXT records — self-check DNS-01 propagation via public resolvers instead.
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --dns01-recursive-nameservers-only
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
+    target:
+      kind: Deployment
+      name: cert-manager
+
 #patches:
 #  - patch: |-
 #      - op: add
