@@ -34,7 +34,7 @@ spec:
               mountPath: "/config"
       containers:
         - name: qbittorrent
-          image: lscr.io/linuxserver/qbittorrent:5.2.3_v2.0.13-ls469
+          image: lscr.io/linuxserver/qbittorrent:5.3.0_v2.1.2-ls485
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
