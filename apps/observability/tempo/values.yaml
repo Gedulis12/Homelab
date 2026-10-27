@@ -14,10 +14,7 @@ tempo:
   retention: "72h"
 
   overrides:
-    defaults:
-      metrics_generator:
-        processors:
-          - local-blocks
+    defaults: {}
 
 affinity:
   nodeAffinity:
