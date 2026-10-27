@@ -37,7 +37,7 @@ spec:
               mountPath: "/config"
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:10.11.11ubu2604-ls43
+          image: lscr.io/linuxserver/jellyfin:12.4ubu2604-ls57
           securityContext:
             privileged: true
           env:
