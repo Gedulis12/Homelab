@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: kube-system
 
 resources:
-  - github.com/kubernetes-sigs/descheduler/kubernetes/cronjob?ref=release-1.36
+  - github.com/kubernetes-sigs/descheduler/kubernetes/cronjob?ref=release-1.37
 
 patches:
   - path: cronjob-patch.yaml
