@@ -62,9 +62,9 @@ singleBinary:
   replicas: 1
   persistence:
     enabled: false
-  dataVolumeParameters:
-    persistentVolumeClaim:
-      claimName: loki-pvc
+    dataVolumeParameters:
+      persistentVolumeClaim:
+        claimName: loki-pvc
 
 backend:
   replicas: 0
@@ -86,8 +86,6 @@ distributor:
 compactor:
   replicas: 0
 indexGateway:
-  replicas: 0
-bloomCompactor:
   replicas: 0
 bloomGateway:
   replicas: 0
