@@ -8,7 +8,7 @@ spec:
     spec:
       initContainers:
         - name: database-backup
-          image: alpine:3.24.1
+          image: alpine:3.24.3
           command: ['sh', '-c']
           args:
             - |
