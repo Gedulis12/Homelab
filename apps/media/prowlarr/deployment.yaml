@@ -33,7 +33,7 @@ spec:
               mountPath: "/config"
       containers:
         - name: prowlarr
-          image: lscr.io/linuxserver/prowlarr:2.5.2.5491-ls155
+          image: lscr.io/linuxserver/prowlarr:2.6.5.5623-ls165
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
