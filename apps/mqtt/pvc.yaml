@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mqtt-data
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mqtt-data
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
+  claimRef:
+    name: mqtt-data
+    namespace: mqtt
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  nfs:
+    path: /mnt/fast/mqtt
+    server: 192.168.0.222
+  mountOptions:
+    - noatime
+    - hard
+    - timeo=600
+    - retrans=2
