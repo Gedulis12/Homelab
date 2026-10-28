@@ -29,7 +29,7 @@ k3s_cluster:
           63666238393664616630356562623234316561363562306233633662626336316265393233656265
           65663832353034343134
     api_endpoint: "{{ hostvars[groups['server'][0]]['ansible_host'] | default(groups['server'][0]) }}"
-    k3s_version: v1.33.3+k3s1
+    k3s_version: v1.37.1+k3s1
 
     extra_server_args: "--disable=traefik --disable servicelb --flannel-backend=none --disable-network-policy --embedded-registry"
     cluster_context: k3s-homelab
