@@ -1,0 +1,22 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: searxng
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: searxng
+  endpoints:
+    - port: http
+      interval: 60s
+      path: /metrics
+      basicAuth:
+        username:
+          name: searxng-settings
+          key: username
+        password:
+          name: searxng-settings
+          key: password
