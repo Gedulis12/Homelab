@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt
+  labels:
+    app: mqtt
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: mqtt
+  template:
+    metadata:
+      labels:
+        app: mqtt
+    spec:
+      # Secret holds plaintext user:password lines; hash them into an
+      # in-memory volume that mosquitto reads from.
+      initContainers:
+        - name: hash-passwords
+          image: eclipse-mosquitto:2.1.2-alpine
+          command:
+            - sh
+            - -c
+            - |
+              umask 077
+              cp /plain/passwd /auth/passwd
+              mosquitto_passwd -U /auth/passwd
+              chown mosquitto:mosquitto /auth/passwd
+          volumeMounts:
+            - name: passwd-plain
+              mountPath: /plain
+              readOnly: true
+            - name: auth
+              mountPath: /auth
+      containers:
+        - name: mosquitto
+          image: eclipse-mosquitto:2.1.2-alpine
+          ports:
+            - name: mqtt
+              containerPort: 1883
+          readinessProbe:
+            tcpSocket:
+              port: mqtt
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: mqtt
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          volumeMounts:
+            - name: config
+              mountPath: /mosquitto/config/mosquitto.conf
+              subPath: mosquitto.conf
+            - name: auth
+              mountPath: /mosquitto/auth
+            - name: data
+              mountPath: /mosquitto/data
+      volumes:
+        - name: config
+          configMap:
+            name: mosquitto-config
+        - name: passwd-plain
+          secret:
+            secretName: mosquitto-passwd
+        - name: auth
+          emptyDir:
+            medium: Memory
+        - name: data
+          persistentVolumeClaim:
+            claimName: mqtt-data
