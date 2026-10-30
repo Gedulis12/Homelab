@@ -43,6 +43,9 @@
     - Prowlarr:
         href: https://prowlarr.g2net.xyz/
         icon: prowlarr
+    - Invidious:
+        href: https://invidious.g2net.xyz/
+        icon: invidious
 - Infra:
     - ArgoCD:
         href: https://argocd.g2net.xyz/
