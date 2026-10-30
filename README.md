@@ -1,9 +1,9 @@
 # Kubernetes (K3S) homelab
 
-[![K3s](https://img.shields.io/badge/k3s-v1.33-ffcc00?logo=k3s&logoColor=white)](https://k3s.io)
+[![K3s](https://img.shields.io/badge/k3s-v1.37.1-ffcc00?logo=k3s&logoColor=white)](https://k3s.io)
 [![Cilium](https://img.shields.io/badge/networking-cilium-1793d1?logo=cilium&logoColor=white)](https://cilium.io)
 [![ArgoCD](https://img.shields.io/badge/gitops-argocd-ef7b4d?logo=argo&logoColor=white)](https://argo-cd.readthedocs.io)
-[![Kubernetes](https://img.shields.io/badge/kubernetes-1.33-326ce5?logo=kubernetes&logoColor=white)](https://kubernetes.io)
+[![Kubernetes](https://img.shields.io/badge/kubernetes-1.37-326ce5?logo=kubernetes&logoColor=white)](https://kubernetes.io)
 
 K3s cluster with three nodes. All components deployed via ArgoCD.
 
