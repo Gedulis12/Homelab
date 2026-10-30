@@ -1,0 +1,82 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: invidious
+  labels:
+    app: invidious
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: invidious
+  template:
+    metadata:
+      labels:
+        app: invidious
+    spec:
+      enableServiceLinks: false
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: NotIn
+                    values:
+                      - pi
+      containers:
+        - name: invidious
+          image: quay.io/invidious/invidious:2026.10.26-1c4b41f
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: INVIDIOUS_CONFIG
+              valueFrom:
+                secretKeyRef:
+                  name: invidious-secrets
+                  key: config.yml
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 1Gi
+          livenessProbe:
+            httpGet:
+              path: /api/v1/stats
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /api/v1/stats
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+        - name: companion
+          image: quay.io/invidious/invidious-companion:2026.10.18-fcb0456
+          ports:
+            - name: companion
+              containerPort: 8282
+          env:
+            - name: SERVER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: invidious-secrets
+                  key: companion-key
+          volumeMounts:
+            - name: companion-cache
+              mountPath: /var/tmp
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 512Mi
+
+      volumes:
+        - name: companion-cache
+          emptyDir: {}

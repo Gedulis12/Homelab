@@ -1,0 +1,57 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: invidious-database
+spec:
+  bootstrap:
+    initdb:
+      database: invidious
+      owner: invidious
+      secret:
+        name: invidious-postgresql-password
+  inheritedMetadata:
+    annotations:
+      k8s.grafana.com/scrape: "true"
+      k8s.grafana.com/metrics.portName: metrics
+  instances: 1
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "1Gi"
+  storage:
+    pvcTemplate:
+      storageClassName: ""
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 1Mi
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.9
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: invidious-database
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
+  claimRef:
+    name: invidious-database-1
+    namespace: invidious
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  nfs:
+    path: /mnt/fast/cnpg/invidious
+    server: 192.168.0.222
+  mountOptions:
+    - noatime
+    - hard
+    - timeo=600
+    - retrans=2
