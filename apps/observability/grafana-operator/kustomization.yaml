@@ -15,11 +15,3 @@ helmCharts:
 
 resources:
   - https://github.com/grafana/grafana-operator/releases/download/v5.25.0/crds.yaml
-  - grafana.yaml
-  - image-renderer.yaml
-  - pvc.yaml
-  - httproute.yaml
-  - sealed-secrets.yaml
-  - backup-schedule.yaml
-  - pre-backup-pod.yaml
-  - sealed-secret.yaml

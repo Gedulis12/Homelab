@@ -10,5 +10,6 @@ resources:
   - datasources.yaml
   - service-account.yaml
   - folders.yaml
+  - sealed-secret.yaml
   - monitoring-mixins
   - dashboards

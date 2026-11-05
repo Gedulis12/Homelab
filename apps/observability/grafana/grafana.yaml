@@ -68,6 +68,9 @@ spec:
                 defaultMode: 420
           containers:
             - name: grafana
+              securityContext:
+                runAsUser: 472
+                runAsGroup: 472
               env:
                 - name: GF_SECURITY_ADMIN_USER
                   valueFrom:
