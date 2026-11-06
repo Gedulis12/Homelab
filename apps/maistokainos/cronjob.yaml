@@ -22,7 +22,7 @@ spec:
                           - amd64
           containers:
           - name: aws-s3-sync
-            image: amazon/aws-cli:2.31.31
+            image: amazon/aws-cli:2.39.5
             envFrom:
               - secretRef:
                   name: maistokainos-aws-secret
