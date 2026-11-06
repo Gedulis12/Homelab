@@ -5,6 +5,7 @@ metadata:
   name: grafana-pvc
   annotations:
     k8up.io/backup: true
+    # data volume — never let ArgoCD prune/delete it (PV has NFS grafana.db)
     argocd.argoproj.io/sync-options: Prune=false,Delete=false
   labels:
     name: grafana
@@ -22,6 +23,7 @@ kind: PersistentVolume
 metadata:
   name: grafana-pv
   annotations:
+    # data volume — never let ArgoCD prune/delete it (PV holds NFS grafana.db)
     argocd.argoproj.io/sync-options: Prune=false,Delete=false
 spec:
   storageClassName: ""
@@ -33,6 +35,8 @@ spec:
     namespace: observability
   accessModes:
     - ReadWriteOnce
+  # Retain: this PV holds the grafana.db — deleting the PVC must never
+  # cascade-delete the NFS data
   persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /mnt/fast/grafana
