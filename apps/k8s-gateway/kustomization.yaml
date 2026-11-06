@@ -9,7 +9,7 @@ resources:
 
 helmCharts:
   - name: k8s-gateway
-    repo: oci://codeberg.org/k8s-gateway/charts/k8s-gateway
+    repo: oci://codeberg.org/k8s-gateway/charts
     namespace: kube-system
     version: 3.7.4
     releaseName: excoredns
