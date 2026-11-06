@@ -1,4 +1,6 @@
 ---
+# Previously provisioned by the grafana helm chart's imageRenderer subchart.
+# Lifted over as plain manifests for the grafana-operator managed instance.
 apiVersion: apps/v1
 kind: Deployment
 metadata:

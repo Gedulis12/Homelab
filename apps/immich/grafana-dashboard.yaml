@@ -5,6 +5,7 @@ metadata:
   name: immich-folder
 spec:
   title: Immich
+  uid: 6c655aa1-3311-48d7-9eba-bf027adb2d8c
   allowCrossNamespaceImport: true
   instanceSelector:
     matchLabels:
