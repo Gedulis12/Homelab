@@ -4,17 +4,11 @@ kind: Kustomization
 
 namespace: observability
 
-helmCharts:
-  - name: grafana
-    repo: https://grafana-community.github.io/helm-charts
-    namespace: observability
-    version: 14.3.1
-    releaseName: grafana
-    valuesFile: values.yaml
-
 resources:
   - pvc.yaml
   - httproute.yaml
-  - sealed-secret.yaml
+  - sealed-secrets.yaml
+  - grafana.yaml
+  - image-renderer.yaml
   - backup-schedule.yaml
   - pre-backup-pod.yaml

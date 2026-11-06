@@ -1,0 +1,112 @@
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: Grafana
+metadata:
+  name: grafana
+  labels:
+    dashboards: "grafana"
+    app.kubernetes.io/name: grafana
+spec:
+  version: 13.3.0-distroless
+  disableDefaultAdminSecret: true
+  config:
+    server:
+      domain: grafana.g2net.xyz
+      root_url: https://grafana.g2net.xyz
+    auth:
+      signout_redirect_url: https://auth.g2net.xyz/application/o/grafana/end-session/
+      oauth_auto_login: "false"
+    auth.generic_oauth:
+      name: authentik
+      enabled: "true"
+      client_id: $__file{/etc/secrets/auth_generic_oauth/client_id}
+      client_secret: $__file{/etc/secrets/auth_generic_oauth/client_secret}
+      scopes: openid profile email entitlements
+      auth_url: https://auth.g2net.xyz/application/o/authorize/
+      token_url: https://auth.g2net.xyz/application/o/token/
+      api_url: https://auth.g2net.xyz/application/o/userinfo/
+      role_attribute_path: contains(entitlements, 'Grafana Admins') && 'GrafanaAdmin' || contains(entitlements, 'Grafana Editors') && 'Editor' || 'Viewer'
+      allow_assign_grafana_admin: "true"
+      allow_sign_up: "true"
+    users:
+      auto_assign_org: "true"
+      auto_assign_org_id: "1"
+    recording_rules:
+      default_datasource_uid: prometheus-main
+  deployment:
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: grafana
+        spec:
+          nodeSelector:
+            kubernetes.io/hostname: n200
+          hostAliases:
+            - ip: 192.168.0.51
+              hostnames:
+                - auth.g2net.xyz
+          securityContext:
+            runAsUser: 472
+            runAsGroup: 472
+            fsGroup: 472
+          volumes:
+            - name: storage
+              persistentVolumeClaim:
+                claimName: grafana-pvc
+            - name: search
+              emptyDir: {}
+            - name: tmp
+              emptyDir: {}
+            - name: auth-generic-oauth-secret-mount
+              secret:
+                secretName: auth-generic-oauth-secret
+                defaultMode: 288
+            - name: loki-operational-plugin-provisioning
+              secret:
+                secretName: loki-operational-plugin-provisioning
+                defaultMode: 420
+          containers:
+            - name: grafana
+              securityContext:
+                runAsUser: 472
+                runAsGroup: 472
+              env:
+                - name: GF_SECURITY_ADMIN_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: grafana-admin-credentials
+                      key: admin-user
+                - name: GF_SECURITY_ADMIN_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: grafana-admin-credentials
+                      key: admin-password
+                - name: GF_PLUGINS_PREINSTALL_SYNC
+                  value: grafana-strava-datasource,grafana-image-renderer,grafana-lokioperational-app
+                - name: GF_UNIFIED_STORAGE_INDEX_PATH
+                  value: /var/lib/grafana-search/bleve
+                - name: GF_FEATURE_TOGGLES_ENABLE
+                  value: externalServiceAccounts
+                - name: GF_RENDERING_SERVER_URL
+                  value: http://grafana-image-renderer.observability:8081/render
+                - name: GF_RENDERING_CALLBACK_URL
+                  value: http://grafana-service.observability:3000/
+                - name: GF_RENDERING_RENDERER_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: grafana-image-renderer-token
+                      key: token
+              volumeMounts:
+                - name: storage
+                  mountPath: /var/lib/grafana
+                - name: search
+                  mountPath: /var/lib/grafana-search
+                - name: tmp
+                  mountPath: /tmp
+                - name: auth-generic-oauth-secret-mount
+                  mountPath: /etc/secrets/auth_generic_oauth
+                  readOnly: true
+                - name: loki-operational-plugin-provisioning
+                  mountPath: /etc/grafana/provisioning/plugins
+                  readOnly: true
