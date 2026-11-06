@@ -4,6 +4,9 @@ local components = {
   kubernetes: {
     prefix: 'kubernetes',
     folder: 'Kubernetes',
+    // stable folder uid; folderRef from dashboards/alertRuleGroups requires it
+    // (see the comment on folderResource below)
+    folderUid: 'c62cc551-5a08-4d30-ab6b-ea8cf34f7ef0',
     mixin: mixins.kubernetes,
     // k3s bundles the scheduler, controller-manager, and kube-proxy into a single
     // binary with no separate scrape targets for them, so these absent() alerts
@@ -18,52 +21,62 @@ local components = {
   node: {
     prefix: 'node',
     folder: 'Host and hardware',
+    folderUid: 'a20b1a6b-92cb-46b3-b504-c02717bb3f7a',
     mixin: mixins.node,
   },
   alloy: {
     prefix: 'alloy',
     folder: 'Alloy',
+    folderUid: '24464229-46d7-4e7f-8dd8-e3b74d23bcfb',
     mixin: mixins.alloy,
   },
   certManager: {
     prefix: 'cert-manager',
     folder: 'Cert manager',
+    folderUid: 'a5cb9595-5218-4670-8d5d-cc3dc49b077c',
     mixin: mixins.certManager,
   },
   cilium: {
     prefix: 'cilium',
     folder: 'Cilium',
+    folderUid: '6a32e551-856e-40e2-9d0e-ff79e2711d32',
     mixin: mixins.cilium,
   },
   goRuntime: {
     prefix: 'go-runtime',
     folder: 'Go runtime',
+    folderUid: 'ea7da295-5f1a-4f69-b9c9-02031d9eb3d0',
     mixin: mixins.goRuntime,
   },
   grafana: {
     prefix: 'grafana',
     folder: 'Grafana',
+    folderUid: 'b730c6e7-f31f-4708-9bfc-c9819ea038c6',
     mixin: mixins.grafana,
   },
   loki: {
     prefix: 'loki',
     folder: 'Loki',
+    folderUid: '90a5a200-8b2c-4609-8ef7-0ba82aff8302',
     mixin: mixins.loki,
   },
   prometheus: {
     prefix: 'prometheus',
     folder: 'Prometheus',
+    folderUid: '07496ff6-e3b0-484e-8b8e-b65511539a60',
     mixin: mixins.prometheus,
     excludeRules: ['PrometheusNotConnectedToAlertmanagers'],
   },
   argocd: {
     prefix: 'argocd',
     folder: 'Argocd',
+    folderUid: '4e7abf80-2526-48a5-bc0b-6c1d4614ce57',
     mixin: mixins.argocd,
   },
   coredns: {
     prefix: 'coredns',
     folder: 'Coredns',
+    folderUid: '88bada25-e872-4ed1-a724-22adeb3b73e9',
     mixin: mixins.coredns,
   },
 };
@@ -200,13 +213,13 @@ local convertRule(cfg, groupName, rule, index, occurrence, total) =
       labels: { __converted_prometheus_rule__: 'true' },
     };
 
-// The sole owner of cfg.folder's folder in Grafana — one per component, created
-// fresh (no spec.uid: this repo's pre-existing same-titled folders are deleted as
-// part of adopting this pipeline, precisely so there's no title collision and the
-// operator creates each folder itself rather than ambiguously "adopting" one it
-// didn't create — see https://grafana.github.io/grafana-operator/docs/examples/folder/).
-// Both alertRuleGroupResources and dashboardResources reference it via folderRef;
-// nothing in this pipeline hardcodes or fetches a Grafana folder UID.
+// Every mixin folder carries an explicit, stable spec.uid (cfg.folderUid).
+// The operator docs require it for .spec.folderRef consumers: without a uid
+// the folder only gets an operator-inferred one, and folderRef resolution in
+// dashboards / alertRuleGroups fails ("uid of the folder was inferred") —
+// https://grafana.github.io/grafana-operator/docs/examples/folder/
+// Both alertRuleGroupResources and dashboardResources reference it via
+// folderRef; nothing else in this pipeline hardcodes or fetches folder UIDs.
 local folderResource(cfg) =
   {
     apiVersion: 'grafana.integreatly.org/v1beta1',
@@ -214,6 +227,7 @@ local folderResource(cfg) =
     metadata: { name: k8sName(cfg.prefix + '-mixin-folder') },
     spec: {
       title: cfg.folder,
+      uid: cfg.folderUid,
       instanceSelector: { matchLabels: { dashboards: 'grafana' } },
     },
   };

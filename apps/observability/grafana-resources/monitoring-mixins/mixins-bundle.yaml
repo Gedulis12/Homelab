@@ -8,6 +8,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Alloy"
+  "uid": "24464229-46d7-4e7f-8dd8-e3b74d23bcfb"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -1107,6 +1108,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Argocd"
+  "uid": "4e7abf80-2526-48a5-bc0b-6c1d4614ce57"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -1326,6 +1328,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Cert manager"
+  "uid": "a5cb9595-5218-4670-8d5d-cc3dc49b077c"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -1630,6 +1633,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Cilium"
+  "uid": "6a32e551-856e-40e2-9d0e-ff79e2711d32"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -3558,6 +3562,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Coredns"
+  "uid": "88bada25-e872-4ed1-a724-22adeb3b73e9"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4162,6 +4167,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Go runtime"
+  "uid": "ea7da295-5f1a-4f69-b9c9-02031d9eb3d0"
 ---
 "apiVersion": "v1"
 "data":
@@ -4194,6 +4200,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Grafana"
+  "uid": "b730c6e7-f31f-4708-9bfc-c9819ea038c6"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -4340,6 +4347,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Kubernetes"
+  "uid": "c62cc551-5a08-4d30-ab6b-ea8cf34f7ef0"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -11350,6 +11358,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Loki"
+  "uid": "90a5a200-8b2c-4609-8ef7-0ba82aff8302"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -12550,6 +12559,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Host and hardware"
+  "uid": "a20b1a6b-92cb-46b3-b504-c02717bb3f7a"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"
@@ -14768,6 +14778,7 @@
     "matchLabels":
       "dashboards": "grafana"
   "title": "Prometheus"
+  "uid": "07496ff6-e3b0-484e-8b8e-b65511539a60"
 ---
 "apiVersion": "grafana.integreatly.org/v1beta1"
 "kind": "GrafanaAlertRuleGroup"

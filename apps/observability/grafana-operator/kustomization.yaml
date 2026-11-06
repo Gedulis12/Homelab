@@ -4,7 +4,6 @@ kind: Kustomization
 
 namespace: observability
 
-# https://grafana.github.io/grafana-operator/docs
 helmCharts:
   - name: grafana-operator
     repo: https://grafana.github.io/helm-charts
