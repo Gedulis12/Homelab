@@ -1,15 +1,58 @@
----
-domain: g2net.xyz
-watchedResources:
-  - "Ingress"
-  - "Service"
-  - "HTTPRoute"
-# DNS-only service (port 53) + prometheus metrics on port 9153.
-# The chart enables the prometheus CoreDNS plugin but doesn't expose the port.
-# Scrape annotation on the DNS port always times out — target only port 9153.
+# k8s-gateway 4.x values — migrated from the 3.x schema (chart 4.0.0 rewrote
+# values to CoreDNS-style `servers` blocks; the old chart-level `domain`,
+# `watchedResources`, `ttl`, `apex` keys no longer exist).
+#
+# 3.x → 4.x mapping used here:
+#   domain: g2net.xyz              → servers[0].plugins[k8s_gateway].parameters
+#   watchedResources               → k8s_gateway configBlock "resources"
+#   ttl (3.x default 300)          → configBlock "ttl 300"
+#   apex (3.x default svc name)    → configBlock "apex excoredns-k8s-gateway.kube-system"
+#   fallthrough disabled (3.x def) → omitted from configBlock (4.x default enables it)
+#   secure: true (3.x def)         → securityContext.runAsUser: 1000
+#   container port 1053 → svc 53   → servers[0].port: 1053 + servicePort: 53
+#   metrics port via kustomize patch → native -metrics Service (prometheus.service.enabled)
+#   extraZonePlugins defaults      → explicit plugins list below (log kept, cache 30 dropped)
+servers:
+  - zones:
+      - zone: .
+        use_tcp: true
+    port: 1053
+    servicePort: 53
+    plugins:
+      - name: log
+      - name: errors
+      # Serves a /health endpoint on :8080, required for livenessProbe
+      - name: health
+        configBlock: |-
+          lameduck 5s
+      # Serves a /ready endpoint on :8181, required for readinessProbe
+      - name: ready
+      - name: k8s_gateway
+        parameters: g2net.xyz
+        configBlock: |-
+          apex excoredns-k8s-gateway.kube-system
+          ttl 300
+          resources Ingress Service HTTPRoute
+      # Serves a /metrics endpoint on :9153
+      - name: prometheus
+        parameters: 0.0.0.0:9153
+      - name: forward
+        parameters: . /etc/resolv.conf
+      - name: loop
+      - name: reload
+      - name: loadbalance
+
+replicaCount: 3
+
+securityContext:
+  runAsUser: 1000
+
 service:
   loadBalancerIP: 192.168.0.53
-  annotations:
-    k8s.grafana.com/scrape: "true"
-    k8s.grafana.com/scrape.port: "9153"
-replicaCount: 3
+
+prometheus:
+  service:
+    enabled: true
+    annotations:
+      k8s.grafana.com/scrape: "true"
+      k8s.grafana.com/scrape.port: "9153"
