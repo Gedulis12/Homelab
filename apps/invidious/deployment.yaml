@@ -27,7 +27,7 @@ spec:
                       - pi
       containers:
         - name: invidious
-          image: quay.io/invidious/invidious:2026.11.11-d165dde
+          image: quay.io/invidious/invidious:2026.11.12-200e735
           ports:
             - name: http
               containerPort: 3000
