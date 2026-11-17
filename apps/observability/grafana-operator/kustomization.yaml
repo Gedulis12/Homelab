@@ -8,9 +8,9 @@ helmCharts:
   - name: grafana-operator
     repo: https://grafana.github.io/helm-charts
     namespace: observability
-    version: 5.25.0
+    version: 5.26.0
     releaseName: grafana-operator
     valuesFile: values.yaml
 
 resources:
-  - https://github.com/grafana/grafana-operator/releases/download/v5.25.0/crds.yaml
+  - https://github.com/grafana/grafana-operator/releases/download/v5.26.0/crds.yaml
