@@ -21,7 +21,7 @@ spec:
       # in-memory volume that mosquitto reads from.
       initContainers:
         - name: hash-passwords
-          image: eclipse-mosquitto:2.1.2-alpine
+          image: eclipse-mosquitto:2.1.4-alpine
           command:
             - sh
             - -c
@@ -38,7 +38,7 @@ spec:
               mountPath: /auth
       containers:
         - name: mosquitto
-          image: eclipse-mosquitto:2.1.2-alpine
+          image: eclipse-mosquitto:2.1.4-alpine
           ports:
             - name: mqtt
               containerPort: 1883
