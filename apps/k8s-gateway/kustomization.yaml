@@ -11,13 +11,11 @@ helmCharts:
   - name: k8s-gateway
     repo: oci://codeberg.org/k8s-gateway/charts
     namespace: kube-system
-    version: 3.7.4
+    version: 4.0.1
     releaseName: excoredns
     valuesFile: values.yaml
 
-patches:
-  - path: metrics-port-patch.yaml
-    target:
-      kind: Service
-      name: excoredns-k8s-gateway
-      version: v1
+# metrics-port-patch.yaml removed: chart 4.x creates a native
+# excoredns-k8s-gateway-metrics Service (prometheus.service.enabled: true)
+# with the k8s.grafana.com scrape annotations, so the manual 9153 port
+# patch on the main Service is no longer needed.
