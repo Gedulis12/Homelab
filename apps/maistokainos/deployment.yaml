@@ -33,6 +33,10 @@ spec:
         - name: maistokainos
           image: gedulis12/maistokainos.lt:0.0.15
           imagePullPolicy: Always
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            periodSeconds: 3
           envFrom:
             - configMapRef:
                 name: maistokainos-cm
