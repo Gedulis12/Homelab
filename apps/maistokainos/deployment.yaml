@@ -23,6 +23,9 @@ spec:
         profiles.grafana.com/cpu.scrape: "true"
         profiles.grafana.com/goroutine.scrape: "true"
         profiles.grafana.com/memory.scrape: "true"
+        profiles.grafana.com/cpu.port: "8081"
+        profiles.grafana.com/goroutine.port: "8081"
+        profiles.grafana.com/memory.port: "8081"
     spec:
       nodeSelector:
         kubernetes.io/hostname: n200
