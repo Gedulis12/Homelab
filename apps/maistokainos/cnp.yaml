@@ -61,6 +61,17 @@ spec:
           rules:
             http:
               - {}
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: observability
+            app.kubernetes.io/name: alloy-profiles
+      toPorts:
+        - ports:
+            - port: "8081"
+              protocol: TCP
+          rules:
+            http:
+              - {}
   egress:
     - toEndpoints:
         - matchLabels:
