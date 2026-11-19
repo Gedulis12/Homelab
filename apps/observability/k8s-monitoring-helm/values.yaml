@@ -22,7 +22,9 @@ destinations:
       enabled: false
     traces:
       enabled: true
-  # pyroscope disabled — removed from cluster
+  - name: pyroscope
+    type: pyroscope
+    url: http://pyroscope:4040
 
 clusterMetrics:
   enabled: true
@@ -118,13 +120,13 @@ prometheusOperatorObjects:
 # pprof - profiles.grafana.com/cpu.scheme: scheme
 # pprof - profiles.grafana.com/cpu.container: container
 profiling:
-  enabled: false
+  enabled: true
 
 alloy-receiver:
   enabled: true
 
 alloy-profiles:
-  enabled: false
+  enabled: true
 
 alloy-metrics:
   enabled: true
