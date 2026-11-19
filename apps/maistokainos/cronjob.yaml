@@ -6,6 +6,7 @@ metadata:
   namespace: maistokainos
 spec:
   schedule: "0 * * * *"
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       ttlSecondsAfterFinished: 3600
@@ -26,11 +27,21 @@ spec:
             envFrom:
               - secretRef:
                   name: maistokainos-aws-secret
-            args: ['s3', 'sync', 's3://maistokainos.lt-scraping-data-processed', '/localdata']
+            env:
+              # Enable only after all web pods understand revision declarations.
+              - name: SYNC_SNAPSHOT_HEADS
+                value: "false"
+            command: ["/bin/sh", "/sync/sync.sh"]
             volumeMounts:
+              - name: sync-script
+                mountPath: /sync
+                readOnly: true
               - name: maistokainos-pvc
                 mountPath: "/localdata"
           volumes:
+            - name: sync-script
+              configMap:
+                name: maistokainos-sync-script
             - name: maistokainos-pvc
               persistentVolumeClaim:
                 claimName: maistokainos-pvc

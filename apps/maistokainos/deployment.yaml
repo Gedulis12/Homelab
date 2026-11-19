@@ -63,6 +63,7 @@ spec:
           volumeMounts:
             - name: maistokainos-pvc
               mountPath: "/localdata"
+              readOnly: true
       volumes:
         - name: maistokainos-pvc
           persistentVolumeClaim:
