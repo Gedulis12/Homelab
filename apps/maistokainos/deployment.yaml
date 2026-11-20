@@ -31,8 +31,12 @@ spec:
         kubernetes.io/hostname: n200
       containers:
         - name: maistokainos
-          image: gedulis12/maistokainos.lt:0.0.15
+          image: gedulis12/maistokainos.lt:0.0.16
           imagePullPolicy: Always
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            periodSeconds: 3
           envFrom:
             - configMapRef:
                 name: maistokainos-cm
@@ -63,6 +67,7 @@ spec:
           volumeMounts:
             - name: maistokainos-pvc
               mountPath: "/localdata"
+              readOnly: true
       volumes:
         - name: maistokainos-pvc
           persistentVolumeClaim:
