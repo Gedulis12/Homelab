@@ -33,8 +33,6 @@ hubble:
       serviceMonitor:
         enabled: true
         interval: 60s
-        labels:
-          release: kube-prometheus-stack
   metrics:
     dashbaords:
       enabled: false
@@ -51,8 +49,6 @@ hubble:
     serviceMonitor:
       enabled: true
       interval: 60s
-      labels:
-        release: kube-prometheus-stack
 
 operator:
   dashboards:
@@ -64,8 +60,6 @@ operator:
     serviceMonitor:
       enabled: true
       interval: 60s
-      labels:
-        release: kube-prometheus-stack
 
 
 rollOutCiliumPods: true
@@ -101,8 +95,6 @@ prometheus:
     enabled: true
     interval: 60s
     trustCRDsExist: true
-    labels:
-      release: kube-prometheus-stack
 
 envoy:
   prometheus:
@@ -110,5 +102,3 @@ envoy:
     serviceMonitor:
       enabled: true
       interval: 60s
-      labels:
-        release: kube-prometheus-stack
