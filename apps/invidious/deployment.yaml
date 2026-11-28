@@ -57,7 +57,7 @@ spec:
             periodSeconds: 10
 
         - name: companion
-          image: quay.io/invidious/invidious-companion:2026.11.07-07ae73c
+          image: quay.io/invidious/invidious-companion:2026.11.27-2476628
           ports:
             - name: companion
               containerPort: 8282
